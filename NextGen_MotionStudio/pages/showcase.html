@@ -1,0 +1,186 @@
+<script>
+  // If opened directly as standalone file in browser, redirect to main index shell
+  if (window.location.pathname.endsWith('/pages/showcase.html')) {
+    window.location.replace('../index.html#showcase');
+  }
+</script>
+<!-- ==========================================================================
+     MOTIONSTUDIO - PAGE: SHOWCASE (4K 60FPS Video Demo Reels)
+     Architecture Reference: NextGen • Developed by A.K.Antal
+     Focus: AI Studio Video Editing & Kinetic Motion Suite
+     ========================================================================== -->
+
+<section class="section">
+  <div class="container section-content">
+    
+    <!-- Hero Header -->
+    <div class="section-header text-center reveal">
+      <div class="badge badge-accent mb-sm">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polygon points="10 8 16 12 10 16 10 8"></polygon>
+        </svg>
+        <span>4K 60 FPS Video Gallery • Rendered via WebCodecs</span>
+      </div>
+      <h1 class="hero-title mb-sm">
+        Video Showcase &amp; <span class="text-gradient">Demo Reels</span>
+      </h1>
+      <p class="section-subtitle mx-auto" style="max-width: 760px;">
+        Explore promotional reels, 3D device staging, audio-reactive spectrum visualizations, and AI neural video synthesized directly inside MotionStudio.
+      </p>
+
+      <!-- Filter Pill Chips -->
+      <div class="filter-bar mt-xl flex gap-xs justify-center flex-wrap" id="showcase-filters">
+        <button class="badge badge-accent filter-chip active" data-filter="all" style="cursor: pointer; padding: 0.5rem 1.25rem;">All Reels (6)</button>
+        <button class="badge badge-secondary filter-chip" data-filter="mockup" style="cursor: pointer; padding: 0.5rem 1.25rem;">3D Device Mockups</button>
+        <button class="badge badge-secondary filter-chip" data-filter="neural" style="cursor: pointer; padding: 0.5rem 1.25rem;">AI Neural Video</button>
+        <button class="badge badge-secondary filter-chip" data-filter="audio" style="cursor: pointer; padding: 0.5rem 1.25rem;">Audio Reactive</button>
+        <button class="badge badge-secondary filter-chip" data-filter="kinetic" style="cursor: pointer; padding: 0.5rem 1.25rem;">Kinetic Titles</button>
+      </div>
+    </div>
+
+    <!-- Showcase Grid -->
+    <div class="grid grid-cols-2 gap-xl mb-2xl">
+      
+      <!-- Showcase Card 1: 3D Mockup -->
+      <article class="card card-hover p-none overflow-hidden reveal showcase-card" data-category="mockup">
+        <div class="video-preview-stage" style="background: linear-gradient(135deg, #06b6d4, #3b82f6); height: 230px; display: flex; align-items: center; justify-content: center; position: relative;">
+          <div class="play-trigger-pill">▶ Play 60 FPS Reel</div>
+          <span class="badge badge-cyan" style="position: absolute; top: 12px; left: 12px;">3D Device Stage</span>
+        </div>
+        <div class="p-lg">
+          <div class="flex items-center justify-between gap-sm mb-xs">
+            <h3 class="card-title text-lg">NextGen FinTech Mobile App Teaser</h3>
+            <span class="text-muted font-mono text-xs">0:30 • 60 FPS</span>
+          </div>
+          <p class="card-desc text-sm mb-md">
+            Ray-traced titanium iPhone 16 mockup stage showcasing smooth 60fps mobile app navigation with dynamic reflection shaders and glass refraction.
+          </p>
+          <div class="flex items-center justify-between text-xs text-secondary">
+            <span>Rendered via WebCodecs</span>
+            <a href="components/studio/studio.html" class="btn btn-outline btn-xs" data-action="launch-studio">Remix in Studio →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Showcase Card 2: Neural Video -->
+      <article class="card card-hover p-none overflow-hidden reveal showcase-card" data-category="neural">
+        <div class="video-preview-stage" style="background: linear-gradient(135deg, #8b5cf6, #3b82f6); height: 230px; display: flex; align-items: center; justify-content: center; position: relative;">
+          <div class="play-trigger-pill">▶ Play 60 FPS Reel</div>
+          <span class="badge badge-accent" style="position: absolute; top: 12px; left: 12px;">AI Neural Video</span>
+        </div>
+        <div class="p-lg">
+          <div class="flex items-center justify-between gap-sm mb-xs">
+            <h3 class="card-title text-lg">Cyberpunk Tokyo Drone Flythrough</h3>
+            <span class="text-muted font-mono text-xs">0:15 • 4K UHD</span>
+          </div>
+          <p class="card-desc text-sm mb-md">
+            Synthesized from a single high-resolution concept image using MotionStudio Image-to-Video diffusion with temporal consistency.
+          </p>
+          <div class="flex items-center justify-between text-xs text-secondary">
+            <span>Generated locally</span>
+            <a href="components/studio/studio.html" class="btn btn-outline btn-xs" data-action="launch-studio">Remix in Studio →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Showcase Card 3: Audio Reactive -->
+      <article class="card card-hover p-none overflow-hidden reveal showcase-card" data-category="audio">
+        <div class="video-preview-stage" style="background: linear-gradient(135deg, #ec4899, #8b5cf6); height: 230px; display: flex; align-items: center; justify-content: center; position: relative;">
+          <div class="play-trigger-pill">▶ Play 60 FPS Reel</div>
+          <span class="badge badge-rose" style="position: absolute; top: 12px; left: 12px;">Audio Reactive</span>
+        </div>
+        <div class="p-lg">
+          <div class="flex items-center justify-between gap-sm mb-xs">
+            <h3 class="card-title text-lg">Neon Horizon Waveform Reactor</h3>
+            <span class="text-muted font-mono text-xs">1:00 • 1440p</span>
+          </div>
+          <p class="card-desc text-sm mb-md">
+            Live Web Audio API frequency analyzer pulsating circular particle rings and spectrum columns synchronized to bass transients.
+          </p>
+          <div class="flex items-center justify-between text-xs text-secondary">
+            <span>128-band FFT Engine</span>
+            <a href="components/studio/studio.html" class="btn btn-outline btn-xs" data-action="launch-studio">Remix in Studio →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Showcase Card 4: Kinetic Typography -->
+      <article class="card card-hover p-none overflow-hidden reveal showcase-card" data-category="kinetic">
+        <div class="video-preview-stage" style="background: linear-gradient(135deg, #10b981, #06b6d4); height: 230px; display: flex; align-items: center; justify-content: center; position: relative;">
+          <div class="play-trigger-pill">▶ Play 60 FPS Reel</div>
+          <span class="badge badge-emerald" style="position: absolute; top: 12px; left: 12px;">Kinetic Titles</span>
+        </div>
+        <div class="p-lg">
+          <div class="flex items-center justify-between gap-sm mb-xs">
+            <h3 class="card-title text-lg">Viral Short-Form Subtitle Hook</h3>
+            <span class="text-muted font-mono text-xs">0:20 • 9:16 Vertical</span>
+          </div>
+          <p class="card-desc text-sm mb-md">
+            Auto-transcribed speech subtitles with popping word highlights, glowing gradient borders, and elastic bounce physics for TikTok &amp; Reels.
+          </p>
+          <div class="flex items-center justify-between text-xs text-secondary">
+            <span>Speech-to-Text AI</span>
+            <a href="components/studio/studio.html" class="btn btn-outline btn-xs" data-action="launch-studio">Remix in Studio →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Showcase Card 5: 3D Laptop Staging -->
+      <article class="card card-hover p-none overflow-hidden reveal showcase-card" data-category="mockup">
+        <div class="video-preview-stage" style="background: linear-gradient(135deg, #3b82f6, #1e1b4b); height: 230px; display: flex; align-items: center; justify-content: center; position: relative;">
+          <div class="play-trigger-pill">▶ Play 60 FPS Reel</div>
+          <span class="badge badge-cyan" style="position: absolute; top: 12px; left: 12px;">MacBook M4 Staging</span>
+        </div>
+        <div class="p-lg">
+          <div class="flex items-center justify-between gap-sm mb-xs">
+            <h3 class="card-title text-lg">SaaS Dashboard 3D Walkthrough</h3>
+            <span class="text-muted font-mono text-xs">0:45 • 4K UHD</span>
+          </div>
+          <p class="card-desc text-sm mb-md">
+            Full 3D orbit around an aluminum MacBook Pro displaying web application telemetry charts with realistic screen bloom and studio lighting.
+          </p>
+          <div class="flex items-center justify-between text-xs text-secondary">
+            <span>Perspective 3D Warp</span>
+            <a href="components/studio/studio.html" class="btn btn-outline btn-xs" data-action="launch-studio">Remix in Studio →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Showcase Card 6: AI Voice Studio -->
+      <article class="card card-hover p-none overflow-hidden reveal showcase-card" data-category="neural">
+        <div class="video-preview-stage" style="background: linear-gradient(135deg, #f59e0b, #ef4444); height: 230px; display: flex; align-items: center; justify-content: center; position: relative;">
+          <div class="play-trigger-pill">▶ Play 60 FPS Reel</div>
+          <span class="badge badge-secondary" style="position: absolute; top: 12px; left: 12px;">Voice Studio</span>
+        </div>
+        <div class="p-lg">
+          <div class="flex items-center justify-between gap-sm mb-xs">
+            <h3 class="card-title text-lg">AI Studio Narration &amp; Soundstage</h3>
+            <span class="text-muted font-mono text-xs">0:40 • 1080p</span>
+          </div>
+          <p class="card-desc text-sm mb-md">
+            Synthesized neural voiceover commentary mixed with multi-track ambient ducking and cinematic sound effects in the nonlinear editor.
+          </p>
+          <div class="flex items-center justify-between text-xs text-secondary">
+            <span>Neural TTS Engine</span>
+            <a href="components/studio/studio.html" class="btn btn-outline btn-xs" data-action="launch-studio">Remix in Studio →</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Call to Action Banner -->
+    <div class="card glass-panel-elevated text-center reveal p-2xl" style="border: 1px solid rgba(139, 92, 246, 0.3);">
+      <h2 class="text-h2 mb-sm">Ready to Create Your Own Masterpiece?</h2>
+      <p class="text-secondary mb-lg mx-auto" style="max-width: 600px;">
+        Launch MotionStudio now to composite, animate, and export client-ready 4K videos in seconds.
+      </p>
+      <a href="components/studio/studio.html" class="btn btn-primary btn-lg" data-action="launch-studio">
+        <span>Open Video Studio</span>
+        <span>🎬</span>
+      </a>
+    </div>
+
+  </div>
+</section>

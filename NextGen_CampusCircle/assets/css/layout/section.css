@@ -1,0 +1,96 @@
+/**
+ * CampusCircle Layout - Section Wrappers & Ambient Glow Backgrounds
+ * Cybernetic grid overlays, floating orbs, and high-impact section padding.
+ */
+
+.section {
+  position: relative;
+  padding-top: clamp(3rem, 6vw, 6rem);
+  padding-bottom: clamp(3rem, 6vw, 6rem);
+  overflow: hidden;
+}
+
+.section-sm {
+  padding-top: clamp(2rem, 4vw, 3.5rem);
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.section-lg {
+  padding-top: clamp(4.5rem, 9vw, 8.5rem);
+  padding-bottom: clamp(4.5rem, 9vw, 8.5rem);
+}
+
+.section-hero {
+  min-height: calc(100vh - 76px);
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-top: clamp(5.5rem, 10vw, 8rem);
+  padding-bottom: clamp(4rem, 8vw, 6.5rem);
+}
+
+/* Section Header Structure */
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem) auto;
+}
+
+.section-header-left {
+  text-align: left;
+  margin-left: 0;
+}
+
+/* Ambient Cyber Glow Backgrounds */
+.bg-ambient-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: var(--z-negative);
+  opacity: 0.35;
+  transition: opacity var(--transition-base);
+}
+
+[data-theme="light"] .bg-ambient-orb {
+  opacity: 0.22;
+  filter: blur(110px);
+}
+
+.orb-cyan {
+  width: clamp(280px, 35vw, 550px);
+  height: clamp(280px, 35vw, 550px);
+  background: var(--color-cyan);
+  top: -100px;
+  right: -80px;
+}
+
+.orb-violet {
+  width: clamp(240px, 30vw, 480px);
+  height: clamp(240px, 30vw, 480px);
+  background: var(--color-violet);
+  bottom: 5%;
+  left: -80px;
+}
+
+.orb-emerald {
+  width: clamp(200px, 25vw, 380px);
+  height: clamp(200px, 25vw, 380px);
+  background: var(--color-emerald);
+  top: 40%;
+  right: 15%;
+}
+
+/* Cybernetic Grid Overlay */
+.bg-cyber-grid {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, var(--grid-line-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line-color) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: var(--z-negative);
+  mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, black 60%, transparent 100%);
+}

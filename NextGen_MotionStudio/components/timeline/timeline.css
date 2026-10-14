@@ -1,0 +1,258 @@
+/* ==========================================================================
+   COMPONENT: TIMELINE (FUTURISTIC CYBER CONTROLLER)
+   ========================================================================== */
+
+.studio-timeline-bar {
+  height: 64px;
+  flex-shrink: 0;
+  background: var(--bg-glass);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  padding: 0 24px;
+  gap: 18px;
+  z-index: 25;
+}
+
+.timeline-controls-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-circle-action {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  border: none;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 16px var(--accent-glow);
+  transition: all var(--transition-fast);
+}
+
+.btn-circle-action:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 24px var(--cyber-cyan-glow);
+}
+
+.btn-circle-secondary {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-circle-secondary:hover {
+  color: var(--cyber-cyan);
+  border-color: var(--cyber-cyan-glow);
+  background: var(--bg-hover);
+}
+
+/* ── Frame Stepper & Split Blade on Timeline ─────────────────────────── */
+.frame-step-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(15, 22, 38, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 2px 4px;
+}
+
+.btn-frame-jog {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #cbd5e1;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  transition: all 0.15s ease;
+}
+
+.btn-frame-jog:hover {
+  background: rgba(6, 182, 212, 0.15);
+  color: var(--cyber-cyan);
+  border-color: rgba(6, 182, 212, 0.4);
+}
+
+.btn-timeline-split {
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.35);
+  color: #fca5a5;
+  border-radius: 4px;
+  padding: 3px 7px;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  margin-left: 2px;
+}
+
+.btn-timeline-split:hover {
+  background: #ef4444;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+.time-readout {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--cyber-cyan);
+  display: flex;
+  gap: 5px;
+  min-width: 105px;
+  text-shadow: 0 0 10px var(--cyber-cyan-glow);
+}
+
+.time-readout .divider {
+  color: var(--text-muted);
+}
+
+.frame-counter-badge {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(6, 182, 212, 0.08);
+  border: 1px solid rgba(6, 182, 212, 0.25);
+  border-radius: 5px;
+  padding: 2px 7px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.frame-counter-badge .f-label {
+  color: #64748b;
+  font-weight: 800;
+  font-size: 8.5px;
+  letter-spacing: 0.5px;
+}
+
+.frame-counter-badge .f-val {
+  color: #38bdf8;
+  font-weight: 800;
+}
+
+.frame-counter-badge .f-total {
+  color: #64748b;
+}
+
+.timeline-track-wrapper {
+  flex: 1;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+}
+
+.timeline-track {
+  width: 100%;
+  height: 8px;
+  background: var(--bg-surface);
+  border-radius: 4px;
+  position: relative;
+  overflow: visible;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.timeline-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--accent-primary), var(--cyber-cyan));
+  border-radius: 4px;
+  box-shadow: 0 0 12px var(--cyber-cyan-glow);
+}
+
+.timeline-playhead {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  width: 14px;
+  height: 22px;
+  background: #FFFFFF;
+  border-radius: 3px;
+  box-shadow: 0 0 12px var(--cyber-cyan), 0 2px 8px rgba(0, 0, 0, 0.7);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   TIMELINE COMPONENT - LIGHT THEME ADAPTATIONS
+   ========================================================================== */
+
+[data-theme="light"] .studio-timeline-bar {
+  background: rgba(255, 255, 255, 0.94);
+  border-top: 1px solid rgba(15, 23, 42, 0.1);
+  box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.04);
+}
+
+[data-theme="light"] .btn-circle-secondary {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+  color: #475569;
+}
+
+[data-theme="light"] .btn-circle-secondary:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+}
+
+[data-theme="light"] .frame-step-group {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+}
+
+[data-theme="light"] .btn-frame-jog {
+  color: #334155;
+}
+
+[data-theme="light"] .btn-frame-jog:hover {
+  background: #E2E8F0;
+  color: #0F172A;
+  border-color: #8B5CF6;
+}
+
+[data-theme="light"] .timeline-time-display {
+  color: #0F172A;
+}
+
+[data-theme="light"] .timeline-track {
+  background: #E2E8F0;
+  border-color: #CBD5E1;
+}
+
+[data-theme="light"] .frame-counter-badge {
+  background: #F1F5F9;
+  border-color: #CBD5E1;
+}
+
+[data-theme="light"] .frame-counter-badge .f-val {
+  color: #0284C7;
+}
+
+[data-theme="light"] .timeline-playhead {
+  background: #0F172A;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.6);
+}
+

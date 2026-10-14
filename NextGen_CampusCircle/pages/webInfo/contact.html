@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Support & Faculty Verification – Campus Circle (NextGen)</title>
+  <meta name="description" content="Contact the NextGen engineering team behind Campus Circle for university onboarding, faculty verification, and technical support.">
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/website_logo.png">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+  <link rel="stylesheet" href="../../assets/css/academic-hub.css">
+    <link rel="stylesheet" href="../../assets/css/components/sidebar.css">
+<script src="../../assets/js/core/theme-init.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container" style="display: flex; align-items: center; justify-content: space-between;">
+      
+      <!-- Brand & Sidebar Toggle -->
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button type="button" class="sidebar-trigger-btn" onclick="window.toggleSidebar()" aria-label="Toggle Academic Navigation Sidebar" title="Open Navigation Menu">
+          <span class="sidebar-trigger-icon">☰</span>
+          <span style="display: inline-block;">Menu</span>
+        </button>
+
+        <a href="../../index.html" class="brand" style="display: flex; align-items: center; gap: 10px;">
+          <img src="../../assets/images/website_logo.png" alt="Campus Circle Logo" class="brand-logo" style="width: 36px; height: 36px; object-fit: contain;">
+          <div class="brand-text">
+            <span class="brand-title">Campus Circle</span>
+            <span class="brand-subtitle" style="display:flex;align-items:center;gap:4px;"><img src="../../assets/images/company_logo.png" alt="NextGen" style="width:13px;height:13px;object-fit:contain;"> Powered by NextGen</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Clean Unified Navigation -->
+      <nav class="main-tab-nav">
+        <a href="../../index.html" class="main-tab-link" style="text-decoration: none;">
+          🏠 Home
+        </a>
+        <a href="../../index.html?tab=universities" class="main-tab-link" style="text-decoration: none;">
+          🏛️ Universities
+        </a>
+        <a href="javascript:void(0)" onclick="window.openSidebar()" class="main-tab-link active" style="text-decoration: none;">
+          📚 Academic Hub
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">☀️</button>
+        <div id="navbar-auth-slot"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="policy-page" style="padding-top: 110px; padding-bottom: 80px;">
+    <div class="container">
+      
+      <div class="policy-header" style="text-align: center; max-width: 760px; margin: 0 auto 50px;">
+        <div class="badge-pill badge-pill-emerald" style="margin-bottom: 12px;">
+          <span class="pulse-dot emerald"></span> Official Academic Support Desk
+        </div>
+        <h1 class="text-gradient" style="font-family: 'Outfit', sans-serif; font-size: 2.5rem; font-weight: 800;">
+          Faculty Verification & Support
+        </h1>
+        <p style="color: var(--text-secondary); margin-top: 8px; font-size: 1.05rem;">
+          Direct communication channels with the NextGen engineering team behind <strong>Campus Circle</strong>.
+        </p>
+      </div>
+
+      <!-- Developer / Org Profile Card -->
+      <div class="dev-card" style="margin-bottom: 50px;">
+        <div class="dev-grid">
+          <div class="dev-avatar">CC</div>
+          <div class="dev-info">
+            <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.6rem; margin-bottom: 4px;">Campus Circle Engineering Core</h2>
+            <p style="color: var(--neon-cyan); font-weight: 600; font-size: 0.95rem; margin-bottom: 12px;">
+              Enterprise Academic Services • Powered by NextGen Technologies
+            </p>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px;">
+              Dedicated to building high-speed, zero-clutter digital infrastructure for engineering colleges and universities. We empower students with verified past exam archives, live code testing sets, and collaborative project networks.
+            </p>
+            <div style="display: flex; gap: 12px; flex-wrap: wrap; font-size: 0.85rem;">
+              <span>🏢 <strong>NextGen Technologies Academic Division</strong></span>
+              <span>•</span>
+              <span>🌐 <strong>nexgen.internal/campus-circle</strong></span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Inquiries & Verification Form -->
+      <div style="max-width: 720px; margin: 0 auto; background: var(--bg-glass-card); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 36px; backdrop-filter: blur(16px);">
+        <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.4rem; font-weight: 700; color: var(--text-primary); margin-bottom: 8px;">
+          Send an Inquiry / Request Faculty Badge
+        </h3>
+        <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 24px;">
+          Professors and instructors can request a Verified Faculty Badge to post official announcements and manage assignment rubrics.
+        </p>
+
+        <form id="contact-form" onsubmit="handleSupportSubmit(event)">
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+            <div>
+              <label style="display:block; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:600; margin-bottom:6px;">Full Name</label>
+              <input type="text" id="contact-name" class="filter-input" style="width:100%;" placeholder="e.g. Dr. R. Sharma" required>
+            </div>
+            <div>
+              <label style="display:block; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:600; margin-bottom:6px;">Institutional Email</label>
+              <input type="email" id="contact-email" class="filter-input" style="width:100%;" placeholder="name@university.edu" required>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
+            <div>
+              <label style="display:block; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:600; margin-bottom:6px;">Role</label>
+              <select id="contact-role" class="filter-select" style="width:100%;">
+                <option value="student">Student</option>
+                <option value="faculty">Faculty / Professor</option>
+                <option value="admin">Department Head / Coordinator</option>
+              </select>
+            </div>
+            <div>
+              <label style="display:block; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:600; margin-bottom:6px;">Subject / Inquiry Type</label>
+              <select id="contact-type" class="filter-select" style="width:100%;">
+                <option value="verification">Faculty Verification Badge</option>
+                <option value="curriculum">Upload Curriculum / PYQ Materials</option>
+                <option value="technical">Technical Support / Cloud Sync Issue</option>
+                <option value="partnership">Institutional Partnership</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 20px;">
+            <label style="display:block; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:600; margin-bottom:6px;">Message</label>
+            <textarea id="contact-message" class="filter-input" style="width:100%; height:110px; resize:none;" placeholder="Detail your query or department credentials..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.95rem;">
+            Submit Inquiry
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p>&copy; 2026 Campus Circle. Powered by NextGen. Support & Inquiries.</p>
+        <p><a href="../../index.html" style="color: var(--neon-cyan); text-decoration: none;">Return to Command Center</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Environment & Config Scripts -->
+  <script src="../../env.js"></script>
+  <script src="../../assets/js/core/env-loader.js"></script>
+  <script src="../../assets/js/core/main.js"></script>
+  <script src="../../assets/js/profile/auth-engine.js"></script>
+  <script src="../../assets/js/components/auth-modal.js"></script>
+  <script src="../../assets/js/components/sidebar.js"></script>
+  <script>
+    function handleSupportSubmit(e) {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value;
+      document.getElementById('contact-form').reset();
+      window.showToast(`Thank you, ${name}! Your inquiry has been dispatched to the NextGen support desk.`, '📬');
+    }
+  </script>
+</body>
+</html>
+

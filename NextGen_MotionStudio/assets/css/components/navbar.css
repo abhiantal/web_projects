@@ -1,0 +1,228 @@
+/* ==========================================================================
+   MOTIONSTUDIO - CAPSULE NAVBAR & TOP NAVIGATION
+   NextGen • Developed by A.K.Antal
+   ========================================================================== */
+
+.navbar,
+.navbar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 76px;
+  z-index: 1000;
+  background: rgba(5, 7, 17, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  transition: all var(--transition-normal);
+}
+
+[data-theme="light"] .navbar,
+[data-theme="light"] .navbar-wrapper {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.navbar.scrolled,
+.navbar-wrapper.scrolled {
+  background: rgba(5, 7, 17, 0.95);
+  border-bottom-color: rgba(139, 92, 246, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  height: 68px;
+}
+
+[data-theme="light"] .navbar.scrolled,
+[data-theme="light"] .navbar-wrapper.scrolled {
+  background: rgba(255, 255, 255, 0.98);
+  border-bottom-color: rgba(139, 92, 246, 0.2);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.navbar-inner,
+.main-navbar,
+.navbar .container,
+.navbar-wrapper .container {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  flex-direction: row !important;
+  width: 100%;
+  height: 100%;
+}
+
+/* Brand */
+.brand,
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+  color: var(--color-text-main);
+  flex-shrink: 0;
+}
+
+.brand-icon,
+.brand-logo-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 14px rgba(139, 92, 246, 0.45));
+  transition: transform var(--transition-normal);
+  flex-shrink: 0;
+}
+
+.brand-icon img,
+.brand-logo img,
+.brand-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.brand:hover .brand-icon,
+.brand-logo:hover .brand-logo-icon {
+  transform: scale(1.08) rotate(4deg);
+}
+
+
+.brand-subtitle {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--color-accent-cyan, #06b6d4);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  color: var(--color-text-main);
+  font-weight: 800;
+  line-height: 1.1;
+  font-size: 1.25rem;
+  font-family: var(--font-heading);
+}
+
+.brand-accent,
+.brand-highlight {
+  background: linear-gradient(135deg, #06b6d4, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  color: #a78bfa;
+}
+
+/* Capsule Pill Navigation Bar (Flagship Standard) */
+.main-tab-nav {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-bg-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: 30px;
+  padding: 5px 8px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .main-tab-nav {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+}
+
+.main-tab-link {
+  background: transparent;
+  border: none;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.main-tab-link:hover {
+  color: var(--color-text-main);
+  background: rgba(139, 92, 246, 0.1);
+}
+
+[data-theme="light"] .main-tab-link:hover {
+  color: var(--color-text-main);
+  background: rgba(124, 58, 237, 0.08);
+}
+
+.main-tab-link.active {
+  background: linear-gradient(135deg, var(--color-accent-cyan) 0%, var(--color-accent-violet) 100%);
+  color: #ffffff !important;
+  box-shadow: 0 2px 12px rgba(139, 92, 246, 0.4);
+  font-weight: 700;
+}
+
+/* Nav Actions (Theme toggle & CTAs) */
+.nav-actions,
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+/* Mobile Toggle Hamburger Button */
+.mobile-toggle-btn,
+.hamburger-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-md);
+  background: var(--color-bg-surface-subtle);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-main);
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.mobile-toggle-btn:hover,
+.hamburger-btn:hover {
+  background: var(--color-bg-surface-elevated);
+  border-color: var(--color-accent-cyan);
+}
+
+@media (max-width: 880px) {
+  .main-tab-nav {
+    display: none !important;
+  }
+  .mobile-toggle-btn,
+  .hamburger-btn {
+    display: flex !important;
+  }
+}

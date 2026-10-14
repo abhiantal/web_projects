@@ -1,0 +1,176 @@
+<script>
+  // If opened directly as standalone file in browser, redirect to main index shell
+  if (window.location.pathname.endsWith('/pages/templates.html')) {
+    window.location.replace('../index.html#templates');
+  }
+</script>
+<!-- ==========================================================================
+     MOTIONSTUDIO - PAGE: TEMPLATES (Motion Graphics Template Library)
+     Architecture Reference: NextGen • Developed by A.K.Antal
+     Focus: AI Studio Video Editing & Kinetic Motion Suite
+     ========================================================================== -->
+
+<section class="section">
+  <div class="container section-content">
+    
+    <!-- Hero Header -->
+    <div class="section-header text-center reveal">
+      <div class="badge badge-accent mb-sm">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        <span>120+ Curated Video Presets • 1-Click Timeline Insertion</span>
+      </div>
+      <h1 class="hero-title mb-sm">
+        Motion Graphics <span class="text-gradient">Template Library</span>
+      </h1>
+      <p class="section-subtitle mx-auto" style="max-width: 760px;">
+        Instantly load production-ready motion graphics directly into your timeline. Fully customizable text, colors, camera pans, and audio drivers.
+      </p>
+
+      <!-- Filter Pill Chips -->
+      <div class="filter-bar mt-xl flex gap-xs justify-center flex-wrap" id="template-filters">
+        <button class="badge badge-accent filter-chip active" data-filter="all" style="cursor: pointer; padding: 0.5rem 1.25rem;">All Templates</button>
+        <button class="badge badge-secondary filter-chip" data-filter="lower-third" style="cursor: pointer; padding: 0.5rem 1.25rem;">Lower Thirds</button>
+        <button class="badge badge-secondary filter-chip" data-filter="device" style="cursor: pointer; padding: 0.5rem 1.25rem;">Device Frames</button>
+        <button class="badge badge-secondary filter-chip" data-filter="reels" style="cursor: pointer; padding: 0.5rem 1.25rem;">TikTok / Reels</button>
+        <button class="badge badge-secondary filter-chip" data-filter="visualizer" style="cursor: pointer; padding: 0.5rem 1.25rem;">Audio Visualizers</button>
+      </div>
+    </div>
+
+    <!-- Templates Grid -->
+    <div class="grid grid-cols-3 gap-lg mb-2xl">
+      
+      <!-- Template 1: Velocity Glitch Lower Third -->
+      <article class="card card-hover p-none overflow-hidden reveal template-card" data-category="lower-third">
+        <div class="video-preview-stage" style="background: radial-gradient(circle at center, #7c3aed 0%, #1e1b4b 100%); height: 180px; display: flex; align-items: center; justify-content: center;">
+          <span style="font-size: 2.5rem;">⚡</span>
+        </div>
+        <div class="p-lg">
+          <div class="flex items-center justify-between gap-xs mb-xs">
+            <span class="badge badge-accent">16:9 Overlay</span>
+            <span class="text-muted font-mono text-xs">2 Layers</span>
+          </div>
+          <h3 class="card-title text-base mb-xs">Velocity Glitch Lower Third</h3>
+          <p class="card-desc text-xs mb-md">
+            High-tech broadcaster name card with customizable subtitle, animated gradient border, and sound-effect triggers.
+          </p>
+          <div class="flex gap-xs">
+            <a href="components/studio/studio.html" class="btn btn-primary btn-sm btn-full" data-action="launch-studio">Use in Studio</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Template 2: iPhone 16 Pro Isometric Spin -->
+      <article class="card card-hover p-none overflow-hidden reveal template-card" data-category="device">
+        <div class="video-preview-stage" style="background: radial-gradient(circle at center, #0284c7 0%, #082f49 100%); height: 180px; display: flex; align-items: center; justify-content: center;">
+          <span style="font-size: 2.5rem;">📱</span>
+        </div>
+        <div class="p-lg">
+          <div class="flex items-center justify-between gap-xs mb-xs">
+            <span class="badge badge-cyan">3D Device</span>
+            <span class="text-muted font-mono text-xs">60 FPS</span>
+          </div>
+          <h3 class="card-title text-base mb-xs">iPhone 16 Pro Isometric Spin</h3>
+          <p class="card-desc text-xs mb-md">
+            Smooth 360-degree rotating titanium chassis designed for mobile app feature announcements and UI showcases.
+          </p>
+          <div class="flex gap-xs">
+            <a href="components/studio/studio.html" class="btn btn-primary btn-sm btn-full" data-action="launch-studio">Use in Studio</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Template 3: Viral Short-Form Kinetic Hook -->
+      <article class="card card-hover p-none overflow-hidden reveal template-card" data-category="reels">
+        <div class="video-preview-stage" style="background: radial-gradient(circle at center, #db2777 0%, #4c0519 100%); height: 180px; display: flex; align-items: center; justify-content: center;">
+          <span style="font-size: 2.5rem;">🔥</span>
+        </div>
+        <div class="p-lg">
+          <div class="flex items-center justify-between gap-xs mb-xs">
+            <span class="badge badge-rose">9:16 Vertical</span>
+            <span class="text-muted font-mono text-xs">TikTok / Reels</span>
+          </div>
+          <h3 class="card-title text-base mb-xs">Viral Short-Form Kinetic Hook</h3>
+          <p class="card-desc text-xs mb-md">
+            Rapid word-by-word bouncing caption cards with emoji burst triggers and high-energy zoom-in spring physics.
+          </p>
+          <div class="flex gap-xs">
+            <a href="components/studio/studio.html" class="btn btn-primary btn-sm btn-full" data-action="launch-studio">Use in Studio</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Template 4: Spectrum Circle Audio Reactor -->
+      <article class="card card-hover p-none overflow-hidden reveal template-card" data-category="visualizer">
+        <div class="video-preview-stage" style="background: radial-gradient(circle at center, #059669 0%, #022c22 100%); height: 180px; display: flex; align-items: center; justify-content: center;">
+          <span style="font-size: 2.5rem;">🎧</span>
+        </div>
+        <div class="p-lg">
+          <div class="flex items-center justify-between gap-xs mb-xs">
+            <span class="badge badge-emerald">Audio Spectrum</span>
+            <span class="text-muted font-mono text-xs">FFT Reactive</span>
+          </div>
+          <h3 class="card-title text-base mb-xs">Spectrum Circle Audio Reactor</h3>
+          <p class="card-desc text-xs mb-md">
+            Circular neon audio equalizer with center album art mask and outer glow particles synchronized to master audio tracks.
+          </p>
+          <div class="flex gap-xs">
+            <a href="components/studio/studio.html" class="btn btn-primary btn-sm btn-full" data-action="launch-studio">Use in Studio</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Template 5: Aluminum MacBook Orbit -->
+      <article class="card card-hover p-none overflow-hidden reveal template-card" data-category="device">
+        <div class="video-preview-stage" style="background: radial-gradient(circle at center, #4f46e5 0%, #1e1b4b 100%); height: 180px; display: flex; align-items: center; justify-content: center;">
+          <span style="font-size: 2.5rem;">💻</span>
+        </div>
+        <div class="p-lg">
+          <div class="flex items-center justify-between gap-xs mb-xs">
+            <span class="badge badge-cyan">3D Laptop</span>
+            <span class="text-muted font-mono text-xs">Desktop SaaS</span>
+          </div>
+          <h3 class="card-title text-base mb-xs">Aluminum MacBook Orbit</h3>
+          <p class="card-desc text-xs mb-md">
+            Clean 3D clamshell opening animation revealing web app dashboard with adjustable perspective and ambient shadows.
+          </p>
+          <div class="flex gap-xs">
+            <a href="components/studio/studio.html" class="btn btn-primary btn-sm btn-full" data-action="launch-studio">Use in Studio</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Template 6: Cyberpunk Neon HUD Glitch -->
+      <article class="card card-hover p-none overflow-hidden reveal template-card" data-category="lower-third">
+        <div class="video-preview-stage" style="background: radial-gradient(circle at center, #d97706 0%, #451a03 100%); height: 180px; display: flex; align-items: center; justify-content: center;">
+          <span style="font-size: 2.5rem;">👾</span>
+        </div>
+        <div class="p-lg">
+          <div class="flex items-center justify-between gap-xs mb-xs">
+            <span class="badge badge-secondary">Cyberpunk HUD</span>
+            <span class="text-muted font-mono text-xs">Futuristic</span>
+          </div>
+          <h3 class="card-title text-base mb-xs">Cyberpunk Neon HUD Glitch</h3>
+          <p class="card-desc text-xs mb-md">
+            Sci-fi targeting reticle overlay with animated telemetry counters, glowing corner brackets, and scanline shaders.
+          </p>
+          <div class="flex gap-xs">
+            <a href="components/studio/studio.html" class="btn btn-primary btn-sm btn-full" data-action="launch-studio">Use in Studio</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Quick Studio CTA -->
+    <div class="card glass-panel-elevated p-xl text-center reveal" style="border: 1px solid rgba(139, 92, 246, 0.3);">
+      <h3 class="text-h3 mb-xs">Want to Create a Custom Template?</h3>
+      <p class="text-secondary text-sm mb-lg mx-auto" style="max-width: 540px;">
+        Open the Studio workspace, arrange layers, set keyframe easing curves, and click "Save as Template" to preserve your design preset.
+      </p>
+      <a href="components/studio/studio.html" class="btn btn-primary" data-action="launch-studio">Open Timeline Studio →</a>
+    </div>
+
+  </div>
+</section>

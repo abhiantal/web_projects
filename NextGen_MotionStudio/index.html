@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MotionStudio — Next-generation AI video editing, 3D device staging, audio-reactive motion graphics, and zero-cloud 4K GPU rendering.">
+  <meta name="theme-color" content="#050711">
+  <title>MotionStudio — AI Video Editing &amp; Kinetic Motion Suite</title>
+
+  <!-- Prevent Theme Flicker (FOUC) Script -->
+  <script>
+    (function () {
+      try {
+        const storedTheme = localStorage.getItem('motionstudio_theme') ||
+                            localStorage.getItem('motionstudio_theme_preference') ||
+                            localStorage.getItem('tc_theme');
+        const theme = storedTheme ? JSON.parse(storedTheme) : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+        document.documentElement.style.colorScheme = theme;
+      } catch (e) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Core Modular Design Styles -->
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="icon" type="image/png" href="./assets/images/company_logo.png">
+</head>
+<body>
+
+  <!-- Ambient Glow Effects & Cyber Grid -->
+  <div class="bg-ambient-orb orb-violet" aria-hidden="true"></div>
+  <div class="bg-ambient-orb orb-cyan" aria-hidden="true"></div>
+  <div class="bg-cyber-grid" aria-hidden="true"></div>
+
+  <!-- Main Fixed Capsule Navbar -->
+  <header class="navbar-wrapper">
+    <div class="container">
+      <div class="main-navbar">
+        <!-- Brand Logo -->
+        <a href="#home" class="brand-logo" data-tab-target="home" aria-label="MotionStudio Home" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+          <img src="./assets/images/website_logo.png" alt="MotionStudio Logo" class="brand-logo-img" style="width: 38px; height: 38px; object-fit: contain;">
+          <div class="brand-text">
+            <span class="brand-title">Motion<span class="brand-accent">Studio</span></span>
+            <span class="brand-subtitle"><img src="./assets/images/company_logo.png" alt="NextGen" style="width: 13px; height: 13px; object-fit: contain;"> Powered by NextGen</span>
+          </div>
+        </a>
+
+        <!-- Capsule Pill Navigation (NextGen Flagship Standard) -->
+        <nav class="main-tab-nav" aria-label="Main Navigation">
+          <a href="#home" class="main-tab-link active" data-tab-target="home">🏠 Home</a>
+          <a href="#features" class="main-tab-link" data-tab-target="features">⚡ Features</a>
+          <a href="#pricing" class="main-tab-link" data-tab-target="pricing">💎 Pricing</a>
+          <a href="#showcase" class="main-tab-link" data-tab-target="showcase">📁 Showcase</a>
+          <a href="#templates" class="main-tab-link" data-tab-target="templates">🎨 Templates</a>
+          <a href="#docs" class="main-tab-link" data-tab-target="docs">📖 Docs</a>
+          <a href="#terms" class="main-tab-link" data-tab-target="terms">⚖️ Terms</a>
+          <a href="components/studio/studio.html" class="main-tab-link" style="color: var(--color-accent-violet); font-weight: 700;">🎬 Studio</a>
+        </nav>
+
+        <!-- Right Action Controls -->
+        <div class="nav-actions">
+          <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme" title="Toggle Light/Dark Theme">
+            ☀️
+          </button>
+          <a href="components/studio/studio.html" class="btn btn-primary" data-action="launch-studio">Launch Studio</a>
+          <button type="button" class="mobile-toggle-btn" id="mobileNavToggle" aria-label="Open mobile navigation">☰</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Off-Canvas Navigation Drawer -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+  <aside class="sidebar-drawer" id="mobileSidebar" aria-label="Mobile Navigation">
+    <div class="sidebar-header">
+      <div class="brand-logo" style="display: flex; align-items: center; gap: 10px;">
+        <img src="./assets/images/website_logo.png" alt="MotionStudio Logo" style="width: 34px; height: 34px; object-fit: contain;">
+        <div class="brand-text">
+          <span class="brand-title" style="font-size: 1.15rem;">Motion<span class="brand-accent">Studio</span></span>
+          <span class="brand-subtitle" style="font-size: 0.65rem;"><img src="./assets/images/company_logo.png" alt="NextGen" style="width: 12px; height: 12px; object-fit: contain;"> Powered by NextGen</span>
+        </div>
+      </div>
+      <button type="button" class="sidebar-close-btn" id="sidebarCloseBtn" aria-label="Close mobile navigation">&times;</button>
+    </div>
+    <div class="sidebar-nav">
+      <a href="#home" class="sidebar-nav-link active" data-tab-target="home"><span>🏠 Home</span><span>→</span></a>
+      <a href="#features" class="sidebar-nav-link" data-tab-target="features"><span>⚡ AI Video Engines</span><span>→</span></a>
+      <a href="#pricing" class="sidebar-nav-link" data-tab-target="pricing"><span>💎 Pricing &amp; Passes</span><span>→</span></a>
+      <a href="#showcase" class="sidebar-nav-link" data-tab-target="showcase"><span>📁 Video Showcase</span><span>→</span></a>
+      <a href="#templates" class="sidebar-nav-link" data-tab-target="templates"><span>🎨 Motion Templates</span><span>→</span></a>
+      <a href="#docs" class="sidebar-nav-link" data-tab-target="docs"><span>📖 Architecture &amp; Docs</span><span>→</span></a>
+      <a href="#terms" class="sidebar-nav-link" data-tab-target="terms"><span>⚖️ Terms &amp; Licensing</span><span>→</span></a>
+      <a href="components/studio/studio.html" class="sidebar-nav-link"><span>🎬 Studio Workspace</span><span>→</span></a>
+    </div>
+    <div class="sidebar-footer">
+      <div class="flex items-center justify-between mb-md">
+        <span class="text-sm font-medium">Appearance</span>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme">☀️</button>
+      </div>
+      <a href="components/studio/studio.html" class="btn btn-primary btn-full" data-action="launch-studio">Launch AI Studio</a>
+    </div>
+  </aside>
+
+  <!-- Master Page Mount Container (Dynamically Combines Pages from ./pages/*.html) -->
+  <main id="page-mount" class="page-viewport" aria-live="polite">
+<!-- ==========================================================================
+     MOTIONSTUDIO - PAGE: HOME
+     AI Video Editing & Motion Graphics Suite
+     Official Service of NextGen Technologies
+     ========================================================================== -->
+
+<!-- 1. CYBER HERO SECTION -->
+<section class="section section-hero">
+  <div class="container section-content">
+    <div class="hero-split-grid">
+      <!-- Left Column: Copy & CTAs -->
+      <div class="reveal">
+        <div class="badge badge-accent mb-lg">
+          <span class="pulse-dot"></span> Next-Gen WebGPU &amp; WebCodecs Video Engine
+        </div>
+
+        <h1 class="hero-title mb-md">
+          Synthesize Cinematic Motion &amp; <br>
+          <span class="text-gradient">3D Promo Reels</span> In Seconds
+        </h1>
+
+        <p class="hero-subtitle mb-xl" style="max-width: 580px;">
+          Developed under the <strong>NextGen</strong> technology ecosystem. The personal AI video creation suite: Text-to-Video, Image-to-Video, User Voice Conversion, 3D Device Framing, and 1080p/4K Export with zero-cloud local GPU rendering.
+        </p>
+
+        <div class="cta-group flex gap-md flex-wrap mb-xl">
+          <a href="components/studio/studio.html" class="btn btn-primary btn-lg" data-action="launch-studio">
+            <span>Launch Studio</span>
+            <span>🎬</span>
+          </a>
+          <a href="#features" class="btn btn-outline btn-lg" data-tab-target="features">
+            <span>Explore Engines</span>
+            <span>⚡</span>
+          </a>
+          <a href="#cockpit-section" class="btn btn-secondary btn-lg" onclick="document.getElementById('cockpit-section')?.scrollIntoView({behavior:'smooth'}); return false;">
+            <span>Interactive Cockpit</span>
+            <span>🎛️</span>
+          </a>
+        </div>
+
+        
+      </div>
+
+      <!-- Right Column: 3D Kinetic Emblem Stage with Floating Badges -->
+      <div class="reveal">
+        <div class="hero-visual-card">
+          <!-- Floating Status Chips -->
+          <div class="floating-chip chip-top-left" style="position: absolute; top: 16px; left: 16px; background: rgba(13, 19, 38, 0.85); border: 1px solid rgba(139, 92, 246, 0.4); border-radius: 20px; padding: 6px 14px; font-size: 0.75rem; font-weight: 700; color: #a78bfa; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); z-index: 2;">
+            <span class="pulse-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #a78bfa; box-shadow: 0 0 10px #a78bfa;"></span>
+            <span>Autonomous WebGPU Engine</span>
+          </div>
+
+          <img src="./assets/images/website_transprent.png" alt="MotionStudio 3D Kinetic Emblem" class="hero-visual-img" style="filter: drop-shadow(0 0 35px rgba(139, 92, 246, 0.45)); max-height: 290px; margin: 24px 0 10px 0;">
+
+          <div class="floating-chip chip-bottom-right" style="position: absolute; bottom: 16px; right: 16px; background: rgba(13, 19, 38, 0.85); border: 1px solid rgba(6, 182, 212, 0.4); border-radius: 20px; padding: 6px 14px; font-size: 0.75rem; font-weight: 700; color: #06b6d4; display: flex; align-items: center; gap: 6px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); z-index: 2;">
+            <span class="pulse-dot" style="width: 8px; height: 8px; border-radius: 50%; background: #06b6d4; box-shadow: 0 0 10px #06b6d4;"></span>
+            <span>NextGen Quantum Telemetry</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. KPI / METRIC STATISTICS SECTION -->
+<section class="section-sm">
+  <div class="container section-content">
+    <div class="grid grid-cols-4 reveal">
+      <div class="card text-center p-lg" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
+        <div class="stat-number" data-counter-target="240" data-counter-suffix="K+" style="font-size: 2.2rem; font-weight: 800; color: var(--color-accent-violet);">240K+</div>
+        <div class="stat-label" style="font-size: 0.8rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-top: 4px;">Videos Rendered</div>
+      </div>
+
+      <div class="card text-center p-lg" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
+        <div class="stat-number" data-counter-target="60" data-counter-suffix=" FPS" style="font-size: 2.2rem; font-weight: 800; color: var(--color-accent-cyan);">60 FPS</div>
+        <div class="stat-label" style="font-size: 0.8rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-top: 4px;">Real-time WebGL Engine</div>
+      </div>
+
+      <div class="card text-center p-lg" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
+        <div class="stat-number" data-counter-target="120" data-counter-suffix="+" style="font-size: 2.2rem; font-weight: 800; color: #ec4899;">120+</div>
+        <div class="stat-label" style="font-size: 0.8rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-top: 4px;">Motion Presets &amp; FX</div>
+      </div>
+
+      <div class="card text-center p-lg" style="background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-subtle); border-radius: var(--radius-lg);">
+        <div class="stat-number" data-counter-target="12" data-counter-suffix="ms" style="font-size: 2.2rem; font-weight: 800; color: #10b981;">12ms</div>
+        <div class="stat-label" style="font-size: 0.8rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; margin-top: 4px;">Zero-Lag Latency</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- 4. MOTIONSTUDIO INTERACTIVE REAL-TIME COCKPIT SIMULATION -->
+<section class="section" id="cockpit-section">
+  <div class="container section-content">
+    <div class="section-header text-center reveal" style="margin-bottom: var(--space-xl);">
+      <div class="badge badge-accent mb-xs">
+        <span class="pulse-dot"></span> Live Studio Simulation
+      </div>
+      <h2 style="font-size: clamp(1.8rem, 3vw, 2.5rem);">Experience MotionStudio in Real-Time</h2>
+      <p style="color: var(--color-text-muted); max-width: 680px; margin: 8px auto 0;">
+        Explore the four reactive subsystems driving instantaneous 60 FPS video creation directly inside your web browser.
+      </p>
+    </div>
+
+    <div class="academic-cockpit-grid reveal" style="display: grid; grid-template-columns: 0.95fr 1.05fr; gap: var(--space-xl); align-items: stretch;">
+      
+      <!-- Left Column: Interactive Subsystem Navigation Tabs -->
+      <div class="cockpit-nav-column" style="display: flex; flex-direction: column; gap: 10px;">
+        
+        <button type="button" class="cockpit-tab-btn active" data-cockpit-tab="neural" style="text-align: left; background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(139, 92, 246, 0.4); border-left: 4px solid var(--color-accent-violet); border-radius: 14px; padding: 16px 20px; cursor: pointer; transition: all 0.25s ease; color: var(--color-text-main);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+            <span style="font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
+              <span>⚡</span> Neural Video Synthesis
+            </span>
+            <span class="badge badge-accent" style="font-size: 0.65rem;">Active</span>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted); margin: 0; line-height: 1.4;">
+            Prompt-to-video diffusion generating fluid motion clips with custom aspect ratios and zero cloud upload.
+          </p>
+        </button>
+
+        <button type="button" class="cockpit-tab-btn" data-cockpit-tab="devices" style="text-align: left; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--color-border); border-radius: 14px; padding: 16px 20px; cursor: pointer; transition: all 0.25s ease; color: var(--color-text-main);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+            <span style="font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
+              <span>📱</span> 3D Device Staging
+            </span>
+            <span class="badge badge-secondary" style="font-size: 0.65rem;">WebGL 2.0</span>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted); margin: 0; line-height: 1.4;">
+            Photorealistic titanium iPhone 16 Pro and MacBook staging with orbital perspective controls.
+          </p>
+        </button>
+
+        <button type="button" class="cockpit-tab-btn" data-cockpit-tab="audio" style="text-align: left; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--color-border); border-radius: 14px; padding: 16px 20px; cursor: pointer; transition: all 0.25s ease; color: var(--color-text-main);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+            <span style="font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
+              <span>🎵</span> Audio Beat Reactivity
+            </span>
+            <span class="badge badge-secondary" style="font-size: 0.65rem;">WebAudio API</span>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted); margin: 0; line-height: 1.4;">
+            Real-time FFT audio spectrum analyzer driving rhythmic camera pulse and kinetic particle bursts.
+          </p>
+        </button>
+
+        <button type="button" class="cockpit-tab-btn" data-cockpit-tab="timeline" style="text-align: left; background: rgba(255, 255, 255, 0.02); border: 1px solid var(--color-border); border-radius: 14px; padding: 16px 20px; cursor: pointer; transition: all 0.25s ease; color: var(--color-text-main);">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+            <span style="font-weight: 700; font-size: 1.05rem; display: flex; align-items: center; gap: 8px;">
+              <span>🎬</span> 4K WebCodecs GPU Timeline
+            </span>
+            <span class="badge badge-secondary" style="font-size: 0.65rem;">Sub-12ms</span>
+          </div>
+          <p style="font-size: 0.82rem; color: var(--color-text-muted); margin: 0; line-height: 1.4;">
+            Multi-track timeline compositor rendering 60 FPS MP4/WebM videos directly on your local silicon.
+          </p>
+        </button>
+
+      </div>
+
+      <!-- Right Column: Interactive Live Simulation Display Card -->
+      <div class="cockpit-display-card" style="background: rgba(13, 19, 38, 0.7); border: 1px solid rgba(139, 92, 246, 0.35); border-radius: 20px; padding: 24px; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);">
+        
+        <!-- Tab 1 View: Neural Video Synthesis -->
+        <div class="cockpit-panel" id="panel-neural" style="display: block;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="pulse-dot" style="background: #10b981; width: 8px; height: 8px; border-radius: 50%;"></span>
+              <span style="font-weight: 700; font-size: 0.95rem; color: var(--color-text-main);">Diffusion Engine v2.4 (Active)</span>
+            </div>
+            <span class="badge badge-accent" style="font-size: 0.7rem;">60 FPS Synthesizer</span>
+          </div>
+
+          <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--color-border); border-radius: 12px; padding: 14px; margin-bottom: 14px;">
+            <label style="display: block; font-size: 0.75rem; color: var(--color-text-muted); text-transform: uppercase; margin-bottom: 6px; font-weight: 700;">Active Prompt</label>
+            <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; color: #a78bfa; line-height: 1.5;">
+              "Cinematic drone pan over futuristic titanium cityscape at dusk, volumetric god-rays, 8k resolution"
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 16px;">
+            <div style="background: rgba(255, 255, 255, 0.02); padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border-subtle);">
+              <span style="font-size: 0.7rem; color: var(--color-text-muted); display: block;">Frame Aspect Ratio</span>
+              <span style="font-weight: 700; font-size: 0.95rem; color: var(--color-accent-cyan);">9:16 Vertical Reel</span>
+            </div>
+            <div style="background: rgba(255, 255, 255, 0.02); padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border-subtle);">
+              <span style="font-size: 0.7rem; color: var(--color-text-muted); display: block;">Diffusion Steps</span>
+              <span style="font-weight: 700; font-size: 0.95rem; color: #ec4899;">36 Steps (1.8s)</span>
+            </div>
+          </div>
+
+          <!-- Visual Progress Simulation -->
+          <div style="background: rgba(0, 0, 0, 0.4); border-radius: 12px; height: 120px; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; border: 1px solid rgba(139, 92, 246, 0.2);">
+            <div style="position: absolute; inset: 0; background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.15), transparent); animation: pulseSlow 3s infinite;"></div>
+            <div style="text-align: center; position: relative; z-index: 1;">
+              <span style="font-size: 1.8rem; display: block; margin-bottom: 4px;">🎬</span>
+              <span style="font-size: 0.82rem; font-weight: 700; color: #a78bfa;">Synthesizing 60 FPS Keyframes...</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 2 View: 3D Device Staging -->
+        <div class="cockpit-panel" id="panel-devices" style="display: none;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="pulse-dot" style="background: #06b6d4; width: 8px; height: 8px; border-radius: 50%;"></span>
+              <span style="font-weight: 700; font-size: 0.95rem; color: var(--color-text-main);">WebGL Mockup Stage</span>
+            </div>
+            <span class="badge badge-secondary" style="font-size: 0.7rem;">Titanium Series</span>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px;">
+            <div style="background: rgba(139, 92, 246, 0.15); border: 1px solid var(--color-accent-violet); border-radius: 10px; padding: 12px; text-align: center;">
+              <div style="font-size: 1.4rem;">📱</div>
+              <div style="font-size: 0.8rem; font-weight: 700; color: #fff; margin-top: 4px;">iPhone 16 Pro</div>
+            </div>
+            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 12px; text-align: center;">
+              <div style="font-size: 1.4rem;">💻</div>
+              <div style="font-size: 0.8rem; font-weight: 700; color: var(--color-text-muted); margin-top: 4px;">MacBook Pro</div>
+            </div>
+            <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid var(--border-subtle); border-radius: 10px; padding: 12px; text-align: center;">
+              <div style="font-size: 1.4rem;">📟</div>
+              <div style="font-size: 0.8rem; font-weight: 700; color: var(--color-text-muted); margin-top: 4px;">iPad Pro</div>
+            </div>
+          </div>
+
+          <div style="background: rgba(0, 0, 0, 0.4); border-radius: 12px; height: 140px; display: flex; align-items: center; justify-content: center; position: relative; border: 1px solid rgba(6, 182, 212, 0.2);">
+            <div style="text-align: center;">
+              <span style="font-size: 2rem; display: block; margin-bottom: 4px;">✨</span>
+              <span style="font-size: 0.85rem; font-weight: 700; color: var(--color-accent-cyan);">Orbital Device Angle: 22° Yaw • 15° Pitch</span>
+              <span style="display: block; font-size: 0.72rem; color: var(--color-text-muted); margin-top: 2px;">Dynamic Specular Reflections Active</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab 3 View: Audio Beat Reactivity -->
+        <div class="cockpit-panel" id="panel-audio" style="display: none;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="pulse-dot" style="background: #ec4899; width: 8px; height: 8px; border-radius: 50%;"></span>
+              <span style="font-weight: 700; font-size: 0.95rem; color: var(--color-text-main);">FFT Frequency Analyzer (128 Bands)</span>
+            </div>
+            <span class="badge badge-accent" style="font-size: 0.7rem;">128 BPM Synced</span>
+          </div>
+
+          <!-- Waveform Visualizer Simulation -->
+          <div style="display: flex; align-items: flex-end; justify-content: space-between; height: 100px; padding: 12px; background: rgba(0, 0, 0, 0.4); border-radius: 12px; margin-bottom: 16px; border: 1px solid rgba(236, 72, 153, 0.2);">
+            <div style="width: 6%; height: 45%; background: #8b5cf6; border-radius: 4px;"></div>
+            <div style="width: 6%; height: 75%; background: #a78bfa; border-radius: 4px;"></div>
+            <div style="width: 6%; height: 95%; background: #ec4899; border-radius: 4px;"></div>
+            <div style="width: 6%; height: 60%; background: #f43f5e; border-radius: 4px;"></div>
+            <div style="width: 6%; height: 85%; background: #06b6d4; border-radius: 4px;"></div>
+            <div style="width: 6%; height: 40%; background: #38bdf8; border-radius: 4px;"></div>
+            <div style="width: 6%; height: 90%; background: #8b5cf6; border-radius: 4px;"></div>
+            <div style="width: 6%; height: 70%; background: #a78bfa; border-radius: 4px;"></div>
+            <div style="width: 6%; height: 100%; background: #ec4899; border-radius: 4px;"></div>
+            <div style="width: 6%; height: 50%; background: #06b6d4; border-radius: 4px;"></div>
+            <div style="width: 6%; height: 80%; background: #8b5cf6; border-radius: 4px;"></div>
+            <div style="width: 6%; height: 35%; background: #38bdf8; border-radius: 4px;"></div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--color-text-muted);">
+            <span>Low Bass: Camera Shake</span>
+            <span>Mid Range: Hue Shift</span>
+            <span>High Treble: Particle Burst</span>
+          </div>
+        </div>
+
+        <!-- Tab 4 View: 4K WebCodecs GPU Timeline -->
+        <div class="cockpit-panel" id="panel-timeline" style="display: none;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; border-bottom: 1px solid var(--border-subtle); padding-bottom: 12px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span class="pulse-dot" style="background: #10b981; width: 8px; height: 8px; border-radius: 50%;"></span>
+              <span style="font-weight: 700; font-size: 0.95rem; color: var(--color-text-main);">WebCodecs MP4 Compositor</span>
+            </div>
+            <span class="badge badge-accent" style="font-size: 0.7rem;">4K 60 FPS Export</span>
+          </div>
+
+          <!-- Timeline Track Bars -->
+          <div style="background: rgba(0, 0, 0, 0.4); border-radius: 12px; padding: 14px; margin-bottom: 14px; border: 1px solid rgba(16, 185, 129, 0.2);">
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <span style="font-size: 0.72rem; color: var(--color-text-muted); width: 45px;">Video 1</span>
+              <div style="flex: 1; height: 20px; background: rgba(139, 92, 246, 0.35); border-radius: 6px; border: 1px solid #8b5cf6;"></div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+              <span style="font-size: 0.72rem; color: var(--color-text-muted); width: 45px;">Audio</span>
+              <div style="flex: 1; height: 20px; background: rgba(6, 182, 212, 0.35); border-radius: 6px; border: 1px solid #06b6d4;"></div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 0.72rem; color: var(--color-text-muted); width: 45px;">Titles</span>
+              <div style="width: 60%; height: 20px; background: rgba(236, 72, 153, 0.35); border-radius: 6px; border: 1px solid #ec4899;"></div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; font-weight: 600; color: #10b981;">
+            <span>⚡ Zero Cloud Upload Required</span>
+            <span>Local Export Speed: ~4.2x Realtime</span>
+          </div>
+        </div>
+
+        <!-- Cockpit Bottom Launch Action -->
+        <div style="margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--border-subtle); display: flex; align-items: center; justify-content: space-between;">
+          <span style="font-size: 0.82rem; color: var(--color-text-muted);">Ready to create high-impact motion?</span>
+          <a href="components/studio/studio.html" class="btn btn-primary btn-sm" data-action="launch-studio">
+            Launch AI Studio Workspace &rarr;
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 5. CORE ENGINES GRID SECTION -->
+<section class="section" id="engines">
+  <div class="container section-content">
+    <div class="section-header reveal">
+      <span class="badge badge-secondary mb-md">Cutting-Edge Capabilities</span>
+      <h2 class="section-title">Engineered for <span class="text-gradient">Maximum Visual Impact</span></h2>
+      <p class="section-subtitle">
+        Everything you need to produce broadcast-quality promotional motion graphics without high-end desktop workstations.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-3 reveal">
+      <article class="card">
+        <div style="font-size: 2.25rem; margin-bottom: 1rem;">⚡</div>
+        <span class="badge badge-accent mb-sm">AI Generative</span>
+        <h3 class="card-title">Neural Frame Synthesis</h3>
+        <p class="card-desc">
+          Generate high-dynamic-range video sequences from natural language prompts using state-of-the-art diffusion pipelines.
+        </p>
+      </article>
+
+      <article class="card">
+        <div style="font-size: 2.25rem; margin-bottom: 1rem;">📱</div>
+        <span class="badge badge-secondary mb-sm">3D Mockup</span>
+        <h3 class="card-title">Photorealistic 3D Frames</h3>
+        <p class="card-desc">
+          Wrap screen recordings in customizable titanium smartphone, tablet, and laptop frames with dynamic specular reflections.
+        </p>
+      </article>
+
+      <article class="card">
+        <div style="font-size: 2.25rem; margin-bottom: 1rem;">🎵</div>
+        <span class="badge badge-accent mb-sm">Audio FX</span>
+        <h3 class="card-title">Audio Spectrum Reactivity</h3>
+        <p class="card-desc">
+          Synchronize visual pulses, particle bursts, and camera shake physics directly to your background music beat frequencies.
+        </p>
+      </article>
+
+      <article class="card">
+        <div style="font-size: 2.25rem; margin-bottom: 1rem;">✨</div>
+        <span class="badge badge-secondary mb-sm">Kinetic</span>
+        <h3 class="card-title">Broadcast Typography</h3>
+        <p class="card-desc">
+          Kinetic title sequences, lower thirds, and cyber glitch titles with custom cubic bezier speed curves.
+        </p>
+      </article>
+
+      <article class="card">
+        <div style="font-size: 2.25rem; margin-bottom: 1rem;">🎞️</div>
+        <span class="badge badge-accent mb-sm">Timeline</span>
+        <h3 class="card-title">Nonlinear Compositor</h3>
+        <p class="card-desc">
+          Full multi-track timeline supporting keyframe interpolation, blend modes, alpha masks, and chroma keying.
+        </p>
+      </article>
+
+      <article class="card">
+        <div style="font-size: 2.25rem; margin-bottom: 1rem;">🚀</div>
+        <span class="badge badge-secondary mb-sm">Client GPU</span>
+        <h3 class="card-title">Zero-Cloud Rendering</h3>
+        <p class="card-desc">
+          Harness WebCodecs and WebGPU to render crisp 4K 60fps MP4 and WebM videos directly in your client browser.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 6. COMMUNITY SHOWCASE REELS -->
+<section class="section" id="showcase-preview">
+  <div class="container section-content">
+    <div class="section-header reveal">
+      <span class="badge badge-accent mb-md">Community Spotlight</span>
+      <h2 class="section-title">Created with <span class="text-gradient">MotionStudio</span></h2>
+      <p class="section-subtitle">
+        See what creators and engineers are building with the next-generation canvas compositor.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 reveal">
+      <article class="card card-video showcase-card">
+        <div class="video-preview-stage" style="background: linear-gradient(135deg, #8b5cf6, #3b82f6);">
+          <div class="play-trigger-pill">▶ Play 60 FPS Reel</div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-accent">Title Sequence</span>
+            <span class="text-muted font-mono">0:15 • 4K UHD</span>
+          </div>
+          <h3 class="card-title">Neo Tokyo Kinetic Cyber Intro</h3>
+          <p class="card-desc">Holographic chromatic aberration and beat-synced glitch transitions.</p>
+        </div>
+      </article>
+
+      <article class="card card-video showcase-card">
+        <div class="video-preview-stage" style="background: linear-gradient(135deg, #06b6d4, #3b82f6);">
+          <div class="play-trigger-pill">▶ Play 60 FPS Reel</div>
+        </div>
+        <div class="card-body">
+          <div class="card-meta">
+            <span class="badge badge-secondary">3D Mockup</span>
+            <span class="text-muted font-mono">0:30 • 1080p</span>
+          </div>
+          <h3 class="card-title">NextGen FinTech Product Reel</h3>
+          <p class="card-desc">Titanium device mockup stage showcasing silky smooth mobile navigation.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="text-center mt-xl reveal">
+      <a href="#showcase" class="btn btn-outline" data-tab-target="showcase">View All Showcase Reels &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- 8. HIGH IMPACT CALL TO ACTION -->
+<section class="section">
+  <div class="container section-content">
+    <div class="card card-glass text-center reveal p-2xl" style="position: relative; overflow: hidden;">
+      <div class="bg-ambient-orb orb-violet" style="top: -50px; left: 20%;" aria-hidden="true"></div>
+      <div style="position: relative; z-index: 1; max-width: 640px; margin: 0 auto;">
+        <h2 class="mb-md">Elevate Your Visuals Today</h2>
+        <p class="text-muted mb-xl">
+          No expensive subscriptions or heavy software installations. Open the browser studio and start creating immediately.
+        </p>
+        <a href="components/studio/studio.html" class="btn btn-primary btn-lg" data-action="launch-studio">
+          <span>Launch Video Studio</span>
+          <span>🎬</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT NEXTGEN (UNIFIED ENTERPRISE COMPONENT: LOGO, MOTTO, PHILOSOPHY & GOVERNANCE) -->
+<section class="section" id="about-nextgen-section">
+  <div class="container section-content">
+
+    <div class="section-header text-center reveal-on-scroll">
+      <div class="badge badge-accent mb-sm">The Parent Enterprise</div>
+      <h2 style="font-size: clamp(1.8rem, 3.2vw, 2.6rem);">About <span class="text-gradient">NextGen</span></h2>
+      <p class="section-subtitle mx-auto" style="max-width: 680px; color: var(--text-secondary, #94a3b8); margin: 8px auto 0;">
+        Pioneering high-velocity software architectures, autonomous offline resilience, and distraction-free cognitive intelligence.
+      </p>
+    </div>
+
+    <!-- Company Mission Statement Hero with Official Emblem & Motto -->
+    <div class="company-mission-card reveal-on-scroll delay-100">
+      <div class="company-emblem-wrapper">
+        <img src="./assets/images/company_transparent_logo.png" alt="NextGen - Innovation, Strength, Future" class="company-emblem-img">
+      </div>
+      <div class="company-mission-badge">OUR PURPOSE &amp; PHILOSOPHY</div>
+      <p class="company-mission-quote">
+        &ldquo;We engineer digital architectures that balance breathtaking visual artistry with uncompromising local-first execution. NextGen exists to advance human potential through zero-latency cognitive computing, unyielding privacy sovereignty, and distraction-free software craft.&rdquo;
+      </p>
+      <div class="company-motto">
+        <span>INNOVATION</span> &bull; <span>STRENGTH</span> &bull; <span>FUTURE</span>
+      </div>
+
+      <!-- Integrated Company & Owner Governance Details -->
+      <div class="company-governance-strip">
+        <div class="gov-item">
+          <div class="gov-label">Enterprise Entity</div>
+          <div class="gov-val">NextGen Technologies</div>
+        </div>
+        <div class="gov-divider"></div>
+        <div class="gov-item">
+          <div class="gov-label">Operational Model</div>
+          <div class="gov-val">Independent Software Laboratory</div>
+        </div>
+        <div class="gov-divider"></div>
+        <div class="gov-item">
+          <div class="gov-label">Engineering Ethos</div>
+          <div class="gov-val">Zero Telemetry &bull; Client Silicon First</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 Core Company Architectural Pillars -->
+    <div class="company-pillars-grid grid grid-cols-3 gap-lg mt-xl reveal-on-scroll delay-200">
+
+      <div class="card card-hover card-accent-top">
+        <div class="card-icon text-cyan" style="font-size: 1.8rem; margin-bottom: 0.75rem;">⚡</div>
+        <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 0.5rem;">Cognitive Ergonomics</h3>
+        <p class="card-desc" style="font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary, #94a3b8); margin: 0;">
+          Every interface, micro-animation, and transition is intentionally architected to eliminate cognitive fatigue and reduce digital friction.
+        </p>
+      </div>
+
+      <div class="card card-hover card-accent-top">
+        <div class="card-icon text-violet" style="font-size: 1.8rem; margin-bottom: 0.75rem;">🛡️</div>
+        <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 0.5rem;">Sovereign Privacy</h3>
+        <p class="card-desc" style="font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary, #94a3b8); margin: 0;">
+          Strict rejection of ad networks and predatory tracking. Personal data, media, and journals remain sovereign with zero data selling.
+        </p>
+      </div>
+
+      <div class="card card-hover card-accent-top">
+        <div class="card-icon text-emerald" style="font-size: 1.8rem; margin-bottom: 0.75rem;">🚀</div>
+        <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 0.5rem;">Zero-Latency Silicon</h3>
+        <p class="card-desc" style="font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary, #94a3b8); margin: 0;">
+          Offline-first local compute ensuring actions happen instantaneously on your client hardware without waiting for remote server roundtrips.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- 7. LEAD ARCHITECT & DEVELOPER SPOTLIGHT -->
+<section class="section" id="founder-section">
+  <div class="container section-content">
+    <div class="section-header text-center reveal" style="margin-bottom: var(--space-xl);">
+      <span class="badge badge-accent mb-xs">NextGen Core Leadership</span>
+      <h2 style="font-size: clamp(1.8rem, 3vw, 2.5rem);">Developer &amp; <span class="text-gradient">Architect Spotlight</span></h2>
+      <p style="color: var(--color-text-muted); max-width: 600px; margin: 8px auto 0;">
+        The engineering craftsmanship and technical leadership behind the NextGen architecture and MotionStudio.
+      </p>
+    </div>
+
+    <div class="founder-spotlight-card reveal" style="display: grid; grid-template-columns: auto 1fr; gap: clamp(24px, 4vw, 56px); align-items: center; background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 24px; padding: clamp(24px, 4vw, 48px); max-width: 960px; margin: 0 auto; position: relative; overflow: hidden; box-shadow: 0 0 50px rgba(139, 92, 246, 0.1);">
+      <div style="position: absolute; top: -60px; right: -60px; width: 250px; height: 250px; border-radius: 50%; background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%); pointer-events: none;"></div>
+
+      <!-- Developer Avatar with Glowing Ring & Company Logo -->
+      <div style="text-align: center; min-width: 160px;">
+        <div style="position: relative; display: inline-block;">
+          <img src="./assets/images/Abhi_avatar.jpg" alt="Abhi Kumar (A.K. Antal)" style="width: 145px; height: 145px; border-radius: 50%; object-fit: cover; object-position: top; border: 3px solid rgba(139, 92, 246, 0.6); box-shadow: 0 0 35px rgba(139, 92, 246, 0.4);">
+          <div style="position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); white-space: nowrap; background: linear-gradient(90deg, #8b5cf6, #ec4899); color: #fff; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em; padding: 4px 12px; border-radius: 20px;">LEAD ARCHITECT</div>
+        </div>
+        <div style="margin-top: 22px;">
+          <img src="./assets/images/company_transparent_logo.png" alt="NextGen" style="width: 85px; object-fit: contain; filter: drop-shadow(0 0 14px rgba(139, 92, 246, 0.5));">
+          <div style="font-size: 0.75rem; font-weight: 700; color: var(--color-text-muted); margin-top: 4px; letter-spacing: 0.05em;">NEXTGEN CORE</div>
+        </div>
+      </div>
+
+      <!-- Developer Info & Specs -->
+      <div>
+        <div class="flex items-center gap-xs flex-wrap mb-xs">
+          <span class="badge badge-accent" style="font-size: 0.75rem;">FOUNDER &amp; OWNER</span>
+          <span class="badge badge-secondary" style="font-size: 0.75rem;">FULL-STACK SYSTEMS ARCHITECT</span>
+        </div>
+        <h3 style="font-size: clamp(1.6rem, 2.8vw, 2.2rem); margin-bottom: 4px; color: var(--color-text-main);">Abhi Kumar (A.K. Antal)</h3>
+        <p style="font-size: 0.92rem; color: var(--color-accent-violet); margin-bottom: 14px; font-weight: 600;">
+          Founder, Owner &amp; Principal Systems Architect &bull; NextGen Technologies
+        </p>
+
+        <blockquote style="border-left: 3px solid var(--color-accent-violet); padding-left: 16px; margin: 0 0 18px; font-style: italic; color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.7;">
+          "MotionStudio was engineered with a singular objective: to eliminate the friction between imagination and visual execution. By offloading rendering directly to local client GPUs via WebCodecs and WebGPU, creators gain instantaneous 60fps responsiveness with zero cloud uploads and total privacy."
+        </blockquote>
+
+        <!-- Technical Mastery Pills -->
+        <div style="display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 18px;">
+          <span style="font-size: 0.75rem; padding: 4px 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border); color: var(--color-text-secondary);">WebCodecs + WebGPU</span>
+          <span style="font-size: 0.75rem; padding: 4px 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border); color: var(--color-text-secondary);">60 FPS Canvas Compositor</span>
+          <span style="font-size: 0.75rem; padding: 4px 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border); color: var(--color-text-secondary);">Reactive ES6 Architecture</span>
+          <span style="font-size: 0.75rem; padding: 4px 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border); color: var(--color-text-secondary);">Nonlinear Multi-Track Timeline</span>
+          <span style="font-size: 0.75rem; padding: 4px 10px; border-radius: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--color-border); color: var(--color-text-secondary);">Cyber UI/UX Glassmorphism</span>
+        </div>
+
+        <!-- Specifications Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 18px;">
+          <div style="background: rgba(255, 255, 255, 0.04); border-radius: 12px; padding: 10px 14px; border: 1px solid var(--color-border);">
+            <div style="font-size: 0.7rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px;">Parent Company</div>
+            <div style="font-size: 0.92rem; font-weight: 700; color: var(--color-accent-violet);">NextGen Technologies</div>
+          </div>
+          <div style="background: rgba(255, 255, 255, 0.04); border-radius: 12px; padding: 10px 14px; border: 1px solid var(--color-border);">
+            <div style="font-size: 0.7rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px;">Media Engine</div>
+            <div style="font-size: 0.92rem; font-weight: 700; color: var(--color-accent-cyan);">MotionStudio v2.0</div>
+          </div>
+          <div style="background: rgba(255, 255, 255, 0.04); border-radius: 12px; padding: 10px 14px; border: 1px solid var(--color-border);">
+            <div style="font-size: 0.7rem; color: var(--color-text-muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 2px;">Suite Ecosystem</div>
+            <div style="font-size: 0.92rem; font-weight: 700; color: #ec4899;">3 Interconnected Apps</div>
+          </div>
+        </div>
+
+        <!-- Direct Actions & 1-Click Interactive Copy Email -->
+        <div class="developer-contact-actions">
+          <button type="button" class="copy-email-pill" data-copy="akantal011@gmail.com" title="Click to copy verified developer email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>akantal011@gmail.com</span>
+            <span style="font-size: 0.7rem; opacity: 0.7;">(Click to Copy)</span>
+          </button>
+
+          <a href="mailto:akantal011@gmail.com" class="btn btn-secondary" style="padding: 8px 18px; font-size: 0.85rem;">
+            ✉ Email Directly
+          </a>
+
+          <a href="https://github.com/abhiantal" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 8px 18px; font-size: 0.85rem;">
+            GitHub Profile ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  </main>
+
+  <!-- Interactive Toast Notification Container -->
+  <div class="toast-container" aria-live="polite"></div>
+
+  <!-- Master Enterprise Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <div class="brand-logo mb-md" style="display: flex; align-items: center; gap: 10px;">
+            <img src="./assets/images/website_logo.png" alt="MotionStudio Logo" style="width: 38px; height: 38px; object-fit: contain;">
+            <div class="brand-text">
+              <span class="brand-title">Motion<span class="brand-accent">Studio</span></span>
+              <span class="brand-subtitle"><img src="./assets/images/company_logo.png" alt="NextGen" style="width: 13px; height: 13px; object-fit: contain;"> Powered by NextGen</span>
+            </div>
+          </div>
+          <p class="footer-brand-desc">
+            Next-generation promotional video creation suite, neural frame synthesis, 3D device staging, and instant client-side WebCodecs 4K 60FPS export.
+          </p>
+          <div class="footer-contact-item">
+            <span>Powered by:</span>
+            <span style="color: var(--color-accent-violet); font-weight: 600;">NextGen Technologies</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Studio Suite</h4>
+          <ul class="footer-links">
+            <li><a href="components/studio/studio.html">Video Studio Editor</a></li>
+            <li><a href="#features" data-tab-target="features">AI Video Engines</a></li>
+            <li><a href="#pricing" data-tab-target="pricing">Pricing &amp; Passes</a></li>
+            <li><a href="#showcase" data-tab-target="showcase">Showcase Gallery</a></li>
+            <li><a href="#templates" data-tab-target="templates">Motion Templates</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Ecosystem</h4>
+          <ul class="footer-links">
+            <li><a href="#home" data-tab-target="home">NextGen Ecosystem</a></li>
+            <li><a href="../NexGen_CampusCircle/index.html">Campus Circle OS</a></li>
+            <li><a href="../NexGen_TimeChart/index.html">Time Chart App</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Platform &amp; Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#terms" data-tab-target="terms">Platform Inquiries</a></li>
+            <li><a href="#docs" data-tab-target="docs">WebCodecs Pipeline</a></li>
+            <li><a href="#docs" data-tab-target="docs">Zero-Cloud Privacy</a></li>
+            <li><a href="#terms" data-tab-target="terms">Terms &amp; Licensing</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 MotionStudio. Powered by NextGen Technologies. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#terms" data-tab-target="terms">Privacy Policy</a>
+          <a href="#terms" data-tab-target="terms">Terms of Service</a>
+          <a href="#terms" data-tab-target="terms">Security</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Master JavaScript Application -->
+  <script type="module" src="./assets/js/main.js?v=3"></script>
+</body>
+</html>

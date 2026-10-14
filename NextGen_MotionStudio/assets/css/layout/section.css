@@ -1,0 +1,110 @@
+/**
+ * MotionStudio Layout - Sections & Futuristic Ambient Backgrounds
+ * NextGen • Developed by A.K.Antal
+ */
+
+.section {
+  position: relative;
+  padding-top: clamp(4rem, 8vw, 7.5rem);
+  padding-bottom: clamp(4rem, 8vw, 7.5rem);
+  overflow: hidden;
+}
+
+.section-sm {
+  padding-top: clamp(2.5rem, 5vw, 4.5rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4.5rem);
+}
+
+.section-hero {
+  position: relative;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+  padding-top: clamp(5.5rem, 10vw, 8.5rem);
+  padding-bottom: clamp(4rem, 8vw, 6.5rem);
+  overflow: hidden;
+}
+
+/* Ambient Futuristic Glow Orbs */
+.bg-ambient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.55;
+  transition: opacity var(--transition-normal, 0.28s ease);
+}
+
+.orb-cyan {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, var(--color-accent-cyan, #06b6d4) 0%, rgba(6, 182, 212, 0) 70%);
+  top: -150px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.28;
+}
+
+.orb-violet {
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, var(--color-accent-violet, #8b5cf6) 0%, rgba(139, 92, 246, 0) 70%);
+  bottom: 5%;
+  right: -10%;
+  opacity: 0.22;
+}
+
+.orb-pink {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--color-accent-pink, #ec4899) 0%, rgba(236, 72, 153, 0) 70%);
+  top: 35%;
+  left: -8%;
+  opacity: 0.20;
+}
+
+[data-theme="dark"] .orb-cyan { opacity: 0.45; }
+[data-theme="dark"] .orb-violet { opacity: 0.35; }
+[data-theme="dark"] .orb-pink { opacity: 0.30; }
+
+/* Futuristic Cyber Grid Pattern */
+.bg-cyber-grid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 65% 55% at 50% 30%, #000 60%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse 65% 55% at 50% 30%, #000 60%, transparent 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+[data-theme="light"] .bg-cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+}
+
+.section-content {
+  position: relative;
+  z-index: 1;
+}
+
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(2.5rem, 5vw, 4rem) auto;
+}
+
+.section-header.text-left {
+  text-align: left;
+  margin-left: 0;
+}
+
+.section-header .section-subtitle {
+  margin-top: var(--space-sm, 0.5rem);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+}

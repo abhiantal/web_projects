@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-accent="indigo">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Promotional Video Studio – AI Video Creation & Editing</title>
+  <meta name="description"
+    content="Personal AI Video Editing and Video Creation Suite: Text-to-Video, Image-to-Video, User Voice Conversion, 3D Device Framing, and 1080p Export.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Core Website Stylesheet (Main Design System & Navbar) -->
+  <link rel="stylesheet" href="../../assets/css/main.css">
+  <link rel="stylesheet" href="../../assets/css/studio-globals.css">
+  <link rel="stylesheet" href="../../assets/css/studio-responsive.css">
+
+  <!-- Modular Component Stylesheets -->
+  <link rel="stylesheet" href="../topbar/topbar.css">
+  <link rel="stylesheet" href="../stage/stage.css">
+  <link rel="stylesheet" href="../timeline/timeline.css">
+  <link rel="stylesheet" href="../editor/editor.css">
+  <link rel="stylesheet" href="../text_to_video/text_to_video.css">
+  <link rel="stylesheet" href="../image_to_video/image_to_video.css">
+  <link rel="stylesheet" href="../voice_studio/voice_studio.css">
+  <link rel="stylesheet" href="../modals/modals.css">
+
+  <!-- Early Theme Controller -->
+  <script src="../../assets/js/core/studio-theme.js"></script>
+</head>
+
+<body>
+
+  <!-- Ambient Stage Glow -->
+  <div class="app-viewport-bg"></div>
+
+  <!-- Unified Master Studio Topbar (Single Sleek Navigation - No Double Navbars) -->
+  <header class="studio-topbar">
+    <!-- Left: Brand Logo & Back to Home -->
+    <div style="display: flex; align-items: center; gap: 12px; flex-shrink: 0;">
+      <a href="../../index.html#home" class="brand-logo" aria-label="MotionStudio Home" style="display: flex; align-items: center; gap: 9px; text-decoration: none;">
+        <img src="../../assets/images/website_logo.png" alt="MotionStudio Logo" class="brand-logo-img" style="width: 32px; height: 32px; object-fit: contain;">
+        <div class="brand-text">
+          <span class="brand-title" style="font-size: 1.15rem; font-weight: 800;">Motion<span class="brand-accent">Studio</span></span>
+          <span class="brand-subtitle" style="font-size: 0.62rem;"><img src="../../assets/images/company_logo.png" alt="NextGen" style="width: 11px; height: 11px; object-fit: contain;"> Powered by NextGen</span>
+        </div>
+      </a>
+      
+      <a href="../../index.html#home" class="btn-pill" style="border: 1px solid var(--border-subtle); padding: 5px 12px; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;" title="Back to MotionStudio Main Website">
+        🏠 Home
+      </a>
+    </div>
+
+    <!-- Center: Studio Tool Mode Selector Tabs -->
+    <nav class="mode-nav-tabs">
+      <button class="mode-tab-btn active" data-mode="editor" title="Video Editor & Enhancer">
+        <span>✂️</span> Editor &amp; Enhancer
+      </button>
+      <button class="mode-tab-btn" data-mode="text2video" title="Generate Video from Text Prompt">
+        <span>✍️</span> Text to Video (AI)
+      </button>
+      <button class="mode-tab-btn" data-mode="image2video" title="Animate Images to Motion Video">
+        <span>🖼️</span> Image to Video
+      </button>
+      <button class="mode-tab-btn" data-mode="voice" title="Voice Studio &amp; Voice Conversion">
+        <span>🎙️</span> Voice Studio
+      </button>
+    </nav>
+
+    <!-- Right: Quick Device & Ratios, Accent Dots, Theme, Audio & Export -->
+    <div class="topbar-actions" style="display: flex; align-items: center; gap: 6px; flex-shrink: 0;">
+      <!-- Device Frame Selector -->
+      <div class="device-switcher">
+        <div class="btn-group">
+          <button id="deviceAutoBtn" class="btn-pill device-btn active" data-device="auto" title="Auto-detect orientation">🔄 Auto</button>
+          <button id="deviceMobileBtn" class="btn-pill device-btn" data-device="mobile" title="3D Smartphone Bezel">📱 Mobile</button>
+          <button id="deviceDesktopBtn" class="btn-pill device-btn" data-device="desktop" title="Desktop App Window">💻 Desktop</button>
+        </div>
+      </div>
+
+      <!-- Quick Aspect Ratios -->
+      <div class="btn-group">
+        <button class="btn-pill ratio-btn active" data-ratio="9-16" title="9:16 Instagram Reel / Shorts">📱 9:16</button>
+        <button class="btn-pill ratio-btn" data-ratio="16-9" title="16:9 YouTube / Desktop">🖥️ 16:9</button>
+        <button class="btn-pill ratio-btn" data-ratio="1-1" title="1:1 Square Post">⏹️ 1:1</button>
+      </div>
+
+      <!-- Accent Color Dots -->
+      <div class="accent-picker-row" title="Customize Accent Color">
+        <span class="accent-dot active" data-accent-choice="indigo" data-accent="indigo" style="background:#6366F1;"></span>
+        <span class="accent-dot" data-accent-choice="emerald" data-accent="emerald" style="background:#10B981;"></span>
+        <span class="accent-dot" data-accent-choice="amber" data-accent="amber" style="background:#F59E0B;"></span>
+        <span class="accent-dot" data-accent-choice="rose" data-accent="rose" style="background:#F43F5E;"></span>
+        <span class="accent-dot" data-accent-choice="cyan" data-accent="cyan" style="background:#06B6D4;"></span>
+      </div>
+
+      <!-- API Settings Modal Button -->
+      <button id="apiSettingsBtn" class="btn-icon" title="Manage Multi-Account AI Keys (.env)" style="width: 30px; height: 30px; font-size: 13px; flex-shrink: 0;">
+        ⚙️
+      </button>
+
+      <!-- Sound Button -->
+      <button id="muteBtn" class="btn-pill" title="Toggle Sound" style="border: 1px solid var(--border-subtle); padding: 4px 8px; flex-shrink: 0;">
+        🔊 Sound
+        <span class="audio-visualizer">
+          <span class="audio-bar"></span>
+          <span class="audio-bar"></span>
+          <span class="audio-bar"></span>
+        </span>
+      </button>
+
+      <!-- Theme Toggle Button -->
+      <button type="button" class="btn-icon theme-toggle" id="themeToggleBtn" aria-label="Toggle theme" title="Toggle Light/Dark Theme" style="width: 32px; height: 32px; min-width: 32px; font-size: 15px; flex-shrink: 0; cursor: pointer;">
+        ☀️
+      </button>
+
+      <!-- Flagship 1080p Export Button -->
+      <button type="button" class="btn btn-primary" id="exportVideoBtn" title="Export 1080p 60FPS Video" style="padding: 6px 14px; font-size: 11.5px; font-weight: 700; border-radius: 20px; white-space: nowrap; flex-shrink: 0; cursor: pointer;">
+        🎬 Export 1080p
+      </button>
+    </div>
+  </header>
+
+  <!-- Master Studio Container -->
+  <div class="studio-container">
+
+    <!-- Studio Main Workspace -->
+    <div class="studio-workspace">
+
+      <!-- ================================================================= -->
+      <!-- COMPONENT: SIDEBAR DRAWER (Holds dynamic feature panes)           -->
+      <!-- ================================================================= -->
+      <aside class="studio-sidebar">
+
+        <!-- PANE 1: EDITOR & ENHANCER -->
+        <div id="editorSidebarPane" class="sidebar-pane">
+          <!-- Video Clips & Multi-Video Merger -->
+          <section class="sidebar-card">
+            <div class="card-header">
+              <div class="card-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6366F1" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                  <polyline points="17 8 12 3 7 8" />
+                  <line x1="12" y1="3" x2="12" y2="15" />
+                </svg>
+                <h3>1. Video Clips Sequencer</h3>
+              </div>
+              <div class="card-header-actions">
+                <span id="clipCountBadge" class="clip-count-pill">0 Clips</span>
+                <button id="addClipHeaderBtn" class="btn-add-clip-pill" title="Add another video clip">+ Add Clip</button>
+                <button id="clearSequencerHeaderBtn" class="btn-clear-clips-pill" title="Clear all clips and start fresh">🗑️ Clear</button>
+              </div>
+            </div>
+
+            <!-- Multi-Video Dropzone -->
+            <div id="dropZone" class="video-dropzone">
+              <input type="file" id="videoFileInput" accept="video/mp4,video/webm,video/quicktime,video/*" multiple hidden>
+              <div class="dropzone-inner">
+                <div class="drop-icon">🎬</div>
+                <h4>Drop Videos Here to Merge & Edit</h4>
+                <p>Select multiple recordings or desktop windows (.mp4, .webm, .mov)</p>
+                <button id="chooseVideoBtn" class="btn-secondary-action">Browse Videos to Merge</button>
+              </div>
+            </div>
+
+            <!-- Dynamic Multi-Clip Sequencer List -->
+            <div id="clipListContainer" class="clip-list-container hidden"></div>
+
+            <!-- Merge Summary Bar -->
+            <div id="mergeSummaryBar" class="merge-summary-card hidden">
+              <div class="merge-summary-top">
+                <div class="merge-title-badge">
+                  <span class="merge-icon">🔗</span>
+                  <span id="mergeSummaryTitle" class="merge-title">2 Clips Sequenced</span>
+                </div>
+                <div class="merge-duration-chip">
+                  <span class="chip-label">Total:</span>
+                  <span id="mergeSummaryDuration" class="chip-val">59.2s</span>
+                </div>
+              </div>
+
+              <div class="merge-action-buttons">
+                <button id="mergeExportBtn" class="btn-export-merged" title="Export unified video sequence with all clips merged">
+                  <span>🎬</span>
+                  <span>Export Merged Video</span>
+                </button>
+                <button id="clearAllClipsBtn" class="btn-clear-clips" title="Remove all clips from sequencer">
+                  Clear
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- 1B. FRAME-BY-FRAME PRECISION EDITOR -->
+          <section class="sidebar-card frame-editor-section" id="frameEditorSection">
+            <div class="card-header">
+              <div class="card-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#06B6D4" stroke-width="2">
+                  <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                  <line x1="7" y1="2" x2="7" y2="22"></line>
+                  <line x1="17" y1="2" x2="17" y2="22"></line>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <line x1="2" y1="7" x2="7" y2="7"></line>
+                  <line x1="2" y1="17" x2="7" y2="17"></line>
+                  <line x1="17" y1="17" x2="22" y2="17"></line>
+                  <line x1="17" y1="7" x2="22" y2="7"></line>
+                </svg>
+                <h3>Frame-by-Frame Precision Editor</h3>
+              </div>
+              <span id="frameEditorFpsBadge" class="frame-fps-pill">30 FPS</span>
+            </div>
+
+            <div class="card-body frame-editor-body">
+              <!-- Frame Readout Box -->
+              <div class="frame-readout-strip">
+                <div class="frame-stat">
+                  <span class="stat-sub">CURRENT FRAME</span>
+                  <div class="stat-main">
+                    <span id="feFrameNumber" class="neon-number">0</span>
+                    <span class="stat-denom">/ <span id="feTotalFrames">900</span></span>
+                  </div>
+                </div>
+
+                <!-- Live Mini Frame Monitor Canvas -->
+                <div class="fe-live-monitor-wrap">
+                  <canvas id="feLiveFrameCanvas" class="fe-live-canvas" width="64" height="38" title="Current Visual Frame"></canvas>
+                  <span class="fe-live-label">LIVE FRAME</span>
+                </div>
+
+                <div class="frame-stat text-right">
+                  <span class="stat-sub">EXACT TIMECODE</span>
+                  <div class="stat-main">
+                    <span id="feTimecode" class="neon-time">00:00.000</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Frame Jog & Shuttle Controller -->
+              <div class="frame-jog-row">
+                <button id="feStepBack5Btn" class="btn-jog" title="Jump -5 Frames (Shift + Left / Comma)">◀◀ -5f</button>
+                <button id="feStepBack1Btn" class="btn-jog main-jog" title="Step -1 Frame (Left Arrow or Comma ,)">◀ -1 Frame</button>
+                <button id="feStepFwd1Btn" class="btn-jog main-jog" title="Step +1 Frame (Right Arrow or Period .)">+1 Frame ▶</button>
+                <button id="feStepFwd5Btn" class="btn-jog" title="Jump +5 Frames (Shift + Right / Period)">+5f ▶▶</button>
+              </div>
+
+              <!-- Frame Trimming & Cut Blades -->
+              <div class="frame-blade-row">
+                <button id="feMarkInBtn" class="btn-blade-tool" title="Set Start Cut at Current Frame (Key I)">
+                  <span class="blade-icon">⏮️</span>
+                  <div class="blade-text">
+                    <strong>[ Mark In</strong>
+                    <small>Set Start (I)</small>
+                  </div>
+                </button>
+
+                <button id="feSplitBtn" class="btn-blade-tool btn-split-primary" title="Split Clip into Two at Current Frame (Key S / C)">
+                  <span class="blade-icon">✂️</span>
+                  <div class="blade-text">
+                    <strong>Split Scene</strong>
+                    <small>Cut at Frame (S)</small>
+                  </div>
+                </button>
+
+                <button id="feMarkOutBtn" class="btn-blade-tool" title="Set End Cut at Current Frame (Key O)">
+                  <span class="blade-icon">⏭️</span>
+                  <div class="blade-text">
+                    <strong>Mark Out ]</strong>
+                    <small>Set End (O)</small>
+                  </div>
+                </button>
+              </div>
+
+              <!-- Visual Filmstrip Header -->
+              <div class="filmstrip-header-row">
+                <span class="filmstrip-title">🎞️ Frame Filmstrip Preview</span>
+                <button id="feCaptureSnapshotBtn" class="btn-capture-pill" title="Capture high-resolution PNG snapshot of this exact frame">
+                  📸 Snapshot Frame
+                </button>
+              </div>
+
+              <!-- Visual Filmstrip Container (Renders dynamic frame thumbnails) -->
+              <div id="filmstripContainer" class="filmstrip-scroll-wrap">
+                <div id="filmstripTrack" class="filmstrip-track">
+                  <div class="filmstrip-empty-hint">Load a video clip to inspect frame filmstrip</div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Color Grading & Perspective -->
+          <section class="sidebar-card">
+            <div class="card-header">
+              <div class="card-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2">
+                  <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+                </svg>
+                <h3>2. Video Auto-Enhancement</h3>
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="form-group">
+                <label>Color Grading & Studio LUTs</label>
+                <select id="colorFilterSelect" class="form-control">
+                  <option value="none" selected>✨ Clean Natural (Original)</option>
+                  <option value="vibrant">🔥 Studio Vibrant (Punchy & HDR)</option>
+                  <option value="cyberpunk">⚡ Cyberpunk Neon (Cool & Electric)</option>
+                  <option value="cinematic">🎥 Cinematic Film (Teal & Warm)</option>
+                  <option value="pastel">🌸 Clean Pastel (High Key Soft)</option>
+                  <option value="noir">🎞️ Noir Classic (Monochrome Contrast)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Camera Motion Perspective</label>
+                <div class="btn-group" style="width:100%; justify-content:space-between;">
+                  <button class="btn-pill cam-btn active" data-cam="dynamic" style="flex:1; text-align:center;">Dynamic
+                    Sway</button>
+                  <button class="btn-pill cam-btn" data-cam="hero3d" style="flex:1; text-align:center;">3D Hero</button>
+                  <button class="btn-pill cam-btn" data-cam="closeup"
+                    style="flex:1; text-align:center;">Close-Up</button>
+                  <button class="btn-pill cam-btn" data-cam="center" style="flex:1; text-align:center;">Center</button>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Voice Studio Shortcut Card in Editor -->
+          <section class="sidebar-card" style="margin-top: 14px; border-color: rgba(245, 158, 11, 0.35); background: linear-gradient(135deg, rgba(245, 158, 11, 0.06), rgba(99, 102, 241, 0.04));">
+            <div class="card-header">
+              <div class="card-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                  <line x1="12" y1="19" x2="12" y2="23" />
+                  <line x1="8" y1="23" x2="16" y2="23" />
+                </svg>
+                <h3>3. Voiceover & Narration Cues</h3>
+              </div>
+              <span class="tag-status active">In Voice Studio</span>
+            </div>
+
+            <div class="card-body">
+              <p style="font-size: 11px; color: var(--text-muted); margin-bottom: 10px; line-height: 1.45;">
+                All 20 bilingual voices (10 English & 10 हिन्दी), narration cues, master script, and timeline audio sync are centralized in the <strong>Voice Studio</strong> tab.
+              </p>
+              <button id="goToVoiceStudioBtn" class="btn-primary-action" style="width: 100%; justify-content: center; font-size: 11.5px; padding: 7px 12px;">
+                🎙️ Open Voice Studio & Narration Cues →
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <!-- PANE 2: TEXT TO VIDEO (AI) -->
+        <div id="t2vSidebarPane" class="sidebar-pane hidden">
+          <section class="sidebar-card">
+            <div class="card-header">
+              <div class="card-title">
+                <span>✍️</span>
+                <h3>Text to Video AI Studio</h3>
+              </div>
+              <span class="tag-status active">Multi-Scene</span>
+            </div>
+
+            <div class="card-body">
+              <p style="font-size:11.5px; color:var(--text-muted); margin-bottom:12px;">
+                Enter a topic or promotional script. The AI writes a multi-scene storyboard and renders full 60FPS
+                animated video keyframes.
+              </p>
+
+              <div class="form-group">
+                <label>Video Concept / Promotional Prompt</label>
+                <textarea id="t2vPrompt" class="form-control" rows="4"
+                  placeholder="e.g. A high-energy animated promo showcasing an intelligent design assistant that automates 3D graphics in real time..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>Visual Animation Style</label>
+                <select id="t2vStyleSelect" class="form-control">
+                  <option value="animation" selected>🎨 2D Vibrant Motion Graphics (Fluid & Bold)</option>
+                  <option value="cyberpunk">⚡ Cyberpunk / Anime Glow (Neon & High Contrast)</option>
+                  <option value="realistic">🎬 Realistic Studio Promo (Cinematic 3D & Glass)</option>
+                  <option value="minimal">✨ Minimalist Kinetic Typography</option>
+                </select>
+              </div>
+
+              <button id="t2vGenerateBtn" class="btn-primary-action"
+                style="width:100%; justify-content:center; margin-top:8px;">
+                ✨ Generate Animated AI Video
+              </button>
+
+              <div id="t2vStatus" class="tag-status hidden" style="margin-top:10px; text-align:center; padding:6px;">
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- PANE 3: IMAGE TO VIDEO -->
+        <div id="i2vSidebarPane" class="sidebar-pane hidden">
+          <section class="sidebar-card">
+            <div class="card-header">
+              <div class="card-title">
+                <span>🖼️</span>
+                <h3>Image to Video Animator</h3>
+              </div>
+              <span class="tag-status active">60 FPS Motion</span>
+            </div>
+
+            <div class="card-body">
+              <p style="font-size:11.5px; color:var(--text-muted); margin-bottom:12px;">
+                Upload any UI mockup, poster, or picture. The engine applies 2.5D parallax, Ken Burns camera push, and
+                light sweeps to turn it into a dynamic video loop.
+              </p>
+
+              <input type="file" id="i2vFileInput" accept="image/*" hidden>
+              <button id="i2vChooseBtn" class="btn-secondary-action" style="width:100%; margin-bottom:12px;">
+                📁 Choose Image to Animate
+              </button>
+
+              <div class="i2v-preview-card">
+                <img id="i2vImagePreview" class="i2v-preview-img hidden" alt="Preview">
+              </div>
+
+              <div class="form-group">
+                <label>Camera Motion Dynamic</label>
+                <select id="i2vMotionSelect" class="form-control">
+                  <option value="push_zoom" selected>🔍 Ken Burns Push (Smooth Zoom In)</option>
+                  <option value="pan_left">⬅️ Cinematic Smooth Pan</option>
+                  <option value="tilt_3d">📐 Parallax 2.5D Perspective Tilt</option>
+                  <option value="orbit">🪐 Orbit & Glow Pulse</option>
+                </select>
+              </div>
+
+              <button id="i2vAnimateBtn" class="btn-primary-action"
+                style="width:100%; justify-content:center; margin-top:8px;">
+                🚀 Animate Image to Video
+              </button>
+
+              <div id="i2vStatus" class="tag-status hidden" style="margin-top:10px; text-align:center; padding:6px;">
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <!-- PANE 4: VOICE STUDIO (AI SPEECH & NARRATION HUB) -->
+        <div id="voiceSidebarPane" class="sidebar-pane hidden">
+
+          <!-- Card 1: Narration Cues & Timestamps (Master Bilingual Cue Editor) -->
+          <section class="sidebar-card">
+            <div class="card-header">
+              <div class="card-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F59E0B" stroke-width="2">
+                  <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                  <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                  <line x1="12" y1="19" x2="12" y2="23" />
+                  <line x1="8" y1="23" x2="16" y2="23" />
+                </svg>
+                <h3>1. Narration Cues & Timestamps</h3>
+              </div>
+              <button id="addCueBtn" class="btn-small-ghost">+ Add Cue</button>
+            </div>
+
+            <div class="card-body">
+              <div id="scriptCueList" class="script-cue-list"></div>
+            </div>
+          </section>
+
+          <!-- Card 2: Custom Text to Voiceover -->
+          <section class="sidebar-card" style="margin-top: 14px;">
+            <div class="card-header">
+              <div class="card-title">
+                <span>✍️</span>
+                <h3>2. Custom Text to Voiceover</h3>
+              </div>
+              <span class="tag-status active">Bilingual TTS</span>
+            </div>
+
+            <div class="card-body">
+              <p style="font-size:11.5px; color:var(--text-muted); margin-bottom:8px;">
+                Type any script or narration in English or हिन्दी. Generate studio voiceover and inject it directly into the narration cues above.
+              </p>
+
+              <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+                <button id="quickEnSampleBtn" class="btn-small-ghost" style="flex: 1; font-size: 10px;">🇬🇧 English Sample</button>
+                <button id="quickHiSampleBtn" class="btn-small-ghost" style="flex: 1; font-size: 10px;">🇮🇳 हिन्दी Sample</button>
+              </div>
+
+              <div class="form-group">
+                <label>Narration Script Text</label>
+                <textarea id="customVoiceoverText" class="form-control" rows="3"
+                  placeholder="e.g. In seconds, create high-converting promotional videos that capture attention and drive results."></textarea>
+              </div>
+
+              <div style="display: flex; gap: 8px; margin-top: 4px;">
+                <button id="genCustomVoiceBtn" class="btn-primary-action" style="flex: 1; justify-content: center;">
+                  🔊 Play AI Voice
+                </button>
+                <button id="addCustomVoiceAsCueBtn" class="btn-secondary-action" style="flex: 1; justify-content: center;">
+                  📥 + Add as Cue
+                </button>
+              </div>
+
+              <div id="customVoiceStatus" class="tag-status hidden" style="margin-top: 10px; text-align: center;"></div>
+            </div>
+          </section>
+
+          <!-- Card 3: Voice Cloning / Microphone Conversion & Mastering EQ -->
+          <section class="sidebar-card" style="margin-top: 14px;">
+            <div class="card-header">
+              <div class="card-title">
+                <span>🎙️</span>
+                <h3>3. User Voice to AI Conversion</h3>
+              </div>
+              <span class="tag-status active">Mic to AI</span>
+            </div>
+
+            <div class="card-body">
+              <p style="font-size:11.5px; color:var(--text-muted); margin-bottom:10px;">
+                Speak into your microphone. Your voice is transcribed with Whisper and regenerated into an AI voiceover.
+              </p>
+
+              <div class="voice-converter-box">
+                <div class="mic-action-bar">
+                  <button id="micRecordBtn" class="btn-mic-record">
+                    <span class="mic-dot"></span>
+                    <span id="micBtnText">Record My Voice</span>
+                  </button>
+                  <button id="testVoiceBtn" class="btn-small-ghost">🔊 Preview Studio Voice</button>
+                </div>
+                <div id="micStatusText" class="tag-status hidden" style="margin-top:8px;"></div>
+              </div>
+
+              <div class="form-group">
+                <label>Studio Audio Mastering EQ</label>
+                <select id="voiceClarityPreset" class="form-control">
+                  <option value="broadcast" selected>🎙️ Broadcast Studio (Warm, Loud & Punchy)</option>
+                  <option value="crisp">⚡ Crisp & Bright (High Clarity Diction)</option>
+                  <option value="deep">📻 Deep Radio Voice (Enhanced Bass)</option>
+                  <option value="natural">🍃 Natural Acoustic</option>
+                </select>
+              </div>
+            </div>
+          </section>
+        </div>
+
+      </aside>
+
+      <!-- ================================================================= -->
+      <!-- COMPONENT: STAGE VIEWPORT (3D Devices & Captions)                 -->
+      <!-- ================================================================= -->
+      <main class="studio-stage">
+        <div class="stage-viewport">
+          <div id="videoFrameWrapper" class="video-frame-wrapper ratio-9-16">
+            <div id="videoScreen" class="video-screen">
+
+              <!-- Ambient Glow -->
+              <div class="video-ambient-glow"></div>
+
+              <!-- 3D Device Container -->
+              <div id="phoneMockupStage" class="phone-mockup-stage camera-dynamic device-mobile">
+
+                <!-- 1. MOBILE PHONE MOCKUP (Titanium Smartphone) -->
+                <div id="mobileDeviceFrame" class="phone-device-3d">
+                  <div class="phone-titanium-bezel">
+                    <!-- Dynamic Island -->
+                    <div class="phone-dynamic-island">
+                      <div class="island-camera"></div>
+                      <div class="island-sensor"></div>
+                    </div>
+                    <!-- Screen Surface -->
+                    <div class="phone-display-surface">
+                      <div class="video-container-inner">
+                        <video id="userVideoPlayer" playsinline muted loop></video>
+                        <!-- Empty State Placeholder -->
+                        <div id="emptyVideoPlaceholder" class="empty-video-placeholder">
+                          <div class="placeholder-content">
+                            <span class="icon">📱</span>
+                            <h3>Drop Video or Create with AI</h3>
+                            <p>Upload a recording or use the Text-to-Video tab to generate</p>
+                            <button class="btn-pill-primary"
+                              onclick="document.getElementById('videoFileInput').dataset.action = 'replace'; document.getElementById('videoFileInput').click();">Choose Recording</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- 2. DESKTOP / WINDOW MOCKUP -->
+                <div id="desktopDeviceFrame" class="desktop-device-3d hidden">
+                  <div class="window-chrome-bezel">
+                    <div class="window-titlebar">
+                      <div class="window-traffic-lights">
+                        <span class="traffic-light close"></span>
+                        <span class="traffic-light min"></span>
+                        <span class="traffic-light max"></span>
+                      </div>
+                      <div class="window-title-text" id="windowTitleText">Application Preview • 1080p</div>
+                      <div class="window-badge">Desktop Window</div>
+                    </div>
+                    <div class="window-display-surface">
+                      <div class="desktop-video-wrapper">
+                        <video id="userDesktopVideoPlayer" playsinline muted loop></video>
+                        <div id="emptyDesktopPlaceholder" class="empty-video-placeholder">
+                          <div class="placeholder-content">
+                            <span class="icon">💻</span>
+                            <h3>Drop Desktop Video Here</h3>
+                            <p>Upload a desktop recording or software demo</p>
+                            <button class="btn-pill-primary"
+                              onclick="document.getElementById('videoFileInput').dataset.action = 'replace'; document.getElementById('videoFileInput').click();">Choose Window Video</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ============================================================= -->
+        <!-- COMPONENT: TIMELINE BAR (FRAME-ACCURATE PRO TIMELINE)         -->
+        <!-- ============================================================= -->
+        <footer class="studio-timeline-bar">
+          <div class="timeline-controls-left">
+            <button id="playBtn" class="btn-circle-action" title="Play / Pause (Spacebar)">
+              <svg id="playIcon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+              </svg>
+              <svg id="pauseIcon" class="hidden" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <rect x="6" y="4" width="4" height="16"></rect>
+                <rect x="14" y="4" width="4" height="16"></rect>
+              </svg>
+            </button>
+            <button id="replayBtn" class="btn-circle-secondary" title="Replay from 0:00">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 4v6h6M23 20v-6h-6" />
+                <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15" />
+              </svg>
+            </button>
+
+            <!-- Frame Stepper Buttons & Quick Split Blade -->
+            <div class="frame-step-group">
+              <button id="prevFrameBtn" class="btn-frame-jog" title="Step 1 Frame Back (Left Arrow or Comma ,)">
+                <span>◀</span><small>1F</small>
+              </button>
+              <button id="nextFrameBtn" class="btn-frame-jog" title="Step 1 Frame Forward (Right Arrow or Period .)">
+                <small>1F</small><span>▶</span>
+              </button>
+              <button id="timelineSplitBtn" class="btn-timeline-split" title="Split Clip at Current Frame (S or C)">
+                ✂️ Split
+              </button>
+            </div>
+
+            <div class="time-readout">
+              <span id="currentTimeDisplay">00:00.0</span>
+              <span class="divider">/</span>
+              <span id="durationDisplay">00:30.0</span>
+            </div>
+
+            <!-- Frame Counter Badge -->
+            <div id="timelineFrameBadge" class="frame-counter-badge" title="Current Video Frame @ 30 FPS">
+              <span class="f-label">FRAME</span>
+              <span id="currentFrameDisplay" class="f-val">0</span>
+              <span class="f-total">/ <span id="totalFramesDisplay">900</span></span>
+            </div>
+          </div>
+
+          <!-- Interactive Scrubber Track -->
+          <div class="timeline-track-wrapper">
+            <div id="timelineTrack" class="timeline-track">
+              <div id="timelineProgress" class="timeline-progress-fill"></div>
+              <div id="timelinePlayhead" class="timeline-playhead"></div>
+            </div>
+          </div>
+
+          <div class="timeline-controls-right">
+            <!-- FPS Selector -->
+            <div class="fps-selector-wrap" title="Editing Frame Rate">
+              <select id="timelineFpsSelect" class="form-control" style="width: auto; padding: 4px 7px; font-size: 10.5px;">
+                <option value="30" selected>30 FPS</option>
+                <option value="60">60 FPS</option>
+                <option value="24">24 FPS</option>
+              </select>
+            </div>
+
+            <select id="playbackRateSelect" class="form-control" style="width: auto; padding: 4px 8px; font-size: 11px;"
+              title="Playback Speed">
+              <option value="0.75">0.75x</option>
+              <option value="1.0" selected>1.0x</option>
+              <option value="1.25">1.25x</option>
+              <option value="1.5">1.5x</option>
+              <option value="2.0">2.0x</option>
+            </select>
+          </div>
+        </footer>
+      </main>
+
+    </div>
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- COMPONENT: MODALS (API Settings & 1080p Export Progress)            -->
+  <!-- =================================================================== -->
+  <div id="apiSettingsModal" class="modal-backdrop hidden">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div class="modal-title">
+          <div class="modal-title-icon">⚙️</div>
+          <span>AI API Key Manager</span>
+        </div>
+        <button id="closeApiSettingsBtn" class="btn-icon" style="width: 30px; height: 30px; font-size: 14px;" title="Close">✕</button>
+      </div>
+      <p class="modal-subtitle">
+        Keys are loaded from <code>.env</code> with automatic multi-account failover.
+        Click <strong>Verify All Keys</strong> to test each key's live health status, token access, and model availability.
+      </p>
+
+      <div id="apiKeysListContainer"></div>
+
+      <button class="btn-primary-action" style="width: 100%; justify-content: center; margin-top: 14px;"
+        onclick="window.STUDIO_MODALS.closeApiModal()">✓ Save &amp; Return to Studio</button>
+    </div>
+  </div>
+
+  <div id="exportModal" class="export-modal-backdrop hidden">
+    <div class="export-modal-card">
+      <div class="export-spinner"></div>
+      <h3>Rendering Studio Video...</h3>
+      <p>Capturing 1080p 60FPS video with synced audio...</p>
+      <div class="export-progress-bar">
+        <div id="exportProgressBarFill" class="export-progress-fill" style="width: 0%;"></div>
+      </div>
+      <span id="exportProgressPct">0% Rendered</span>
+      <br>
+      <button id="cancelExportBtn" class="btn-small-ghost" style="margin-top: 16px;">Cancel Export</button>
+    </div>
+  </div>
+
+  <!-- =================================================================== -->
+  <!-- CORE BACKEND SCRIPTS & COMPONENT MODULES                            -->
+  <!-- =================================================================== -->
+  <script src="../../core/config.js"></script>
+  <script src="../../core/api_service.js"></script>
+  <script src="../../core/canvas_animator.js"></script>
+  <script src="../../core/audio_master.js"></script>
+  <script src="../../core/voice_engine.js"></script>
+  <script src="../../core/clip_manager.js"></script>
+  <script src="../../core/video_compositor.js"></script>
+
+  <!-- Modular UI Component Controllers -->
+  <script src="../topbar/topbar.js"></script>
+  <script src="../stage/stage.js"></script>
+  <script src="../timeline/timeline.js"></script>
+  <script src="../editor/editor.js"></script>
+  <script src="../text_to_video/text_to_video.js"></script>
+  <script src="../image_to_video/image_to_video.js"></script>
+  <script src="../voice_studio/voice_studio.js"></script>
+  <script src="../modals/modals.js"></script>
+
+  <!-- Master Orchestrator -->
+  <script src="../../core/app.js"></script>
+</body>
+
+</html>

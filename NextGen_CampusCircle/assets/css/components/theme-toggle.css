@@ -1,0 +1,60 @@
+/**
+ * CampusCircle Component - Theme Toggle Button
+ * Cyber Sun/Moon animated dual-theme switch controller.
+ */
+
+.theme-toggle-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.theme-toggle-btn:hover {
+  background: var(--bg-surface);
+  border-color: var(--border-glow);
+  box-shadow: 0 0 15px var(--color-cyan-glow);
+  color: var(--color-cyan);
+}
+
+.theme-icon-sun,
+.theme-icon-moon {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+  stroke-width: 2;
+  stroke: currentColor;
+  fill: none;
+}
+
+/* Light Mode: Show Sun icon, hide Moon */
+[data-theme="light"] .theme-icon-sun {
+  transform: rotate(0) scale(1);
+  opacity: 1;
+}
+
+[data-theme="light"] .theme-icon-moon {
+  transform: rotate(90deg) scale(0);
+  opacity: 0;
+}
+
+/* Dark Mode: Show Moon icon, hide Sun */
+[data-theme="dark"] .theme-icon-sun {
+  transform: rotate(-90deg) scale(0);
+  opacity: 0;
+}
+
+[data-theme="dark"] .theme-icon-moon {
+  transform: rotate(0) scale(1);
+  opacity: 1;
+}

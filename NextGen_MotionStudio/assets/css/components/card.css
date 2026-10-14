@@ -1,0 +1,85 @@
+/* ==========================================================================
+   MOTIONSTUDIO - STUDIO CARDS & GLASS PANELS
+   NextGen • Developed by A.K.Antal
+   ========================================================================== */
+
+.card {
+  background: var(--bg-glass-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: var(--card-shadow);
+  transition: all var(--transition-normal);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-glow-violet);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), var(--glow-violet);
+}
+
+[data-theme="light"] .card:hover {
+  box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+}
+
+.card-interactive {
+  cursor: pointer;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-md);
+}
+
+.card-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: var(--space-xs);
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Glass Panel */
+.glass-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: var(--card-shadow);
+}
+
+/* Video Stage Preview Card */
+.video-preview-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: #000000;
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-preview-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 50%, rgba(5, 7, 17, 0.85) 100%);
+  display: flex;
+  align-items: flex-end;
+  padding: var(--space-md);
+  z-index: 2;
+}

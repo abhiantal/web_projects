@@ -1,0 +1,84 @@
+/* ==========================================================================
+   CAMPUS CIRCLE - ANIMATIONS & CYBERNETIC VISUAL FX
+   ========================================================================== */
+
+@keyframes ambientFloat {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(60px, -40px) scale(1.1);
+  }
+  100% {
+    transform: translate(-30px, 30px) scale(0.95);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.06);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+@keyframes floatElement {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.anim-pulse {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+.anim-float {
+  animation: floatElement 6s ease-in-out infinite;
+}
+
+/* Glowing Border Beam */
+.border-beam {
+  position: relative;
+}
+
+.border-beam::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(90deg, transparent, var(--neon-cyan), var(--neon-indigo), transparent);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.7;
+  filter: blur(2px);
+}
+
+/* Glass Badge Pulse Dot */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--neon-cyan);
+  box-shadow: 0 0 10px var(--neon-cyan);
+  display: inline-block;
+  animation: pulseGlow 2s infinite;
+}
+
+.pulse-dot.emerald {
+  background-color: var(--neon-emerald);
+  box-shadow: 0 0 10px var(--neon-emerald);
+}

@@ -1,0 +1,306 @@
+<script>
+  // If opened directly as standalone file in browser, redirect to main index shell
+  if (window.location.pathname.endsWith('/pages/pricing.html')) {
+    window.location.replace('../index.html#pricing');
+  }
+</script>
+<!-- ==========================================================================
+     MOTIONSTUDIO - PAGE: PRICING (Creator Plans & GPU Render Passes)
+     Architecture Reference: NextGen • Developed by A.K.Antal
+     Focus: AI Studio Video Editing & Kinetic Motion Suite
+     ========================================================================== -->
+
+<section class="section">
+  <div class="container section-content">
+    
+    <!-- Hero & Cycle Toggle -->
+    <div class="section-header text-center reveal">
+      <div class="badge badge-accent mb-sm">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+        </svg>
+        <span>Zero-Cloud Local GPU Efficiency • Transparent Pricing</span>
+      </div>
+      <h1 class="hero-title mb-sm">
+        Plans For Creators, <span class="text-gradient">Studios &amp; Agencies</span>
+      </h1>
+      <p class="section-subtitle mx-auto" style="max-width: 720px;">
+        Harness client-side WebCodecs 4K 60 FPS rendering. Pay for AI neural compute when you need it, or own a perpetual hardware license forever.
+      </p>
+
+      <!-- Monthly / Annual Toggle Switch -->
+      <div class="billing-toggle-wrapper mt-xl">
+        <span class="billing-toggle-label active" id="billing-label-monthly">Monthly Billing</span>
+        <div class="billing-switch" id="billing-cycle-switch" role="switch" aria-checked="false" tabindex="0" aria-label="Toggle annual billing">
+          <div class="billing-switch-thumb"></div>
+        </div>
+        <span class="billing-toggle-label" id="billing-label-annual">Annual Billing</span>
+        <span class="billing-discount-badge" role="button" title="Switch to annual billing">Save 33%</span>
+      </div>
+    </div>
+
+    <!-- CORE PLANS GRID -->
+    <div class="pricing-grid mb-2xl">
+      
+      <!-- Tier 1: Creator Free -->
+      <div class="pricing-card reveal">
+        <div class="pricing-badge">STARTER</div>
+        <h3 class="pricing-title">Creator Free</h3>
+        <p class="pricing-desc">For indie content creators, students, and hobbyists experimenting with AI video editing.</p>
+        
+        <div class="pricing-price-wrap">
+          <span class="pricing-currency">$</span>
+          <span class="pricing-amount">0</span>
+          <span class="pricing-period">/ forever</span>
+        </div>
+
+        <ul class="pricing-features">
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>1080p Local WebCodecs GPU Export</span>
+          </li>
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>15 AI Text-to-Video generations / mo</span>
+          </li>
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>Standard 3D Phone &amp; Laptop Mockups</span>
+          </li>
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>3 Multi-Track Timeline Layers</span>
+          </li>
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>Zero-Cloud Local Privacy</span>
+          </li>
+          <li class="pricing-feature text-muted">
+            <span class="text-muted">✕</span>
+            <span style="opacity: 0.6;">4K 60 FPS WebCodecs Ultra Export</span>
+          </li>
+          <li class="pricing-feature text-muted">
+            <span class="text-muted">✕</span>
+            <span style="opacity: 0.6;">AI Voice Studio &amp; Cloning</span>
+          </li>
+        </ul>
+
+        <a href="components/studio/studio.html" class="btn btn-outline btn-full" data-action="launch-studio">Launch Free Studio</a>
+      </div>
+
+      <!-- Tier 2: Pro Studio (Most Popular) -->
+      <div class="pricing-card popular reveal">
+        <div class="pricing-badge">MOST POPULAR</div>
+        <h3 class="pricing-title">Pro Studio</h3>
+        <p class="pricing-desc">For commercial video editors, SaaS founders, and motion designers needing 4K 60FPS.</p>
+        
+        <div class="pricing-price-wrap">
+          <span class="pricing-currency">$</span>
+          <span class="pricing-amount" data-plan="pro" data-price-monthly="24" data-price-annual="16">24</span>
+          <span class="pricing-period">/ month</span>
+        </div>
+
+        <ul class="pricing-features">
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span class="font-bold text-accent">Ultra 4K 60 FPS WebCodecs Local Render</span>
+          </li>
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>Unlimited AI Text-to-Video &amp; Image-to-Video</span>
+          </li>
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>All 3D Device Frames (iPhone 16 Pro, M4 Mac, Foldables)</span>
+          </li>
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>AI Voice Studio with Custom Narration &amp; Voice Clone</span>
+          </li>
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>Infinite Multi-Track Compositor &amp; Keyframes</span>
+          </li>
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>100% Commercial Usage &amp; Full Asset Ownership</span>
+          </li>
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>Custom Watermark Removal &amp; Brand Kits</span>
+          </li>
+        </ul>
+
+        <a href="components/studio/studio.html" class="btn btn-primary btn-full" data-action="launch-studio">Get Pro Studio Access</a>
+      </div>
+
+      <!-- Tier 3: Studio Team -->
+      <div class="pricing-card reveal">
+        <div class="pricing-badge">STUDIO &amp; AGENCY</div>
+        <h3 class="pricing-title">Team &amp; Agency</h3>
+        <p class="pricing-desc">For production agencies, marketing teams, and video operations running daily campaigns.</p>
+        
+        <div class="pricing-price-wrap">
+          <span class="pricing-currency">$</span>
+          <span class="pricing-amount" data-plan="team" data-price-monthly="79" data-price-annual="59">79</span>
+          <span class="pricing-period">/ month</span>
+        </div>
+
+        <ul class="pricing-features">
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>Everything in Pro Studio for 5 Team Seats</span>
+          </li>
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>Custom Neural LoRA Model Fine-Tuning</span>
+          </li>
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>Shared Team Asset Libraries &amp; Brand Templates</span>
+          </li>
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>Distributed GPU Render Node Clustering</span>
+          </li>
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>Dedicated Slack Channel &amp; Priority NextGen Engineering Support</span>
+          </li>
+          <li class="pricing-feature">
+            <span class="pricing-check">✓</span>
+            <span>Custom Enterprise Invoicing &amp; SLA Guarantee</span>
+          </li>
+        </ul>
+
+        <a href="#terms" data-tab-target="terms" class="btn btn-outline btn-full">Contact Enterprise Team</a>
+      </div>
+
+    </div>
+
+    <!-- LIFETIME PERPETUAL PASS OPTION -->
+    <div class="card glass-panel-elevated p-2xl mb-2xl reveal" style="border: 1px solid rgba(6, 182, 212, 0.3);">
+      <div class="flex items-center justify-between gap-xl flex-wrap">
+        <div>
+          <div class="badge badge-cyan mb-sm">PERPETUAL HARDWARE LICENSE</div>
+          <h2 class="text-h2 mb-xs">MotionStudio Lifetime Pass</h2>
+          <p class="text-secondary text-sm" style="max-width: 600px;">
+            Hate subscriptions? Pay once, keep forever. Run MotionStudio entirely offline on your local machine with permanent 4K 60FPS WebCodecs GPU acceleration and free engine updates for life.
+          </p>
+        </div>
+        <div class="text-right" style="min-width: 220px;">
+          <div class="pricing-price-wrap justify-end mb-sm">
+            <span class="pricing-currency">$</span>
+            <span class="pricing-amount" style="font-size: 3rem;">149</span>
+            <span class="pricing-period">/ one-time</span>
+          </div>
+          <a href="components/studio/studio.html" class="btn btn-primary btn-lg" data-action="launch-studio">
+            <span>Claim Lifetime Pass</span>
+            <span>⚡</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIDEO EDITING FEATURE COMPARISON MATRIX -->
+    <div class="card p-xl reveal">
+      <div class="section-header text-center mb-xl">
+        <h3 class="text-h3">Video Engine Capabilities Matrix</h3>
+        <p class="text-secondary text-sm">Compare features across Creator Free, Pro Studio, and Team Agency passes.</p>
+      </div>
+
+      <div style="overflow-x: auto;">
+        <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--color-border); color: var(--color-text-muted);">
+              <th style="padding: 1rem;">Video Feature</th>
+              <th style="padding: 1rem; text-align: center;">Creator Free</th>
+              <th style="padding: 1rem; text-align: center; color: var(--color-accent-violet);">Pro Studio</th>
+              <th style="padding: 1rem; text-align: center;">Team &amp; Agency</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--color-border);">
+              <td style="padding: 1rem; font-weight: 500;">Max Video Export Resolution</td>
+              <td style="padding: 1rem; text-align: center;">1080p FHD</td>
+              <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--color-accent-violet);">4K Ultra HD (3840×2160)</td>
+              <td style="padding: 1rem; text-align: center; font-weight: 700;">4K Ultra HD (3840×2160)</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--color-border);">
+              <td style="padding: 1rem; font-weight: 500;">Export Frame Rate</td>
+              <td style="padding: 1rem; text-align: center;">30 / 60 FPS</td>
+              <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--color-accent-violet);">60 FPS Native WebCodecs</td>
+              <td style="padding: 1rem; text-align: center; font-weight: 700;">60 FPS Native WebCodecs</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--color-border);">
+              <td style="padding: 1rem; font-weight: 500;">AI Text-to-Video Generations</td>
+              <td style="padding: 1rem; text-align: center;">15 / month</td>
+              <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--color-accent-violet);">Unlimited</td>
+              <td style="padding: 1rem; text-align: center; font-weight: 700;">Unlimited + Priority Queue</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--color-border);">
+              <td style="padding: 1rem; font-weight: 500;">3D Device Mockup Staging</td>
+              <td style="padding: 1rem; text-align: center;">2 Models</td>
+              <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--color-accent-violet);">All 14 Models &amp; Angles</td>
+              <td style="padding: 1rem; text-align: center; font-weight: 700;">All 14 Models + Custom 3D CAD</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--color-border);">
+              <td style="padding: 1rem; font-weight: 500;">AI Subtitle &amp; Kinetic Auto-Captions</td>
+              <td style="padding: 1rem; text-align: center;">Basic Styles</td>
+              <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--color-accent-violet);">All Viral Creator Presets</td>
+              <td style="padding: 1rem; text-align: center; font-weight: 700;">All Styles + Custom Typography</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--color-border);">
+              <td style="padding: 1rem; font-weight: 500;">Zero-Cloud Local Privacy</td>
+              <td style="padding: 1rem; text-align: center; color: var(--color-success);">✓ 100% Local</td>
+              <td style="padding: 1rem; text-align: center; color: var(--color-success); font-weight: 700;">✓ 100% Local</td>
+              <td style="padding: 1rem; text-align: center; color: var(--color-success); font-weight: 700;">✓ 100% Local + Air-Gapped</td>
+            </tr>
+            <tr>
+              <td style="padding: 1rem; font-weight: 500;">Commercial Licensing Rights</td>
+              <td style="padding: 1rem; text-align: center;">Personal Use</td>
+              <td style="padding: 1rem; text-align: center; font-weight: 700; color: var(--color-accent-violet);">Full Commercial Rights</td>
+              <td style="padding: 1rem; text-align: center; font-weight: 700;">Full Commercial Rights</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FAQ SECTION -->
+    <div class="mt-2xl reveal">
+      <div class="section-header text-center mb-xl">
+        <h3 class="text-h3">Frequently Asked Questions</h3>
+        <p class="text-secondary text-sm">Everything you need to know about MotionStudio licensing and hardware rendering.</p>
+      </div>
+
+      <div class="grid grid-cols-2 gap-lg" style="max-width: 900px; margin: 0 auto;">
+        <div class="card p-lg">
+          <h4 class="font-bold mb-xs">Do my video files get uploaded to the cloud?</h4>
+          <p class="text-sm text-secondary">
+            No. Unlike Canva, Descript, or Runway, MotionStudio runs 100% inside your browser using client-side WebCodecs and WebGPU. Your media never leaves your computer.
+          </p>
+        </div>
+        <div class="card p-lg">
+          <h4 class="font-bold mb-xs">Can I monetize videos rendered in MotionStudio?</h4>
+          <p class="text-sm text-secondary">
+            Yes! All videos rendered on Pro Studio, Lifetime Pass, and Team plans include full unencumbered commercial ownership for YouTube monetization, client ads, and App Store promo reels.
+          </p>
+        </div>
+        <div class="card p-lg">
+          <h4 class="font-bold mb-xs">What browsers support 4K 60FPS WebCodecs export?</h4>
+          <p class="text-sm text-secondary">
+            Google Chrome, Microsoft Edge, Brave, Opera, and any Chromium-based browser supporting the W3C WebCodecs VideoEncoder specification with hardware acceleration enabled.
+          </p>
+        </div>
+        <div class="card p-lg">
+          <h4 class="font-bold mb-xs">How is MotionStudio backed?</h4>
+          <p class="text-sm text-secondary">
+            MotionStudio is an official flagship multimedia engine backed by NextGen Technologies. Learn more about our company, owner, and developer on the <a href="#home" data-tab-target="home" class="text-accent">Home Page</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

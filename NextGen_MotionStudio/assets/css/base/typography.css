@@ -1,0 +1,104 @@
+/* ==========================================================================
+   MOTIONSTUDIO - TYPOGRAPHY HIERARCHY
+   NextGen • Developed by A.K.Antal
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  letter-spacing: -0.035em;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  letter-spacing: -0.03em;
+}
+
+h3 {
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.05rem;
+}
+
+h6 {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--neon-cyan) 0%, var(--neon-violet) 50%, var(--neon-pink) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-cyan {
+  background: linear-gradient(135deg, #38bdf8 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-violet {
+  background: linear-gradient(135deg, var(--neon-violet) 0%, var(--neon-pink) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  padding: 2px 7px;
+  border-radius: var(--radius-xs);
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--neon-violet);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+}
+
+[data-theme="light"] code,
+[data-theme="light"] kbd {
+  background: rgba(124, 58, 237, 0.08);
+  color: #7c3aed;
+  border-color: rgba(124, 58, 237, 0.2);
+}
+
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.86rem;
+  padding: 18px 22px;
+  border-radius: var(--radius-md);
+  background: #050814;
+  border: 1px solid var(--border-subtle);
+  overflow-x: auto;
+  color: #e2e8f0;
+  line-height: 1.6;
+}
+
+[data-theme="light"] pre {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  color: #0f172a;
+}

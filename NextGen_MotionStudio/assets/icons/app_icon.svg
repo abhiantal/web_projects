@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="50%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.3" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="16" stdDeviation="24" flood-color="#000000" flood-opacity="0.45" />
+    </filter>
+  </defs>
+
+  <!-- App Icon Background rounded squircle -->
+  <rect x="32" y="32" width="448" height="448" rx="110" fill="url(#bgGrad)" filter="url(#shadow)" />
+  
+  <!-- Subtle glass glare sweep -->
+  <rect x="32" y="32" width="448" height="224" rx="110" fill="url(#glowGrad)" />
+
+  <!-- Studio Video Slate / Camera Lens Emblem -->
+  <g transform="translate(136, 126)">
+    <!-- Video Film Clapper Slate -->
+    <rect x="0" y="40" width="240" height="180" rx="24" fill="#0F172A" stroke="#FFFFFF" stroke-width="8" />
+    
+    <!-- Play Triangle glowing -->
+    <polygon points="95,95 165,130 95,165" fill="#FFE600" />
+    
+    <!-- Sound Waves / AI Sparkles -->
+    <circle cx="210" cy="15" r="14" fill="#00FF88" />
+    <circle cx="25" cy="15" r="14" fill="#38BDF8" />
+    <path d="M70,10 L170,10" stroke="#FFFFFF" stroke-width="12" stroke-linecap="round" />
+  </g>
+</svg>

@@ -1,0 +1,47 @@
+/**
+ * CampusCircle Master Stylesheet
+ * 7-1 Inspired Modular CSS Architecture
+ * Academic Operating System • Powered by NextGen
+ */
+
+/* ==========================================================================
+   1. Base & Design Tokens
+   ========================================================================== */
+@import url('./base/variables.css');
+@import url('./base/reset.css');
+@import url('./base/typography.css');
+
+/* ==========================================================================
+   2. Layout Systems
+   ========================================================================== */
+@import url('./layout/container.css');
+@import url('./layout/grid.css');
+@import url('./layout/section.css');
+@import url('./layout/header.css');
+
+/* ==========================================================================
+   3. UI Components
+   ========================================================================== */
+@import url('./components/navbar.css');
+@import url('./components/button.css');
+@import url('./components/card.css');
+@import url('./components/badge.css');
+@import url('./components/theme-toggle.css');
+@import url('./components/tabs.css');
+@import url('./components/modal.css');
+@import url('./components/toast.css');
+@import url('./components/form.css');
+@import url('./components/table.css');
+@import url('./components/sidebar.css');
+@import url('./components/footer.css');
+
+/* ==========================================================================
+   4. Page-Specific Styles
+   ========================================================================== */
+@import url('./pages/home.css');
+
+/* ==========================================================================
+   5. Utilities & Animations
+   ========================================================================== */
+@import url('./utilities/animations.css');
+@import url('./utilities/helpers.css');

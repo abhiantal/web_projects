@@ -1,0 +1,51 @@
+/**
+ * CampusCircle Utilities - Helpers
+ * Display, spacing, alignment, opacity, and glass utility helpers.
+ */
+
+/* Text Utilities */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-cyan { color: var(--color-cyan); }
+.text-violet { color: var(--color-violet); }
+.text-emerald { color: var(--color-emerald); }
+.text-muted { color: var(--text-muted); }
+.text-bold { font-weight: 700; }
+.text-semibold { font-weight: 600; }
+
+/* Display Utilities */
+.d-block { display: block; }
+.d-inline-block { display: inline-block; }
+.d-none { display: none; }
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+
+/* Glass Panel Utility */
+.glass-panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  padding: var(--space-xl);
+}
+
+/* Margin & Spacing Helpers */
+.mt-xs { margin-top: var(--space-xs); }
+.mt-sm { margin-top: var(--space-sm); }
+.mt-md { margin-top: var(--space-md); }
+.mt-lg { margin-top: var(--space-lg); }
+.mt-xl { margin-top: var(--space-xl); }
+.mt-2xl { margin-top: var(--space-2xl); }
+
+.mb-xs { margin-bottom: var(--space-xs); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+.mb-2xl { margin-bottom: var(--space-2xl); }
+
+/* Overflow and Selection */
+.no-select { user-select: none; }
+.cursor-pointer { cursor: pointer; }

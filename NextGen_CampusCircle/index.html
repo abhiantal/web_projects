@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Circle – University & College Academic Hub (Powered by NextGen)</title>
+  <meta name="description" content="Campus Circle Powered by NextGen. The unified university operating system connecting students and faculty for exams, assignments, projects, PYQs, and interactive coding practice sets backed by an encrypted cloud database.">
+  <link rel="icon" type="image/png" href="assets/images/website_logo.png">
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/animations.css">
+  <link rel="stylesheet" href="assets/css/academic-hub.css">
+    <link rel="stylesheet" href="assets/css/components/sidebar.css">
+<script src="assets/js/core/theme-init.js"></script>
+  <style>
+    .tab-content-pane {
+      display: none;
+      animation: tabFadeIn 0.3s ease-out;
+    }
+    .tab-content-pane.active {
+      display: block;
+    }
+    @keyframes tabFadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .role-picker {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .role-btn {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 10px 8px;
+      text-align: center;
+      cursor: pointer;
+      color: var(--text-secondary);
+      font-size: 0.82rem;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .role-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--border-light);
+    }
+    .role-btn.active {
+      border-color: var(--neon-cyan);
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--neon-cyan);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container" style="display: flex; align-items: center; justify-content: space-between;">
+      
+      <!-- Brand & Sidebar Toggle -->
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button type="button" class="sidebar-trigger-btn" onclick="window.toggleSidebar()" aria-label="Toggle Academic Navigation Sidebar" title="Open Navigation Menu">
+          <span class="sidebar-trigger-icon">☰</span>
+          <span style="display: inline-block;">Menu</span>
+        </button>
+
+        <a href="index.html" class="brand" style="display: flex; align-items: center; gap: 10px;">
+          <img src="assets/images/website_logo.png" alt="Campus Circle & NextGen Logo" class="brand-logo" style="width: 38px; height: 38px; object-fit: contain;">
+          <div class="brand-text">
+            <span class="brand-title">Campus Circle</span>
+            <span class="brand-subtitle" style="display:flex;align-items:center;gap:4px;"><img src="assets/images/company_logo.png" alt="NextGen" style="width:13px;height:13px;object-fit:contain;"> Powered by NextGen</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- The Single Master Top Tab Bar -->
+      <nav id="main-master-nav" class="main-tab-nav">
+        <button class="main-tab-link active" id="btn-tab-home" onclick="switchMainTab('home')">
+          🏠 Home
+        </button>
+        <button class="main-tab-link" id="btn-tab-universities" onclick="switchMainTab('universities')">
+          🏛️ Universities
+        </button>
+        <button class="main-tab-link" id="btn-tab-cockpit" onclick="window.toggleSidebar()">
+          📚 Academic Hub
+        </button>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">☀️</button>
+        <div id="navbar-auth-slot">
+          <!-- Populated by js/profile/auth-engine.js (User Avatar / Sign In button) -->
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main style="padding-top: 110px; padding-bottom: 80px;">
+    <div class="container">
+
+      <!-- ================================================================== -->
+      <!-- ================================================================== -->
+      <!-- TAB 1: HOME (Flagship Showcase: NextGen Ecosystem & CampusCircle OS)-->
+      <!-- ================================================================== -->
+      <div id="tab-pane-home" class="tab-content-pane active">
+<!-- ====================================================================
+     PAGE: HOME (Flagship Showcase: NextGen Ecosystem & CampusCircle OS)
+     ==================================================================== -->
+
+<!-- 1. CYBER HERO SECTION -->
+<section class="home-hero-wrap">
+  <div class="container">
+    <div class="home-hero-grid">
+      <!-- Left Column: Headline & Direct CTAs -->
+      <div class="home-hero-content">
+        <div class="home-hero-badge animate-float">
+          <span class="pulse-dot pulse-dot-cyan"></span>
+          <span>CampusCircle OS v2.0 • Powered by NextGen</span>
+        </div>
+
+        <h1 class="home-hero-title">
+          Pioneering the Future of <br>
+          <span class="text-gradient">Academic Intelligence</span>
+        </h1>
+
+        <p class="home-hero-desc">
+          Developed by <strong>A.K. Antal</strong> under the <strong>NextGen</strong> technology ecosystem. Campus Circle replaces fragmented WhatsApp groups, dead links, and manual spreadsheets with an ultra-fast, autonomous academic operating system backed by PostgreSQL and 0ms local offline resilience.
+        </p>
+
+        <div class="home-hero-actions">
+          <a href="index.html?tab=universities" class="btn btn-primary btn-lg" onclick="if(window.switchMainTab){switchMainTab('universities');return false;}">
+            🏛️ Explore Universities
+          </a>
+          <a href="index.html?tab=auth" class="btn btn-secondary btn-lg" onclick="if(window.switchMainTab){switchMainTab('auth');return false;}">
+            🔐 Sign In / Student Portal
+          </a>
+          <a href="#cockpit-section" class="btn btn-outline btn-lg">
+            ⚡ Interactive Cockpit
+          </a>
+        </div>
+
+        <div class="flex items-center gap-md flex-wrap text-muted" style="font-size: 0.85rem;">
+          <span class="flex items-center gap-xs">
+            <span class="pulse-dot pulse-dot-emerald"></span> Verified Cloud Data Layer
+          </span>
+          <span>•</span>
+          <span>100% Private &amp; Ad-Free</span>
+          <span>•</span>
+          <span>FERPA / GDPR Compliant</span>
+        </div>
+      </div>
+
+      <!-- Right Column: 3D Orbital Hero Visual -->
+      <div class="home-hero-visual">
+        <div class="home-hero-visual-frame">
+          <!-- Floating Status Chips -->
+          <div class="floating-chip chip-top-left">
+            <span class="pulse-dot pulse-dot-cyan"></span>
+            <span>Autonomous Offline Engine</span>
+          </div>
+
+          <img src="assets/images/website_transprent.png" alt="Campus Circle Technology & Network Sphere" class="home-hero-img">
+
+          <div class="floating-chip chip-bottom-right">
+            <span class="pulse-dot pulse-dot-violet"></span>
+            <span>NextGen Quantum Telemetry</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KPI Metrics Bar -->
+    <div class="home-kpi-bar">
+      <div class="home-kpi-item">
+        <span class="home-kpi-val text-cyan" data-counter-target="50" data-counter-suffix="+">50+</span>
+        <span class="home-kpi-lbl">Verified Universities</span>
+      </div>
+      <div class="home-kpi-divider"></div>
+      <div class="home-kpi-item">
+        <span class="home-kpi-val text-violet" data-counter-target="120" data-counter-suffix="k+">120k+</span>
+        <span class="home-kpi-lbl">Active Scholars &amp; Faculty</span>
+      </div>
+      <div class="home-kpi-divider"></div>
+      <div class="home-kpi-item">
+        <span class="home-kpi-val text-emerald" data-counter-target="15" data-counter-suffix=" DB">15 DB</span>
+        <span class="home-kpi-lbl">Production PostgreSQL Schemas</span>
+      </div>
+      <div class="home-kpi-divider"></div>
+      <div class="home-kpi-item">
+        <span class="home-kpi-val" style="color: var(--color-amber);" data-counter-target="0" data-counter-suffix=" ms">0 ms</span>
+        <span class="home-kpi-lbl">Local UI Cache Latency</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- 3. CAMPUSCIRCLE INTERACTIVE ACADEMIC COCKPIT (INTERACTIVE SYSTEM DEMO) -->
+<section class="section" id="cockpit-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge badge-cyan mb-xs">
+        <span class="pulse-dot pulse-dot-cyan"></span> Live Cockpit Simulation
+      </div>
+      <h2>Experience CampusCircle in Real-Time</h2>
+      <p>Click through the core subsystems below to preview how CampusCircle orchestrates academic operations.</p>
+    </div>
+
+    <div class="academic-cockpit-grid">
+      <!-- Left: Interactive Navigator -->
+      <div class="cockpit-nav-controls">
+        <button type="button" class="cockpit-nav-btn active" data-cockpit-target="cockpit-curriculum">
+          <span class="cockpit-btn-icon">📚</span>
+          <div class="cockpit-btn-text">
+            <h4>Curriculum &amp; Syllabus Engine</h4>
+            <p>Semester-by-semester course directory, credit units &amp; lesson plans</p>
+          </div>
+        </button>
+
+        <button type="button" class="cockpit-nav-btn" data-cockpit-target="cockpit-codelab">
+          <span class="cockpit-btn-icon">⚡</span>
+          <div class="cockpit-btn-text">
+            <h4>High-Yield Code Lab &amp; PYQs</h4>
+            <p>Interactive algorithm practice lab directly inspired by exam_sem_6</p>
+          </div>
+        </button>
+
+        <button type="button" class="cockpit-nav-btn" data-cockpit-target="cockpit-exams">
+          <span class="cockpit-btn-icon">🏛️</span>
+          <div class="cockpit-btn-text">
+            <h4>Exams &amp; Seating Matrix</h4>
+            <p>Real-time countdowns, hall tickets &amp; faculty invigilator duties</p>
+          </div>
+        </button>
+
+        <button type="button" class="cockpit-nav-btn" data-cockpit-target="cockpit-placements">
+          <span class="cockpit-btn-icon">💼</span>
+          <div class="cockpit-btn-text">
+            <h4>Corporate Placements &amp; CTC Intel</h4>
+            <p>Verified campus recruitment drives, company tiers &amp; salary trends</p>
+          </div>
+        </button>
+      </div>
+
+      <!-- Right: Interactive Display Screen -->
+      <div class="cockpit-display-screen">
+        <div class="cockpit-screen-header">
+          <div class="cockpit-screen-dots">
+            <div class="cockpit-screen-dot dot-red"></div>
+            <div class="cockpit-screen-dot dot-amber"></div>
+            <div class="cockpit-screen-dot dot-emerald"></div>
+          </div>
+          <span style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">campuscircle-os://terminal/view</span>
+          <span class="badge badge-cyan" style="font-size: 0.72rem;">LIVE</span>
+        </div>
+
+        <!-- Screen 1: Curriculum -->
+        <div class="cockpit-pane active" id="cockpit-curriculum">
+          <div class="flex justify-between items-center mb-md">
+            <div>
+              <h3 style="font-size: 1.2rem; margin: 0 0 2px;">B.Tech Computer Science &amp; Engineering</h3>
+              <span style="font-size: 0.82rem; color: var(--color-cyan);">Semester 6 • High-Performance Track</span>
+            </div>
+            <span class="badge badge-emerald">Spring 2026 Active</span>
+          </div>
+          <div class="table-responsive">
+            <table class="table" style="font-size: 0.88rem;">
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Subject</th>
+                  <th>Credits</th>
+                  <th>Faculty</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><code>CS601</code></td>
+                  <td>Design &amp; Analysis of Algorithms</td>
+                  <td>4.0</td>
+                  <td>Dr. A.K. Antal</td>
+                </tr>
+                <tr>
+                  <td><code>CS602</code></td>
+                  <td>Distributed Databases &amp; PostgreSQL</td>
+                  <td>3.5</td>
+                  <td>Prof. S. Sharma</td>
+                </tr>
+                <tr>
+                  <td><code>CS603</code></td>
+                  <td>Artificial Intelligence &amp; Neural Nets</td>
+                  <td>4.0</td>
+                  <td>Dr. M. Sterling</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Screen 2: Code Lab -->
+        <div class="cockpit-pane" id="cockpit-codelab">
+          <div class="flex justify-between items-center mb-md">
+            <div>
+              <h3 style="font-size: 1.2rem; margin: 0 0 2px;">Algorithm Practice Lab: Bellman-Ford</h3>
+              <span style="font-size: 0.82rem; color: var(--color-cyan);">Dynamic Programming &bull; O(V &times; E) Complexity</span>
+            </div>
+            <span class="badge badge-violet">Exam Sem 6 Verified</span>
+          </div>
+          <div style="background: rgba(5, 7, 14, 0.8); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: var(--space-md); font-family: var(--font-mono); font-size: 0.84rem; color: #38bdf8; overflow-x: auto;">
+            <span style="color: #64748b;">// Bellman-Ford Algorithm — Negative Cycle Detector</span><br>
+            <span style="color: #a855f7;">function</span> <span style="color: #38bdf8;">bellmanFord</span>(vertices, edges, source) {<br>
+            &nbsp;&nbsp;<span style="color: #a855f7;">const</span> dist = <span style="color: #f59e0b;">new</span> <span style="color: #38bdf8;">Array</span>(vertices).<span style="color: #38bdf8;">fill</span>(<span style="color: #10b981;">Infinity</span>);<br>
+            &nbsp;&nbsp;dist[source] = <span style="color: #10b981;">0</span>;<br>
+            &nbsp;&nbsp;<span style="color: #64748b;">/* Relax all edges V-1 times */</span><br>
+            &nbsp;&nbsp;<span style="color: #a855f7;">return</span> { success: <span style="color: #10b981;">true</span>, distances: dist };<br>
+            }
+          </div>
+          <div class="flex gap-sm mt-md">
+            <span class="badge badge-emerald">100% Test Cases Passed</span>
+            <span class="badge badge-cyan">Complexity: O(V &times; E)</span>
+          </div>
+        </div>
+
+        <!-- Screen 3: Exams -->
+        <div class="cockpit-pane" id="cockpit-exams">
+          <div class="flex justify-between items-center mb-md">
+            <div>
+              <h3 style="font-size: 1.2rem; margin: 0 0 2px;">End-Term Examination Countdown</h3>
+              <span style="font-size: 0.82rem; color: var(--color-cyan);">Hall Ticket Verified &bull; Seating Allotted</span>
+            </div>
+            <span class="badge badge-rose">Urgent &bull; 8 Days Left</span>
+          </div>
+          <div class="grid grid-cols-2 gap-sm">
+            <div class="card card-sm" style="background: var(--bg-surface-subtle);">
+              <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Subject</span>
+              <div style="font-weight: 700; color: var(--text-primary); margin-top: 2px;">CS601: Algorithms Exam</div>
+              <div style="font-size: 0.8rem; color: var(--color-cyan); margin-top: 4px;">📅 May 18, 2026 &bull; 09:30 AM</div>
+            </div>
+            <div class="card card-sm" style="background: var(--bg-surface-subtle);">
+              <span style="font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; font-weight: 700;">Hall &amp; Seat Allotment</span>
+              <div style="font-weight: 700; color: var(--color-emerald); margin-top: 2px;">Audi-B &bull; Desk #42</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-top: 4px;">Faculty Lead: Dr. Antal</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Screen 4: Placements -->
+        <div class="cockpit-pane" id="cockpit-placements">
+          <div class="flex justify-between items-center mb-md">
+            <div>
+              <h3 style="font-size: 1.2rem; margin: 0 0 2px;">Corporate Placement Trackers</h3>
+              <span style="font-size: 0.82rem; color: var(--color-cyan);">Tier-1 &amp; Unicorn Recruitment Analytics</span>
+            </div>
+            <span class="badge badge-emerald">94.8% Placed</span>
+          </div>
+          <div class="grid grid-cols-3 gap-sm">
+            <div class="card card-sm text-center" style="background: var(--bg-surface-subtle);">
+              <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-cyan);">₹44 LPA</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Highest CTC</div>
+            </div>
+            <div class="card card-sm text-center" style="background: var(--bg-surface-subtle);">
+              <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-emerald);">₹12.6 LPA</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Average Package</div>
+            </div>
+            <div class="card card-sm text-center" style="background: var(--bg-surface-subtle);">
+              <div style="font-size: 1.4rem; font-weight: 800; color: var(--color-violet);">180+</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted);">Partner Tech Giants</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. CORE PLATFORM PILLARS (6-CARD CYBER GRID) -->
+<section class="section" id="pillars-section">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge badge-violet mb-xs">
+        <span class="pulse-dot pulse-dot-violet"></span> Architectural Foundations
+      </div>
+      <h2>Engineered for Academic Dominance</h2>
+      <p>Every layer of Campus Circle is built with precision, fault tolerance, and institutional scalability.</p>
+    </div>
+
+    <div class="grid grid-cols-3">
+      <div class="card feature-card">
+        <div>
+          <div class="feature-icon-wrapper">🏛️</div>
+          <h3>Single Source of Truth</h3>
+          <p>Universities, timetables, coursework guidelines, and seating plans are verified by faculty, eliminating rumors and missed deadlines.</p>
+        </div>
+        <div class="mt-lg">
+          <span class="badge badge-cyan">Faculty Verified</span>
+        </div>
+      </div>
+
+      <div class="card feature-card card-violet">
+        <div>
+          <div class="feature-icon-wrapper">⚡</div>
+          <h3>Interactive Code Lab</h3>
+          <p>Built-in algorithms laboratory inspired by <code>exam_sem_6</code> with syntax-highlighted solutions, complexity meters, and viva master tips.</p>
+        </div>
+        <div class="mt-lg">
+          <span class="badge badge-violet">Live Practice</span>
+        </div>
+      </div>
+
+      <div class="card feature-card">
+        <div>
+          <div class="feature-icon-wrapper">🛡️</div>
+          <h3>PostgreSQL &amp; Zero Ads</h3>
+          <p>15 production PostgreSQL schemas protected by Row Level Security. Zero third-party ad tracking, 100% scholar data privacy.</p>
+        </div>
+        <div class="mt-lg">
+          <span class="badge badge-emerald">PostgreSQL 16</span>
+        </div>
+      </div>
+
+      <div class="card feature-card card-violet">
+        <div>
+          <div class="feature-icon-wrapper">📱</div>
+          <h3>Autonomous Offline Engine</h3>
+          <p>Instant cache fallback guarantees all syllabi, assignments, and exam cards remain accessible even with zero campus Wi-Fi connectivity.</p>
+        </div>
+        <div class="mt-lg">
+          <span class="badge badge-cyan">0ms Offline</span>
+        </div>
+      </div>
+
+      <div class="card feature-card">
+        <div>
+          <div class="feature-icon-wrapper">💼</div>
+          <h3>Placement Intelligence</h3>
+          <p>Direct placement office reports, hiring company matrices, eligibility criteria, and past interview debriefs for senior cohorts.</p>
+        </div>
+        <div class="mt-lg">
+          <span class="badge badge-amber">Career Hub</span>
+        </div>
+      </div>
+
+      <div class="card feature-card card-violet">
+        <div>
+          <div class="feature-icon-wrapper">🌙</div>
+          <h3>Fluid Dual-Theme System</h3>
+          <p>Engineered for all-night study sprints in obsidian cyber dark mode or crisp porcelain light mode for brightly lit campus auditoriums.</p>
+        </div>
+        <div class="mt-lg">
+          <span class="badge badge-violet">Zero FOUC</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. HIGH-IMPACT CALL TO ACTION -->
+<section class="section" style="padding-bottom: 3.5rem;">
+  <div class="container">
+    <div class="glass-panel text-center" style="border-color: var(--border-glow); box-shadow: var(--shadow-lg), 0 0 35px var(--color-cyan-dim); padding: clamp(2.5rem, 5vw, 4rem);">
+      <div class="badge badge-cyan mb-sm">
+        <span class="pulse-dot pulse-dot-cyan"></span> Instant Academic Access
+      </div>
+      <h2 style="font-size: clamp(2rem, 3.5vw, 2.8rem); margin-bottom: var(--space-sm);">
+        Step into the Unified Academic Operating System
+      </h2>
+      <p class="lead" style="margin: 0 auto var(--space-xl) auto; max-width: 620px;">
+        Explore accredited universities, syllabus repositories, verified exam dates, and coding practice labs today.
+      </p>
+      <div class="flex justify-center gap-md flex-wrap">
+        <a href="index.html?tab=universities" class="btn btn-primary btn-lg" onclick="if(window.switchMainTab){switchMainTab('universities');return false;}">
+          🏛️ Explore Universities Directory
+        </a>
+        <a href="index.html?tab=auth" class="btn btn-secondary btn-lg" onclick="if(window.switchMainTab){switchMainTab('auth');return false;}">
+          🔐 Sign In / Student Portal
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT NEXTGEN (UNIFIED ENTERPRISE COMPONENT: LOGO, MOTTO, PHILOSOPHY & GOVERNANCE) -->
+<section class="section" id="about-nextgen-section">
+  <div class="container section-content">
+
+    <div class="section-header text-center reveal-on-scroll">
+      <div class="badge badge-accent mb-sm">The Parent Enterprise</div>
+      <h2 style="font-size: clamp(1.8rem, 3.2vw, 2.6rem);">About <span class="text-gradient">NextGen</span></h2>
+      <p class="section-subtitle mx-auto" style="max-width: 680px; color: var(--text-secondary, #94a3b8); margin: 8px auto 0;">
+        Pioneering high-velocity software architectures, autonomous offline resilience, and distraction-free cognitive intelligence.
+      </p>
+    </div>
+
+    <!-- Company Mission Statement Hero with Official Emblem & Motto -->
+    <div class="company-mission-card reveal-on-scroll delay-100">
+      <div class="company-emblem-wrapper">
+        <img src="assets/images/company_transparent_logo.png" alt="NextGen - Innovation, Strength, Future" class="company-emblem-img">
+      </div>
+      <div class="company-mission-badge">OUR PURPOSE &amp; PHILOSOPHY</div>
+      <p class="company-mission-quote">
+        &ldquo;We engineer digital architectures that balance breathtaking visual artistry with uncompromising local-first execution. NextGen exists to advance human potential through zero-latency cognitive computing, unyielding privacy sovereignty, and distraction-free software craft.&rdquo;
+      </p>
+      <div class="company-motto">
+        <span>INNOVATION</span> &bull; <span>STRENGTH</span> &bull; <span>FUTURE</span>
+      </div>
+
+      <!-- Integrated Company & Owner Governance Details -->
+      <div class="company-governance-strip">
+        <div class="gov-item">
+          <div class="gov-label">Enterprise Entity</div>
+          <div class="gov-val">NextGen Technologies</div>
+        </div>
+        <div class="gov-divider"></div>
+        <div class="gov-item">
+          <div class="gov-label">Operational Model</div>
+          <div class="gov-val">Independent Software Laboratory</div>
+        </div>
+        <div class="gov-divider"></div>
+        <div class="gov-item">
+          <div class="gov-label">Engineering Ethos</div>
+          <div class="gov-val">Zero Telemetry &bull; Client Silicon First</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 Core Company Architectural Pillars -->
+    <div class="company-pillars-grid grid grid-cols-3 gap-lg mt-xl reveal-on-scroll delay-200">
+
+      <div class="card card-hover card-accent-top">
+        <div class="card-icon text-cyan" style="font-size: 1.8rem; margin-bottom: 0.75rem;">⚡</div>
+        <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 0.5rem;">Cognitive Ergonomics</h3>
+        <p class="card-desc" style="font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary, #94a3b8); margin: 0;">
+          Every interface, micro-animation, and transition is intentionally architected to eliminate cognitive fatigue and reduce digital friction.
+        </p>
+      </div>
+
+      <div class="card card-hover card-accent-top">
+        <div class="card-icon text-violet" style="font-size: 1.8rem; margin-bottom: 0.75rem;">🛡️</div>
+        <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 0.5rem;">Sovereign Privacy</h3>
+        <p class="card-desc" style="font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary, #94a3b8); margin: 0;">
+          Strict rejection of ad networks and predatory tracking. Personal data, curriculum, and records remain sovereign with zero third-party monetization.
+        </p>
+      </div>
+
+      <div class="card card-hover card-accent-top">
+        <div class="card-icon text-emerald" style="font-size: 1.8rem; margin-bottom: 0.75rem;">🚀</div>
+        <h3 class="card-title" style="font-size: 1.15rem; margin-bottom: 0.5rem;">Zero-Latency Silicon</h3>
+        <p class="card-desc" style="font-size: 0.88rem; line-height: 1.6; color: var(--text-secondary, #94a3b8); margin: 0;">
+          Offline-first local cache ensuring schedule checks, syllabus access, and calculations occur in 0ms without server roundtrips.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- 5. LEAD ARCHITECT & DEVELOPER SPOTLIGHT -->
+<section class="section" id="founder-spotlight" style="padding-top:var(--space-xl);padding-bottom:var(--space-2xl);">
+  <div class="container">
+    <div class="section-header text-center" style="margin-bottom:var(--space-xl);">
+      <span class="badge badge-violet mb-xs" style="display:inline-flex;">NextGen Core Leadership</span>
+      <h2 style="font-size:clamp(1.8rem,3vw,2.5rem);">Developer &amp; <span class="text-gradient">Architect Spotlight</span></h2>
+      <p style="color:var(--text-secondary);max-width:600px;margin:8px auto 0;">
+        The engineering craftsmanship and technical leadership behind the NextGen architecture and CampusCircle.
+      </p>
+    </div>
+
+    <div class="founder-spotlight-card" style="display:grid;grid-template-columns:auto 1fr;gap:clamp(24px,4vw,56px);align-items:center;background:rgba(255,255,255,0.03);border:1px solid rgba(56,189,248,0.25);border-radius:24px;padding:clamp(24px,4vw,48px);max-width:960px;margin:0 auto;position:relative;overflow:hidden;box-shadow:0 0 50px rgba(56,189,248,0.08);">
+      <div style="position:absolute;top:-60px;right:-60px;width:250px;height:250px;border-radius:50%;background:radial-gradient(circle,rgba(56,189,248,0.18) 0%,transparent 70%);pointer-events:none;"></div>
+      
+      <!-- Developer Avatar with Glowing Ring & Company Logo -->
+      <div style="text-align:center;min-width:160px;">
+        <div style="position:relative;display:inline-block;">
+          <img src="assets/images/Abhi_avatar.jpg" alt="Abhi Kumar (A.K. Antal)" style="width:145px;height:145px;border-radius:50%;object-fit:cover;object-position:top;border:3px solid rgba(56,189,248,0.6);box-shadow:0 0 35px rgba(56,189,248,0.35);">
+          <div style="position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);white-space:nowrap;background:linear-gradient(90deg,#38bdf8,#a78bfa);color:#fff;font-size:0.65rem;font-weight:700;letter-spacing:0.08em;padding:4px 12px;border-radius:20px;">LEAD ARCHITECT</div>
+        </div>
+        <div style="margin-top:22px;">
+          <img src="assets/images/company_transparent_logo.png" alt="NextGen" style="width:85px;object-fit:contain;filter:drop-shadow(0 0 14px rgba(56,189,248,0.45));">
+          <div style="font-size:0.75rem;font-weight:700;color:var(--text-muted);margin-top:4px;letter-spacing:0.05em;">NEXGEN CORE</div>
+        </div>
+      </div>
+
+      <!-- Developer Info & Specs -->
+      <div>
+        <div class="flex items-center gap-xs flex-wrap mb-xs">
+          <span class="badge badge-cyan" style="font-size:0.75rem;">FOUNDER &amp; OWNER</span>
+          <span class="badge badge-secondary" style="font-size:0.75rem;">FULL-STACK SYSTEMS ARCHITECT</span>
+        </div>
+        <h3 style="font-size:clamp(1.6rem,2.8vw,2.2rem);margin-bottom:4px;color:var(--text-primary);">Abhi Kumar (A.K. Antal)</h3>
+        <p style="font-size:0.92rem;color:var(--neon-cyan);margin-bottom:14px;font-weight:600;">
+          Founder, Owner &amp; Principal Systems Architect &bull; NextGen Technologies
+        </p>
+
+        <blockquote style="border-left:3px solid var(--neon-cyan);padding-left:16px;margin:0 0 18px;font-style:italic;color:var(--text-secondary);font-size:0.95rem;line-height:1.7;">
+          "CampusCircle was built to replace fragmented WhatsApp groups, dead links, and manual spreadsheets with an ultra-fast, autonomous academic operating system. Every module is engineered for zero lag, total privacy, and student empowerment."
+        </blockquote>
+
+        <!-- Technical Mastery Pills -->
+        <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;">
+          <span style="font-size:0.75rem;padding:4px 10px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:var(--text-secondary);">PostgreSQL Cloud + RLS</span>
+          <span style="font-size:0.75rem;padding:4px 10px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:var(--text-secondary);">Reactive Architecture</span>
+          <span style="font-size:0.75rem;padding:4px 10px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:var(--text-secondary);">WebGPU Acceleration</span>
+          <span style="font-size:0.75rem;padding:4px 10px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:var(--text-secondary);">Modular 7-1 CSS</span>
+          <span style="font-size:0.75rem;padding:4px 10px;border-radius:8px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);color:var(--text-secondary);">Cyber UI/UX Glassmorphism</span>
+        </div>
+
+        <!-- Specifications Grid -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));gap:10px;margin-bottom:18px;">
+          <div style="background:rgba(255,255,255,0.04);border-radius:12px;padding:10px 14px;border:1px solid rgba(255,255,255,0.06);">
+            <div style="font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Parent Company</div>
+            <div style="font-size:0.92rem;font-weight:700;color:var(--neon-cyan);">NextGen Technologies</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-radius:12px;padding:10px 14px;border:1px solid rgba(255,255,255,0.06);">
+            <div style="font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Academic Engine</div>
+            <div style="font-size:0.92rem;font-weight:700;color:#34d399;">CampusCircle v2.0</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.04);border-radius:12px;padding:10px 14px;border:1px solid rgba(255,255,255,0.06);">
+            <div style="font-size:0.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:2px;">Suite Ecosystem</div>
+            <div style="font-size:0.92rem;font-weight:700;color:#a78bfa;">3 Interconnected Apps</div>
+          </div>
+        </div>
+
+        <!-- Direct Actions & 1-Click Interactive Copy Email -->
+        <div class="developer-contact-actions">
+          <button type="button" class="copy-email-pill" data-copy="akantal011@gmail.com" title="Click to copy verified developer email">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <span>akantal011@gmail.com</span>
+            <span style="font-size:0.7rem;opacity:0.7;">(Click to Copy)</span>
+          </button>
+
+          <a href="mailto:akantal011@gmail.com" class="btn btn-secondary" style="padding:8px 18px;font-size:0.85rem;">
+            ✉ Email Directly
+          </a>
+
+          <a href="https://github.com/abhiantal" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding:8px 18px;font-size:0.85rem;">
+            GitHub Profile ↗
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- TAB 2: UNIVERSITIES (Directory with Real-Time Search & Cards)      -->
+      <!-- ================================================================== -->
+      <div id="tab-pane-universities" class="tab-content-pane">
+        <!-- Universities Header & Verified Notice -->
+        <div style="margin-bottom: 24px;">
+          <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin-bottom: 6px;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--neon-cyan); font-weight: 700;">Campus Directory</span>
+              <span style="background: rgba(16,185,129,0.15); border: 1px solid rgba(16,185,129,0.3); color: var(--neon-emerald); font-size: 0.72rem; padding: 3px 10px; border-radius: 20px; font-weight: 700;">
+                ✓ 2 Verified Institutions
+              </span>
+            </div>
+            
+            <div style="display: flex; align-items: center; gap: 6px; font-size: 0.8rem; color: #FBBF24; background: rgba(245,158,11,0.1); border: 1px solid rgba(245,158,11,0.25); padding: 4px 12px; border-radius: 20px;">
+              <span>🔒</span>
+              <span>Clicking any campus opens verified Academic Cockpit (Login required)</span>
+            </div>
+          </div>
+
+          <h1 style="font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 3.5vw, 2.6rem); font-weight: 800; color: var(--text-primary); margin: 0 0 8px;">
+            Explore Universities & Campuses
+          </h1>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 720px; margin: 0; line-height: 1.6;">
+            Access verified examination timetables, comprehensive previous year question archives (PYQs), assignment rubrics, and high-yield programming labs directly from accredited partner institutions.
+          </p>
+        </div>
+
+        <!-- Fast Category Filter Chips & High-Tech Search Bar -->
+        <div style="margin-bottom: 30px;">
+          <!-- Filter Chips -->
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px;">
+            <button type="button" class="filter-btn uni-filter-chip active" data-filter="ALL" style="border-radius: 20px; padding: 6px 16px; font-size: 0.84rem;">
+              🏛️ All Campuses
+            </button>
+            <button type="button" class="filter-btn uni-filter-chip" data-filter="NIRF" style="border-radius: 20px; padding: 6px 16px; font-size: 0.84rem;">
+              🏅 NIRF Top 100
+            </button>
+            <button type="button" class="filter-btn uni-filter-chip" data-filter="PLACEMENTS" style="border-radius: 20px; padding: 6px 16px; font-size: 0.84rem;">
+              💰 Highest CTC (> ₹30 LPA)
+            </button>
+            <button type="button" class="filter-btn uni-filter-chip" data-filter="TECH" style="border-radius: 20px; padding: 6px 16px; font-size: 0.84rem;">
+              💻 Engineering & CS
+            </button>
+          </div>
+
+          <!-- Real-Time University Search Bar -->
+          <div class="filter-bar" style="padding: 12px 18px; border-radius: 16px; border: 1px solid rgba(56,189,248,0.25);">
+            <div style="display: flex; align-items: center; gap: 12px; width: 100%;">
+              <span style="font-size: 1.3rem; color: var(--neon-cyan);">🔍</span>
+              <input type="text" id="university-search-input" class="filter-input" placeholder="Search by name (Galgotias, Noida International, NIU), city, or program..." style="width: 100%; font-size: 0.95rem; border: none; background: transparent; padding: 6px 0;">
+            </div>
+          </div>
+        </div>
+
+        <!-- Universities Cards Grid (Rendered dynamically by js/university/university-engine.js) -->
+        <div class="timetable-grid" id="universities-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 24px;">
+          <!-- Populated dynamically -->
+        </div>
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- TAB 3: SIGN IN / SIGN UP (Authentication Portal)                   -->
+      <!-- ================================================================== -->
+      <div id="tab-pane-auth" class="tab-content-pane">
+        <div style="max-width: 520px; margin: 0 auto; background: var(--bg-glass-card); border: 1px solid var(--border-subtle); border-radius: 24px; padding: 36px; backdrop-filter: blur(16px); box-shadow: var(--card-shadow);">
+          
+          <div style="text-align: center; margin-bottom: 24px;">
+            <div style="font-size: 2.4rem; margin-bottom: 6px;">🔐</div>
+            <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--text-primary); margin: 0 0 4px;">
+              Campus Circle Auth
+            </h2>
+            <p style="font-size: 0.85rem; color: var(--text-secondary); margin: 0;">
+              Access verified university exams, assignments, code lab, and community.
+            </p>
+          </div>
+
+          <!-- Auth Mode Toggle (Sign In vs Sign Up) -->
+          <div style="display: flex; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 4px; margin-bottom: 24px;">
+            <button id="auth-mode-signin" class="filter-btn active" style="flex: 1; border-radius: 8px; padding: 8px;" onclick="setAuthMode('signin')">
+              Sign In
+            </button>
+            <button id="auth-mode-signup" class="filter-btn" style="flex: 1; border-radius: 8px; padding: 8px;" onclick="setAuthMode('signup')">
+              Create Account (Sign Up)
+            </button>
+          </div>
+
+          <!-- Sign In Form -->
+          <form id="form-signin" onsubmit="handleSignInSubmit(event)">
+            <div style="margin-bottom: 16px;">
+              <label style="display:block; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:600; margin-bottom:6px;">University Email</label>
+              <input type="email" id="signin-email" class="filter-input" style="width:100%;" placeholder="student@university.edu" required>
+            </div>
+
+            <div style="margin-bottom: 22px;">
+              <label style="display:block; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:600; margin-bottom:6px;">Password</label>
+              <input type="password" id="signin-pass" class="filter-input" style="width:100%;" placeholder="••••••••" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.95rem; margin-bottom: 14px;">
+              🚀 Sign In & Enter Hub
+            </button>
+
+            <div style="text-align: center; font-size: 0.8rem; color: var(--text-muted);">
+              Testing offline? Simply enter any email & password to test instant sign-in!
+            </div>
+          </form>
+
+          <!-- Sign Up Form (Initially Hidden) -->
+          <form id="form-signup" style="display: none;" onsubmit="handleSignUpSubmit(event)">
+            <div style="margin-bottom: 14px;">
+              <label style="display:block; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:600; margin-bottom:6px;">Select Role</label>
+              <div class="role-picker">
+                <div class="role-btn active" data-role="student" onclick="selectRole('student', this)">🎓 Student</div>
+                <div class="role-btn" data-role="teacher" onclick="selectRole('teacher', this)">👨‍🏫 Faculty</div>
+                <div class="role-btn" data-role="admin" onclick="selectRole('admin', this)">🛡️ Admin</div>
+              </div>
+            </div>
+
+            <div style="margin-bottom: 14px;">
+              <label style="display:block; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:600; margin-bottom:6px;">Full Name</label>
+              <input type="text" id="signup-name" class="filter-input" style="width:100%;" placeholder="e.g. Abhi Kumar" required>
+            </div>
+
+            <div style="margin-bottom: 14px;">
+              <label style="display:block; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:600; margin-bottom:6px;">Institutional Email</label>
+              <input type="email" id="signup-email" class="filter-input" style="width:100%;" placeholder="name@university.edu" required>
+            </div>
+
+            <div style="margin-bottom: 14px;">
+              <label style="display:block; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:600; margin-bottom:6px;">University / Institute</label>
+              <select id="signup-uni" class="filter-select" style="width: 100%;">
+                <option value="Apex Institute of Technology">Apex Institute of Technology</option>
+                <option value="Delhi Technological University">Delhi Technological University</option>
+                <option value="National Institute of Technology Kurukshetra">National Institute of Technology</option>
+                <option value="Indian Institute of Technology Delhi">IIT Delhi</option>
+              </select>
+            </div>
+
+            <div style="margin-bottom: 22px;">
+              <label style="display:block; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:600; margin-bottom:6px;">Password</label>
+              <input type="password" id="signup-pass" class="filter-input" style="width:100%;" placeholder="Minimum 6 characters" minlength="6" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 0.95rem; margin-bottom: 14px;">
+              ✨ Create Account & Enter Hub
+            </button>
+          </form>
+
+        </div>
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- AUTHENTICATED MAIN PORTAL (Rendered Post-Auth)                     -->
+      <!-- ================================================================== -->
+      <div id="tab-pane-auth-dashboard" class="tab-content-pane">
+        
+        <!-- Post-Auth User Welcome Banner -->
+        <div class="radar-banner" id="post-auth-banner" style="margin-bottom: 30px;">
+          <div class="radar-header">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 4px;">
+                <span class="pulse-dot"></span>
+                <span style="font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1.5px; color: var(--neon-cyan); font-weight: 700;">Live Scholar Session</span>
+                <span id="user-role-badge" class="exam-badge badge-ete">Enrolled Student</span>
+              </div>
+              <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.6rem; color: var(--text-primary); margin: 0;">
+                Welcome to your Cockpit, <span id="user-greeting" style="color: var(--neon-cyan);">Scholar</span>
+              </h2>
+              <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px;">
+                Apex Institute of Technology • Computer Science & Engineering (Semester 6)
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px;">
+              <button class="btn btn-secondary" onclick="switchMainTab('universities')" style="font-size: 0.82rem; padding: 8px 14px;">
+                🏛️ Switch Campus
+              </button>
+              <button class="btn btn-primary" onclick="window.location.href='pages/university/program-detail.html?uni=galgotias-university&prog=btech-cse&tab=pyq'" style="font-size: 0.82rem; padding: 8px 16px;">
+                ⚡ Launch Code Lab
+              </button>
+            </div>
+          </div>
+
+          <!-- Mini Countdown Bar -->
+          <div class="countdown-box" style="margin: 16px 0;">
+            <div class="cd-unit">
+              <div class="cd-num" id="auth-cd-days">--</div>
+              <div class="cd-lbl">Days</div>
+            </div>
+            <div class="cd-unit">
+              <div class="cd-num" id="auth-cd-hours">--</div>
+              <div class="cd-lbl">Hours</div>
+            </div>
+            <div class="cd-unit">
+              <div class="cd-num" id="auth-cd-mins">--</div>
+              <div class="cd-lbl">Mins</div>
+            </div>
+            <div class="cd-unit">
+              <div class="cd-num" id="auth-cd-secs">--</div>
+              <div class="cd-lbl">Secs</div>
+            </div>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.82rem; color: var(--text-secondary);">
+            <span>Next Target: <strong>CS601 AAPS End-Term Exam (June 15, 2026)</strong></span>
+            <a href="pages/university/program-detail.html?uni=galgotias-university&prog=btech-cse&tab=exams" style="color: var(--neon-cyan); text-decoration: none; font-weight: 600;">View Full Timetable →</a>
+          </div>
+        </div>
+
+        <!-- Academic Gateways Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 22px;">
+          <a href="pages/university/program-detail.html?uni=galgotias-university&prog=btech-cse&tab=exams" class="exam-card" style="text-decoration: none;">
+            <div style="font-size: 2.2rem; margin-bottom: 10px;">🕒</div>
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 6px;">Exam Central & Timetables</h3>
+            <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.55;">
+              View dates, classroom room 302 allocation, and download calendar sync invites.
+            </p>
+            <span style="color: var(--neon-cyan); font-size: 0.82rem; font-weight: 700; margin-top: 12px; display: inline-block;">Open Timetable →</span>
+          </a>
+
+          <a href="pages/university/program-detail.html?uni=galgotias-university&prog=btech-cse&tab=assignments" class="exam-card" style="text-decoration: none;">
+            <div style="font-size: 2.2rem; margin-bottom: 10px;">📝</div>
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 6px;">Coursework Vault</h3>
+            <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.55;">
+              1 deliverable due within 36 hours. Upload GitHub repos and reports to secure cloud storage.
+            </p>
+            <span style="color: var(--neon-indigo); font-size: 0.82rem; font-weight: 700; margin-top: 12px; display: inline-block;">View Deliverables →</span>
+          </a>
+
+          <a href="pages/university/program-detail.html?uni=galgotias-university&prog=btech-cse&tab=pyq" class="exam-card" style="text-decoration: none; border-color: rgba(0,212,170,0.4);">
+            <div style="font-size: 2.2rem; margin-bottom: 10px;">⚡</div>
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; color: var(--neon-cyan); margin-bottom: 6px;">Interactive Practice Lab</h3>
+            <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.55;">
+              Curated from <code>exam_sem_6</code>. Solve AAPS, Compiler Design, and NLP questions with code copy and complexity meters.
+            </p>
+            <span style="color: var(--neon-cyan); font-size: 0.82rem; font-weight: 700; margin-top: 12px; display: inline-block;">Start Practicing →</span>
+          </a>
+
+          <a href="pages/university/program-detail.html?uni=galgotias-university&prog=btech-cse&tab=pyq" class="exam-card" style="text-decoration: none;">
+            <div style="font-size: 2.2rem; margin-bottom: 10px;">📚</div>
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 6px;">PYQ Vault</h3>
+            <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.55;">
+              Download and preview solved past papers for June 2025 examinations with faculty solutions.
+            </p>
+            <span style="color: var(--neon-amber); font-size: 0.82rem; font-weight: 700; margin-top: 12px; display: inline-block;">Browse Papers →</span>
+          </a>
+
+          <a href="pages/university/program-detail.html?uni=galgotias-university&prog=btech-cse&tab=assignments" class="exam-card" style="text-decoration: none;">
+            <div style="font-size: 2.2rem; margin-bottom: 10px;">🚀</div>
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 6px;">Teammate Finder & Projects</h3>
+            <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.55;">
+              Assemble your team for upcoming hackathons. Apply for open engineering roles.
+            </p>
+            <span style="color: var(--neon-pink); font-size: 0.82rem; font-weight: 700; margin-top: 12px; display: inline-block;">Find Teammates →</span>
+          </a>
+
+          <a href="pages/webInfo/community.html" class="exam-card" style="text-decoration: none;">
+            <div style="font-size: 2.2rem; margin-bottom: 10px;">📢</div>
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; color: var(--text-primary); margin-bottom: 6px;">Campus Circulars</h3>
+            <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.55;">
+              Verified department bulletins, internship opportunities, and academic discussions.
+            </p>
+            <span style="color: var(--neon-emerald); font-size: 0.82rem; font-weight: 700; margin-top: 12px; display: inline-block;">Read Notices →</span>
+          </a>
+
+          <a href="pages/university/project-approval.html" class="exam-card" style="text-decoration: none; border-color: rgba(99,102,241,0.4);">
+            <div style="font-size: 2.2rem; margin-bottom: 10px;">📋</div>
+            <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.25rem; color: var(--neon-indigo); margin-bottom: 6px;">Project Approval Form</h3>
+            <p style="font-size: 0.86rem; color: var(--text-secondary); line-height: 1.55;">
+              Submit your B.Tech project approval form &amp; abstract for SCSE — includes SDG goals, team details, and digital signatures.
+            </p>
+            <span style="color: var(--neon-indigo); font-size: 0.82rem; font-weight: 700; margin-top: 12px; display: inline-block;">Open Form →</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="index.html" class="brand" style="margin-bottom: 14px;">
+            <img src="assets/images/website_logo.png" alt="Campus Circle Logo" class="brand-logo">
+            <div class="brand-text">
+              <span class="brand-title">Campus Circle</span>
+              <span class="brand-subtitle" style="display:flex;align-items:center;gap:4px;"><img src="assets/images/company_logo.png" alt="NextGen" style="width:13px;height:13px;object-fit:contain;"> Powered by NextGen</span>
+            </div>
+          </a>
+          <p style="font-size: 0.88rem; color: var(--footer-subtext); line-height: 1.6; max-width: 320px;">
+            The Next-Generation University Academic Operating System. Built with PostgreSQL cloud backend, offline-first resilience, and deep study guides.
+          </p>
+          <div style="margin-top: 14px; font-size: 0.8rem; color: var(--neon-cyan); font-weight: 600;">
+            Official Academic Service Provider of NextGen Technologies
+          </div>
+        </div>
+
+        <div>
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">Navigation</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem;">
+            <li><a href="javascript:void(0)" onclick="switchMainTab('home')" style="color: var(--text-secondary); text-decoration: none;">Tab 1: Home Overview</a></li>
+            <li><a href="javascript:void(0)" onclick="switchMainTab('universities')" style="color: var(--text-secondary); text-decoration: none;">Tab 2: Universities Directory</a></li>
+            <li><a href="javascript:void(0)" onclick="switchMainTab('auth')" style="color: var(--text-secondary); text-decoration: none;">Tab 3: Sign In / Sign Up</a></li>
+            <li><a href="pages/profile/profile.html" style="color: var(--text-secondary); text-decoration: none;">Student Profile Hub</a></li>
+            <li><a href="pages/university/program-detail.html?uni=galgotias-university&prog=btech-cse&tab=exams" style="color: var(--text-secondary); text-decoration: none;">Exam Central</a></li>
+            <li><a href="pages/university/program-detail.html?uni=galgotias-university&prog=btech-cse&tab=pyq" style="color: var(--text-secondary); text-decoration: none;">Practice Code Lab</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">Platform & Policy</h4>
+          <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px; font-size: 0.88rem;">
+            <li><a href="pages/webInfo/features.html" style="color: var(--text-secondary); text-decoration: none;">Platform Architecture</a></li>
+            <li><a href="pages/webInfo/contact.html" style="color: var(--text-secondary); text-decoration: none;">Faculty & Developer Desk</a></li>
+            <li><a href="pages/webInfo/privacy.html" style="color: var(--text-secondary); text-decoration: none;">Privacy Policy</a></li>
+            <li><a href="pages/webInfo/terms.html" style="color: var(--text-secondary); text-decoration: none;">Terms of Service</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 style="font-size: 0.95rem; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">Database Architecture</h4>
+          <p style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px;">
+            Connected to 16 modular PostgreSQL schemas with Row Level Security.
+          </p>
+          <button class="btn btn-secondary" onclick="alert('PostgreSQL Cloud Database is active and synchronized.')" style="font-size: 0.8rem; padding: 6px 14px; width: 100%;">
+            ⚙️ Cloud Database Active
+          </button>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Campus Circle. Powered by NextGen Technologies. All rights reserved.</p>
+        <p>Built with Obsidian Glassmorphism & Autonomous Offline Engine.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Environment & Config Scripts -->
+  <script src="env.js"></script>
+  <script src="assets/js/core/env-loader.js"></script>
+  <script src="assets/js/core/main.js"></script>
+  <script src="assets/js/core/supabase-config.js"></script>
+  <script src="assets/js/profile/auth-engine.js"></script>
+  <script src="assets/js/components/auth-modal.js"></script>
+  <script src="assets/js/components/sidebar.js"></script>
+  <script src="assets/js/university/university-engine.js"></script>
+  <script>
+    // 3-Tab Main Page Switcher
+    let activeRole = 'student';
+
+    window.switchMainTab = function(tabName) {
+      const user = window.CampusAuth ? window.CampusAuth.getCurrentUser() : null;
+
+      // Handle auth-dashboard routing
+      if (tabName === 'auth-dashboard' && !user) {
+        tabName = 'auth';
+      }
+
+      // Hide all panes
+      document.querySelectorAll('.tab-content-pane').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.main-tab-link').forEach(l => l.classList.remove('active'));
+
+      // Show selected pane
+      const targetPane = document.getElementById(`tab-pane-${tabName}`);
+      if (targetPane) targetPane.classList.add('active');
+
+      // Update button highlights
+      const btn = document.getElementById(`btn-tab-${tabName}`) || document.getElementById(`btn-auth-${tabName}`);
+      if (btn) btn.classList.add('active');
+
+      // Scroll smoothly to top of content
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    // Auth Mode Switcher (Sign In vs Sign Up)
+    window.setAuthMode = function(mode) {
+      const formSignIn = document.getElementById('form-signin');
+      const formSignUp = document.getElementById('form-signup');
+      const btnIn = document.getElementById('auth-mode-signin');
+      const btnUp = document.getElementById('auth-mode-signup');
+
+      if (mode === 'signup') {
+        formSignIn.style.display = 'none';
+        formSignUp.style.display = 'block';
+        btnIn.classList.remove('active');
+        btnUp.classList.add('active');
+      } else {
+        formSignIn.style.display = 'block';
+        formSignUp.style.display = 'none';
+        btnIn.classList.add('active');
+        btnUp.classList.remove('active');
+      }
+    };
+
+    window.selectRole = function(role, el) {
+      activeRole = role;
+      document.querySelectorAll('.role-btn').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+    };
+
+    window.handleSignInSubmit = function(e) {
+      e.preventDefault();
+      const email = document.getElementById('signin-email').value.trim();
+      const pass = document.getElementById('signin-pass').value;
+
+      const res = window.CampusAuth.signIn(email, pass);
+      if (res.success) {
+        window.showToast(`Welcome back, ${res.user.fullName}!`, '🚀');
+        switchMainTab('auth-dashboard');
+      } else {
+        alert(res.message);
+      }
+    };
+
+    window.handleSignUpSubmit = function(e) {
+      e.preventDefault();
+      const name = document.getElementById('signup-name').value.trim();
+      const email = document.getElementById('signup-email').value.trim();
+      const pass = document.getElementById('signup-pass').value;
+      const uni = document.getElementById('signup-uni').value;
+
+      const res = window.CampusAuth.signUp(name, email, pass, activeRole, uni);
+      if (res.success) {
+        window.showToast(`Account created for ${res.user.fullName}!`, '🎉');
+        switchMainTab('auth-dashboard');
+      } else {
+        alert(res.message);
+      }
+    };
+
+    // Check query params for tab switching (e.g. index.html?tab=universities)
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      const tab = params.get('tab');
+      if (tab) {
+        switchMainTab(tab);
+      } else {
+        const user = window.CampusAuth ? window.CampusAuth.getCurrentUser() : null;
+        if (user) {
+          switchMainTab('auth-dashboard');
+        }
+      }
+    })();
+
+    // Mini Countdown in Auth Dashboard
+    (function() {
+      const target = new Date('2026-06-15T09:30:00');
+      function tick() {
+        const diff = target - new Date();
+        if (diff > 0) {
+          const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+          const m = Math.floor((diff / 1000 / 60) % 60);
+          const s = Math.floor((diff / 1000) % 60);
+          const dEl = document.getElementById('auth-cd-days');
+          const hEl = document.getElementById('auth-cd-hours');
+          const mEl = document.getElementById('auth-cd-mins');
+          const sEl = document.getElementById('auth-cd-secs');
+          if (dEl) dEl.textContent = String(d).padStart(2, '0');
+          if (hEl) hEl.textContent = String(h).padStart(2, '0');
+          if (mEl) mEl.textContent = String(m).padStart(2, '0');
+          if (sEl) sEl.textContent = String(s).padStart(2, '0');
+        }
+      }
+      tick();
+      setInterval(tick, 1000);
+    })();
+
+    // Academic Cockpit Interactive Tabs Switcher
+    document.addEventListener('DOMContentLoaded', () => {
+      const cockpitBtns = document.querySelectorAll('[data-cockpit-target]');
+      cockpitBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = btn.getAttribute('data-cockpit-target');
+          cockpitBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          document.querySelectorAll('.cockpit-pane').forEach(p => p.classList.remove('active'));
+          const target = document.getElementById(targetId);
+          if (target) target.classList.add('active');
+        });
+      });
+    });
+  </script>
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

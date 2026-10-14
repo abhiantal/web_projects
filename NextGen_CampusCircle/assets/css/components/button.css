@@ -1,0 +1,133 @@
+/**
+ * CampusCircle Component - Buttons
+ * Futuristic neon glow, glassmorphic, and academic gradient buttons.
+ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-xs);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1;
+  padding: 0.75rem 1.4rem;
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  text-decoration: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+/* Primary Cyber Neon Button */
+.btn-primary {
+  background: var(--grad-primary);
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px var(--color-cyan-glow);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 6px 24px var(--color-cyan-glow);
+  transform: translateY(-2px);
+  filter: brightness(1.08);
+}
+
+/* Secondary Glassmorphic Button */
+.btn-secondary {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-medium);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-surface-elevated);
+  border-color: var(--border-glow);
+  color: var(--color-cyan);
+  transform: translateY(-2px);
+}
+
+/* Outline Glow Button */
+.btn-outline {
+  background: transparent;
+  color: var(--color-cyan);
+  border: 1px solid var(--color-cyan);
+}
+
+.btn-outline:hover {
+  background: var(--color-cyan-dim);
+  box-shadow: 0 0 16px var(--color-cyan-glow);
+  transform: translateY(-2px);
+}
+
+/* Ghost Button */
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+  background: var(--bg-surface-subtle);
+  color: var(--text-primary);
+}
+
+/* Violet Accent Button */
+.btn-violet {
+  background: var(--grad-violet-glow);
+  color: #FFFFFF;
+  box-shadow: 0 4px 18px var(--color-violet-glow);
+}
+
+.btn-violet:hover {
+  box-shadow: 0 6px 24px var(--color-violet-glow);
+  transform: translateY(-2px);
+}
+
+/* Danger Button */
+.btn-danger {
+  background: var(--color-rose);
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px var(--color-rose-glow);
+}
+
+.btn-danger:hover {
+  filter: brightness(1.1);
+  transform: translateY(-2px);
+}
+
+/* Button Sizes */
+.btn-sm {
+  padding: 0.5rem 0.9rem;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-lg {
+  padding: 0.95rem 1.85rem;
+  font-size: 1.05rem;
+  border-radius: var(--radius-lg);
+}
+
+.btn-pill {
+  border-radius: var(--radius-pill);
+}
+
+.btn-icon-only {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border-radius: var(--radius-md);
+}
+
+.btn-full {
+  width: 100%;
+}

@@ -1,0 +1,171 @@
+<script>
+  // If opened directly as standalone file in browser, redirect to main index shell
+  if (window.location.pathname.endsWith('/pages/docs.html')) {
+    window.location.replace('../index.html#docs');
+  }
+</script>
+<!-- ==========================================================================
+     MOTIONSTUDIO - PAGE: DOCS (Developer Docs & WebCodecs GPU Architecture)
+     Architecture Reference: NextGen • Developed by A.K.Antal
+     Focus: AI Studio Video Editing & Kinetic Motion Suite
+     ========================================================================== -->
+
+<section class="section">
+  <div class="container section-content">
+    
+    <!-- Hero Header -->
+    <div class="section-header text-center reveal">
+      <div class="badge badge-accent mb-sm">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+        </svg>
+        <span>Technical Documentation • Client-Side GPU Pipeline</span>
+      </div>
+      <h1 class="hero-title mb-sm">
+        Architecture &amp; <span class="text-gradient">Developer Guide</span>
+      </h1>
+      <p class="section-subtitle mx-auto" style="max-width: 760px;">
+        Comprehensive breakdown of MotionStudio's WebCodecs rendering engine, timeline shortcuts, audio synchronization, and zero-cloud local security architecture.
+      </p>
+    </div>
+
+    <!-- Docs Layout -->
+    <div class="grid grid-cols-3 gap-xl">
+      
+      <!-- Sticky Navigation Sidebar -->
+      <div class="reveal">
+        <div class="card p-lg" style="position: sticky; top: 100px;">
+          <h4 class="font-bold mb-md text-sm text-muted">DOCUMENTATION TOPICS</h4>
+          <ul class="text-sm" style="display: flex; flex-direction: column; gap: 0.75rem;">
+            <li><a href="#pipeline" class="text-secondary hover-accent">1. WebCodecs Video Pipeline</a></li>
+            <li><a href="#shortcuts" class="text-secondary hover-accent">2. Timeline Keyboard Shortcuts</a></li>
+            <li><a href="#codecs" class="text-secondary hover-accent">3. Supported Codecs &amp; Containers</a></li>
+            <li><a href="#privacy" class="text-secondary hover-accent">4. Zero-Cloud Privacy Guarantee</a></li>
+            <li><a href="#developer" class="text-secondary hover-accent">5. Architecture &amp; Lead Engineer</a></li>
+          </ul>
+          <hr style="border: none; border-top: 1px solid var(--color-border); margin: 1.25rem 0;">
+          <a href="components/studio/studio.html" class="btn btn-primary btn-sm btn-full" data-action="launch-studio">Launch Studio Editor</a>
+        </div>
+      </div>
+
+      <!-- Docs Main Content Body -->
+      <div class="card glass-panel-elevated p-2xl reveal" style="grid-column: span 2;">
+        
+        <!-- 1. WebCodecs Video Pipeline -->
+        <article id="pipeline" class="mb-2xl">
+          <div class="badge badge-accent mb-xs">SECTION 1</div>
+          <h2 class="text-h3 mb-sm">1. WebCodecs GPU Rendering Pipeline</h2>
+          <p class="text-secondary mb-md">
+            Traditional web video editors transmit raw megabytes or gigabytes of footage to remote server farms. MotionStudio utilizes the W3C <code>VideoEncoder</code> and <code>VideoFrame</code> APIs to process each canvas frame directly against your device's hardware GPU encoder (e.g., NVENC, Apple M-Series Silicon, Intel QuickSync).
+          </p>
+          <div class="p-md rounded-lg font-mono text-xs mb-md" style="background: var(--color-bg-surface-subtle); border: 1px solid var(--color-border); overflow-x: auto;">
+// WebCodecs Hardware Acceleration Stream Initialization<br>
+const encoder = new VideoEncoder({<br>
+&nbsp;&nbsp;output: handleEncodedChunk,<br>
+&nbsp;&nbsp;error: (e) =&gt; console.error('[WebCodecs]', e)<br>
+});<br>
+encoder.configure({<br>
+&nbsp;&nbsp;codec: 'avc1.4d002a', // H.264 High Profile<br>
+&nbsp;&nbsp;width: 3840, height: 2160,<br>
+&nbsp;&nbsp;bitrate: 45_000_000, // 45 Mbps 4K<br>
+&nbsp;&nbsp;framerate: 60,<br>
+&nbsp;&nbsp;hardwareAcceleration: 'prefer-hardware'<br>
+});
+          </div>
+          <p class="text-xs text-muted">
+            Result: 10x faster export speeds with zero network bandwidth consumption.
+          </p>
+        </article>
+
+        <!-- 2. Timeline Keyboard Shortcuts -->
+        <article id="shortcuts" class="mb-2xl">
+          <div class="badge badge-cyan mb-xs">SECTION 2</div>
+          <h2 class="text-h3 mb-sm">2. Studio Timeline Keyboard Shortcuts</h2>
+          <p class="text-secondary mb-md">
+            Accelerate your editing workflow inside <code>studio.html</code> with industry-standard NLE hotkeys:
+          </p>
+          <div style="overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.85rem;">
+              <thead>
+                <tr style="border-bottom: 1px solid var(--color-border); text-align: left; color: var(--color-text-muted);">
+                  <th style="padding: 0.75rem 0.5rem;">Shortcut</th>
+                  <th style="padding: 0.75rem 0.5rem;">Action</th>
+                  <th style="padding: 0.75rem 0.5rem;">Context</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--color-border);">
+                  <td style="padding: 0.75rem 0.5rem;"><kbd style="background: var(--color-bg-surface-elevated); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--color-border);">Space</kbd></td>
+                  <td style="padding: 0.75rem 0.5rem; font-weight: 500;">Play / Pause Timeline</td>
+                  <td style="padding: 0.75rem 0.5rem; color: var(--color-text-muted);">Global</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-border);">
+                  <td style="padding: 0.75rem 0.5rem;"><kbd style="background: var(--color-bg-surface-elevated); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--color-border);">S</kbd></td>
+                  <td style="padding: 0.75rem 0.5rem; font-weight: 500;">Split Active Clip at Playhead</td>
+                  <td style="padding: 0.75rem 0.5rem; color: var(--color-text-muted);">Timeline Track</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-border);">
+                  <td style="padding: 0.75rem 0.5rem;"><kbd style="background: var(--color-bg-surface-elevated); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--color-border);">Delete</kbd> / <kbd style="background: var(--color-bg-surface-elevated); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--color-border);">Backspace</kbd></td>
+                  <td style="padding: 0.75rem 0.5rem; font-weight: 500;">Remove Selected Clip</td>
+                  <td style="padding: 0.75rem 0.5rem; color: var(--color-text-muted);">Selected Clip</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-border);">
+                  <td style="padding: 0.75rem 0.5rem;"><kbd style="background: var(--color-bg-surface-elevated); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--color-border);">Ctrl</kbd> + <kbd style="background: var(--color-bg-surface-elevated); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--color-border);">E</kbd></td>
+                  <td style="padding: 0.75rem 0.5rem; font-weight: 500;">Open Export &amp; Render Modal</td>
+                  <td style="padding: 0.75rem 0.5rem; color: var(--color-text-muted);">Global</td>
+                </tr>
+                <tr>
+                  <td style="padding: 0.75rem 0.5rem;"><kbd style="background: var(--color-bg-surface-elevated); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--color-border);">Ctrl</kbd> + <kbd style="background: var(--color-bg-surface-elevated); padding: 2px 6px; border-radius: 4px; border: 1px solid var(--color-border);">Z</kbd></td>
+                  <td style="padding: 0.75rem 0.5rem; font-weight: 500;">Undo Last Action</td>
+                  <td style="padding: 0.75rem 0.5rem; color: var(--color-text-muted);">History Stack</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </article>
+
+        <!-- 3. Supported Codecs & Containers -->
+        <article id="codecs" class="mb-2xl">
+          <div class="badge badge-emerald mb-xs">SECTION 3</div>
+          <h2 class="text-h3 mb-sm">3. Supported Encoders &amp; Codecs</h2>
+          <p class="text-secondary mb-md">
+            MotionStudio supports direct container muxing via lightweight WebAssembly MP4 / WebM muxers:
+          </p>
+          <ul class="text-sm text-secondary" style="display: flex; flex-direction: column; gap: 0.5rem;">
+            <li><strong>MP4 (H.264 / AVC):</strong> Universal compatibility across iOS, Android, macOS, Windows, and YouTube.</li>
+            <li><strong>WebM (VP9 / AV1):</strong> High-efficiency next-generation open codec with alpha-channel transparency support for overlays.</li>
+            <li><strong>WAV / AAC:</strong> 48kHz stereo uncompressed audio mastering.</li>
+          </ul>
+        </article>
+
+        <!-- 4. Zero-Cloud Privacy Guarantee -->
+        <article id="privacy" class="mb-2xl">
+          <div class="badge badge-rose mb-xs">SECTION 4</div>
+          <h2 class="text-h3 mb-sm">4. Zero-Cloud Privacy Model</h2>
+          <p class="text-secondary mb-md">
+            All video footage, audio recordings, project compositions, and proprietary assets remain confined to your browser session. MotionStudio operates as a fully offline Progressive Web Application (PWA). No footage is stored, transferred, or ingested into third-party AI training sets.
+          </p>
+        </article>
+
+        <!-- 5. Engineering Architecture -->
+        <article id="developer">
+          <div class="badge badge-secondary mb-xs">SECTION 5</div>
+          <h2 class="text-h3 mb-sm">5. Engineering &amp; Architectural Lineage</h2>
+          <p class="text-secondary mb-md">
+            MotionStudio is designed and engineered as the premier creative media synthesis engine within the <strong>NextGen Technologies</strong> software suite.
+          </p>
+          <div class="p-md rounded-lg" style="background: var(--color-bg-surface-subtle); border: 1px solid var(--color-border);">
+            <div class="font-bold mb-xs">NextGen Core Architecture:</div>
+            <div class="text-sm text-secondary">
+              High-performance client-side WebGPU and WebCodecs video processing pipeline.<br>
+              Detailed company, owner, and developer leadership information is featured on the <a href="#home" data-tab-target="home" class="text-accent">Home Page</a>.
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+  </div>
+</section>

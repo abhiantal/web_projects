@@ -1,0 +1,124 @@
+/* ==========================================================================
+   MOTIONSTUDIO - MOBILE & OFF-CANVAS NAVIGATION DRAWER
+   NextGen • Developed by A.K.Antal
+   ========================================================================== */
+
+/* Drawer Backdrop */
+.sidebar-backdrop,
+.mobile-drawer-backdrop,
+.ms-sidebar-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1999;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar-backdrop.active,
+.sidebar-backdrop.is-open,
+.mobile-drawer-backdrop.active,
+.mobile-drawer-backdrop.is-open,
+.ms-sidebar-backdrop.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Off-Canvas Slide Drawer */
+.sidebar-drawer,
+.mobile-drawer,
+.ms-sidebar {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: min(340px, 85vw) !important;
+  height: 100vh !important;
+  height: 100dvh !important;
+  background: var(--color-bg-surface-elevated) !important;
+  border-right: 1px solid var(--color-border) !important;
+  z-index: 2000 !important;
+  transform: translateX(-100%) !important;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 1.5rem !important;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.6) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.sidebar-drawer.active,
+.sidebar-drawer.is-open,
+.mobile-drawer.active,
+.mobile-drawer.is-open,
+.ms-sidebar.active {
+  transform: translateX(0) !important;
+}
+
+.sidebar-header,
+.ms-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sidebar-close-btn,
+.ms-sidebar-close {
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  line-height: 1;
+  padding: 4px;
+}
+
+.sidebar-close-btn:hover,
+.ms-sidebar-close:hover {
+  color: var(--color-text-main);
+}
+
+.sidebar-nav,
+.ms-sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.sidebar-nav-link,
+.ms-sidebar-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-text-muted);
+  transition: all var(--transition-fast);
+  text-decoration: none;
+}
+
+.sidebar-nav-link:hover,
+.sidebar-nav-link.active,
+.ms-sidebar-item:hover,
+.ms-sidebar-item.active {
+  background: rgba(139, 92, 246, 0.12);
+  color: var(--color-accent-cyan);
+  transform: translateX(4px);
+}
+
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+}

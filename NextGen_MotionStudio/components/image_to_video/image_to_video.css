@@ -1,0 +1,30 @@
+/* ==========================================================================
+   COMPONENT: IMAGE TO VIDEO (FUTURISTIC CYBER ANIMATOR)
+   ========================================================================== */
+
+.i2v-preview-card {
+  text-align: center;
+  margin-bottom: 14px;
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.i2v-preview-img {
+  max-width: 100%;
+  max-height: 180px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-neon);
+  object-fit: cover;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 15px var(--accent-surface);
+}
+
+/* ==========================================================================
+   IMAGE TO VIDEO - LIGHT THEME ADAPTATIONS
+   ========================================================================== */
+
+[data-theme="light"] .i2v-preview-img {
+  border-color: #CBD5E1;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.08);
+}
+

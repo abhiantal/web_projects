@@ -1,0 +1,39 @@
+/* ==========================================================================
+   MOTIONSTUDIO - MASTER STYLESHEET BUNDLE
+   AI Video Studio & Motion Compositor
+   Architecture Reference: NextGen • Developed by A.K.Antal
+   ========================================================================== */
+
+/* 1. Base */
+@import url('base/reset.css');
+@import url('base/variables.css');
+@import url('base/typography.css');
+
+/* 2. Layout */
+@import url('layout/container.css');
+@import url('layout/grid.css');
+@import url('layout/section.css');
+
+/* 3. Components */
+@import url('components/navbar.css');
+@import url('components/sidebar.css');
+@import url('components/button.css');
+@import url('components/card.css');
+@import url('components/badge.css');
+@import url('components/theme-toggle.css');
+@import url('components/modal.css');
+@import url('components/toast.css');
+@import url('components/tabs.css');
+@import url('components/pricing-table.css');
+@import url('components/founder.css');
+@import url('components/footer.css');
+
+/* 4. Page Styles */
+@import url('pages/home.css');
+@import url('pages/features.css');
+@import url('pages/showcase.css');
+@import url('pages/pricing.css');
+
+/* 5. Utilities */
+@import url('utilities/animations.css');
+@import url('utilities/helpers.css');

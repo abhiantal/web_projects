@@ -1,0 +1,737 @@
+/**
+ * CampusCircle Page Styles - Flagship Home
+ * Premium Academic Cockpit, NextGen Ecosystem Overview & Founder Hub
+ */
+
+/* ==========================================================================
+   1. HERO SECTION & 3D ORBITAL SHOWCASE
+   ========================================================================== */
+
+.home-hero-wrap {
+  position: relative;
+  padding: clamp(2rem, 5vw, 4rem) 0 clamp(2.5rem, 6vw, 5rem);
+}
+
+.home-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-xs);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-cyan-dim);
+  border: 1px solid var(--border-glow);
+  color: var(--color-cyan);
+  font-family: var(--font-heading);
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-md);
+  box-shadow: 0 0 20px var(--color-cyan-glow);
+}
+
+.home-hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+}
+
+.home-hero-title {
+  font-size: clamp(2.4rem, 4.5vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+  margin-bottom: var(--space-md);
+}
+
+.home-hero-desc {
+  font-size: clamp(1rem, 1.2vw, 1.18rem);
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: var(--space-xl);
+}
+
+.home-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-xl);
+}
+
+/* 3D Glass Hero Media Card */
+.home-hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-hero-visual-frame {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-lg);
+  backdrop-filter: var(--glass-blur-lg);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+  box-shadow: var(--shadow-lg), 0 0 35px var(--color-cyan-glow);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.home-hero-visual-frame:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: var(--shadow-lg), 0 0 50px var(--color-cyan-glow);
+}
+
+.home-hero-img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-xl);
+  display: block;
+  object-fit: cover;
+}
+
+/* Floating Status Pills on Hero Media */
+.floating-chip {
+  position: absolute;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-pill);
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  box-shadow: var(--shadow-md), 0 0 20px var(--color-cyan-glow);
+  backdrop-filter: var(--glass-blur);
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.chip-top-left {
+  top: -12px;
+  left: -15px;
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.chip-bottom-right {
+  bottom: -15px;
+  right: -15px;
+  border-color: var(--border-glow-violet);
+  box-shadow: var(--shadow-md), 0 0 20px var(--color-violet-glow);
+  animation: floatSlow 6s ease-in-out infinite reverse;
+}
+
+/* ==========================================================================
+   2. KPI METRICS STRIP
+   ========================================================================== */
+
+.home-kpi-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1.5rem 2.5rem;
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-2xl);
+  backdrop-filter: var(--glass-blur-lg);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+  box-shadow: var(--shadow-md), 0 0 30px var(--color-cyan-dim);
+  margin-top: var(--space-2xl);
+  flex-wrap: wrap;
+  gap: var(--space-lg);
+}
+
+.home-kpi-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.home-kpi-val {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-weight: 800;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.home-kpi-lbl {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.home-kpi-divider {
+  width: 1px;
+  height: 48px;
+  background: var(--border-subtle);
+}
+
+/* ==========================================================================
+   3. COMPANY OVERVIEW: NEXGEN ECOSYSTEM
+   ========================================================================== */
+
+.nexgen-overview-card {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-2xl);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  backdrop-filter: var(--glass-blur-lg);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+  box-shadow: var(--shadow-lg), 0 0 40px var(--color-cyan-glow);
+  margin: var(--space-3xl) 0;
+  overflow: hidden;
+}
+
+.nexgen-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4rem);
+}
+
+.nexgen-logo-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-xl);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  text-align: center;
+}
+
+.nexgen-logo-img {
+  max-width: 260px;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 0 25px var(--color-cyan-glow));
+  margin-bottom: var(--space-md);
+}
+
+.nexgen-pill-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.nexgen-pill-item {
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+}
+
+.nexgen-pill-icon {
+  font-size: 1.3rem;
+  color: var(--color-cyan);
+}
+
+.nexgen-pill-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.nexgen-pill-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   4. INTERACTIVE ACADEMIC COCKPIT (Interactive Screen Mockup)
+   ========================================================================== */
+
+.academic-cockpit-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-2xl);
+  align-items: center;
+  margin-top: var(--space-xl);
+}
+
+.cockpit-nav-btn {
+  width: 100%;
+  text-align: left;
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.15rem 1.4rem;
+  margin-bottom: var(--space-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.cockpit-nav-btn:hover {
+  background: var(--bg-surface);
+  border-color: var(--border-medium);
+  transform: translateX(4px);
+}
+
+.cockpit-nav-btn.active {
+  background: var(--bg-surface-elevated);
+  border-color: var(--border-glow);
+  box-shadow: 0 4px 20px var(--color-cyan-glow);
+  border-left: 4px solid var(--color-cyan);
+}
+
+.cockpit-btn-icon {
+  font-size: 1.5rem;
+}
+
+.cockpit-btn-text h4 {
+  margin: 0 0 2px 0;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+}
+
+.cockpit-btn-text p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--text-muted);
+}
+
+/* Interactive Display Screen */
+.cockpit-display-screen {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-glow);
+  border-radius: var(--radius-2xl);
+  padding: var(--space-xl);
+  backdrop-filter: var(--glass-blur-lg);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+  box-shadow: var(--shadow-lg), 0 0 35px var(--color-cyan-dim);
+  min-height: 380px;
+  position: relative;
+}
+
+.cockpit-screen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: var(--space-md);
+  margin-bottom: var(--space-lg);
+}
+
+.cockpit-screen-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.cockpit-screen-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot-red { background: #EF4444; }
+.dot-amber { background: #F59E0B; }
+.dot-emerald { background: #10B981; }
+
+.cockpit-pane {
+  display: none;
+  animation: tabFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.cockpit-pane.active {
+  display: block;
+}
+
+/* ==========================================================================
+   5. FOUNDER & LEAD ARCHITECT SPOTLIGHT
+   ========================================================================== */
+
+.founder-spotlight-card {
+  background: var(--bg-surface-elevated);
+  border: 1px solid var(--border-glow-violet);
+  border-radius: var(--radius-2xl);
+  padding: clamp(2rem, 5vw, 3.5rem);
+  box-shadow: var(--shadow-lg), 0 0 35px var(--color-violet-glow);
+  backdrop-filter: var(--glass-blur-lg);
+  -webkit-backdrop-filter: var(--glass-blur-lg);
+  margin: var(--space-3xl) 0;
+}
+
+.founder-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: clamp(2rem, 4vw, 3.5rem);
+  align-items: center;
+}
+
+.founder-avatar-wrap {
+  position: relative;
+  width: 220px;
+  height: 220px;
+  margin: 0 auto;
+}
+
+.founder-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius-xl);
+  object-fit: cover;
+  border: 2px solid var(--color-cyan);
+  box-shadow: 0 0 25px var(--color-cyan-glow);
+}
+
+.founder-badge-overlay {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--grad-primary);
+  color: #FFFFFF;
+  padding: 4px 14px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+.founder-content h3 {
+  font-size: 1.85rem;
+  margin-bottom: 4px;
+}
+
+.founder-role {
+  color: var(--color-cyan);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: var(--space-md);
+  display: block;
+}
+
+.founder-quote {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-bottom: var(--space-lg);
+  border-left: 3px solid var(--color-violet);
+  padding-left: var(--space-md);
+}
+
+.founder-specs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-md);
+  background: var(--bg-surface-subtle);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+}
+
+.founder-spec-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.founder-spec-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.founder-spec-val {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   RESPONSIVENESS FOR HOME PAGE
+   ========================================================================== */
+
+@media (max-width: 1024px) {
+  .home-hero-grid,
+  .nexgen-overview-grid,
+  .academic-cockpit-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .home-hero-visual {
+    margin-top: var(--space-xl);
+  }
+
+  .founder-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .founder-quote {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .founder-specs {
+    grid-template-columns: 1fr 1fr;
+    text-align: left;
+  }
+}
+
+@media (max-width: 680px) {
+  .home-kpi-bar {
+    flex-direction: column;
+    padding: 1.5rem;
+  }
+
+  .home-kpi-divider {
+    width: 60%;
+    height: 1px;
+  }
+
+  .nexgen-pill-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .founder-specs {
+    grid-template-columns: 1fr;
+  }
+
+  .chip-top-left, .chip-bottom-right {
+    position: static;
+    margin: 8px 0;
+    display: inline-flex;
+  }
+}
+
+/* ==========================================================================
+   NEXGEN MULTI-SERVICE SUITE & OWNER GOVERNANCE (SHARED FAMILY DNA)
+   ========================================================================== */
+.nexgen-suite-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.nexgen-service-card {
+  background: var(--bg-glass-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.nexgen-service-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 10px 30px rgba(56, 189, 248, 0.15);
+}
+
+.nexgen-service-card.current-service {
+  border-color: rgba(56, 189, 248, 0.45);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.08) 0%, rgba(167, 139, 250, 0.04) 100%);
+  box-shadow: 0 0 24px rgba(56, 189, 248, 0.12);
+}
+
+.nexgen-service-icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nexgen-owner-box {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  margin-top: var(--space-xl);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.developer-contact-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 1.25rem;
+}
+
+.copy-email-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 30px;
+  color: var(--neon-cyan);
+  font-family: monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.copy-email-pill:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 15px rgba(56, 189, 248, 0.25);
+}
+
+@media (max-width: 900px) {
+  .nexgen-suite-grid {
+    grid-template-columns: 1fr;
+  }
+  .nexgen-owner-box {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+/* ==========================================================================
+   ABOUT NEXTGEN (THE UNIFIED COMPANY COMPONENT: LOGO, MOTTO, PHILOSOPHY & GOVERNANCE)
+   ========================================================================== */
+.company-mission-card {
+  background: var(--bg-surface-elevated, rgba(18, 27, 54, 0.7));
+  border: 1px solid var(--border-medium, rgba(255, 255, 255, 0.12));
+  border-radius: var(--radius-xl, 24px);
+  padding: clamp(1.8rem, 4vw, 3rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  margin-top: 1.5rem;
+}
+
+.company-mission-badge {
+  display: inline-block;
+  font-family: var(--font-heading, sans-serif);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--color-accent-violet, #8b5cf6);
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.company-mission-quote {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.65;
+  color: var(--text-primary, #f8fafc);
+  max-width: 900px;
+  margin: 0 auto;
+  font-style: italic;
+}
+
+.company-emblem-wrapper {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 28px rgba(0, 242, 254, 0.4));
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.company-emblem-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.company-motto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  font-family: var(--font-heading, sans-serif);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  color: var(--color-cyan, #06b6d4);
+  text-transform: uppercase;
+}
+
+.company-governance-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2.5rem);
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.gov-item {
+  text-align: center;
+}
+
+.gov-label {
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted, #64748b);
+  margin-bottom: 3px;
+  font-weight: 700;
+}
+
+.gov-val {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--text-primary, #f8fafc);
+}
+
+.gov-divider {
+  width: 1px;
+  height: 28px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+@media (max-width: 768px) {
+  .gov-divider {
+    display: none;
+  }
+}

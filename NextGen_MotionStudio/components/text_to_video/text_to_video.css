@@ -1,0 +1,74 @@
+/* ==========================================================================
+   COMPONENT: TEXT TO VIDEO (FUTURISTIC CYBER STUDIO)
+   ========================================================================== */
+
+.t2v-console-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-neon);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.t2v-style-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.t2v-style-card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.t2v-style-card:hover, .t2v-style-card.active {
+  border-color: var(--accent-secondary);
+  background: var(--accent-surface);
+  box-shadow: 0 0 14px var(--cyber-cyan-glow);
+}
+
+.t2v-style-card .icon {
+  font-size: 20px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.t2v-style-card span {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   TEXT TO VIDEO - LIGHT THEME ADAPTATIONS
+   ========================================================================== */
+
+[data-theme="light"] .t2v-console-box {
+  background: #FFFFFF;
+  border: 1px solid #CBD5E1;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.05);
+}
+
+[data-theme="light"] .t2v-style-card {
+  background: #F8FAFC;
+  border-color: #CBD5E1;
+}
+
+[data-theme="light"] .t2v-style-card:hover,
+[data-theme="light"] .t2v-style-card.active {
+  background: #EDE9FE;
+  border-color: #8B5CF6;
+  box-shadow: 0 0 14px rgba(139, 92, 246, 0.2);
+}
+
+[data-theme="light"] .t2v-style-card span {
+  color: #0F172A;
+}
+

@@ -1,0 +1,120 @@
+/**
+ * CampusCircle Component - Cards & Panels
+ * Frosted obsidian glass cards with hover lift, glowing borders, and feature highlights.
+ */
+
+.card {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  padding: var(--space-xl);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+}
+
+.card-elevated {
+  background: var(--bg-surface-elevated);
+  box-shadow: var(--shadow-md);
+}
+
+.card-sm {
+  padding: var(--space-md);
+  border-radius: var(--radius-lg);
+}
+
+.card-header {
+  margin-bottom: var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.card-body {
+  position: relative;
+  z-index: 1;
+}
+
+.card-footer {
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Feature & Academic Hub Cards */
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.feature-icon-wrapper {
+  width: 54px;
+  height: 54px;
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-lg);
+  background: var(--color-cyan-dim);
+  border: 1px solid var(--border-glow);
+  color: var(--color-cyan);
+  font-size: 1.5rem;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.card:hover .feature-icon-wrapper {
+  transform: scale(1.08) rotate(3deg);
+  background: var(--grad-primary);
+  color: #FFFFFF;
+}
+
+/* Violet Variant Card */
+.card-violet:hover {
+  border-color: var(--border-glow-violet);
+  box-shadow: var(--shadow-lg), var(--shadow-glow-violet);
+}
+
+.card-violet .feature-icon-wrapper {
+  background: var(--color-violet-dim);
+  border-color: var(--border-glow-violet);
+  color: var(--color-violet);
+}
+
+.card-violet:hover .feature-icon-wrapper {
+  background: var(--grad-violet-glow);
+  color: #FFFFFF;
+}
+
+/* Stat Card */
+.stat-card {
+  text-align: center;
+  padding: var(--space-lg);
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800;
+  color: var(--color-cyan);
+  line-height: 1.1;
+  margin-bottom: var(--space-2xs);
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}

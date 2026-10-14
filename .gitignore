@@ -1,0 +1,73 @@
+﻿# ============================================================
+# Git Ignore for Web Projects (D:\web_projects)
+# ============================================================
+
+# Environment variables and sensitive credentials
+.env
+.env.*
+*.env
+**/.env
+**/.env.*
+**/env.js
+!.env.example
+!**/.env.example
+
+# Dependencies
+node_modules/
+**/node_modules/
+jspm_packages/
+.pnpm-store/
+
+# Build & bundle outputs
+dist/
+**/dist/
+build/
+**/build/
+out/
+**/out/
+.parcel-cache/
+.next/
+.nuxt/
+.cache/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Editor & IDE configurations
+.idea/
+**/.idea/
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.sublime-workspace
+*.sublime-project
+*.iml
+*.iws
+*.ipr
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Thumbs.db:encryptable
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Temporary and swap files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~

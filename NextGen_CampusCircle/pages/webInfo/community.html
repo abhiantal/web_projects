@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Feed & Announcements – Campus Circle (NextGen)</title>
+  <meta name="description" content="Verified faculty circulars, department notices, tech club hackathons, internship alerts, and university student discussions.">
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/website_logo.png">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+  <link rel="stylesheet" href="../../assets/css/academic-hub.css">
+    <link rel="stylesheet" href="../../assets/css/components/sidebar.css">
+<script src="../../assets/js/core/theme-init.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container" style="display: flex; align-items: center; justify-content: space-between;">
+      
+      <!-- Brand & Sidebar Toggle -->
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button type="button" class="sidebar-trigger-btn" onclick="window.toggleSidebar()" aria-label="Toggle Academic Navigation Sidebar" title="Open Navigation Menu">
+          <span class="sidebar-trigger-icon">☰</span>
+          <span style="display: inline-block;">Menu</span>
+        </button>
+
+        <a href="../../index.html" class="brand" style="display: flex; align-items: center; gap: 10px;">
+          <img src="../../assets/images/website_logo.png" alt="Campus Circle Logo" class="brand-logo" style="width: 36px; height: 36px; object-fit: contain;">
+          <div class="brand-text">
+            <span class="brand-title">Campus Circle</span>
+            <span class="brand-subtitle" style="display:flex;align-items:center;gap:4px;"><img src="../../assets/images/company_logo.png" alt="NextGen" style="width:13px;height:13px;object-fit:contain;"> Powered by NextGen</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Clean Unified Navigation -->
+      <nav class="main-tab-nav">
+        <a href="../../index.html" class="main-tab-link" style="text-decoration: none;">
+          🏠 Home
+        </a>
+        <a href="../../index.html?tab=universities" class="main-tab-link" style="text-decoration: none;">
+          🏛️ Universities
+        </a>
+        <a href="javascript:void(0)" onclick="window.openSidebar()" class="main-tab-link active" style="text-decoration: none;">
+          📚 Academic Hub
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">☀️</button>
+        <div id="navbar-auth-slot"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main style="padding-top: 110px; padding-bottom: 80px;">
+    <div class="container" style="max-width: 900px;">
+
+      <!-- Breadcrumbs & Header -->
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 26px;">
+        <div>
+          <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 2px; color: var(--neon-cyan); font-weight: 700;">University Network</span>
+          <h1 style="font-family: 'Outfit', sans-serif; font-size: 2.4rem; font-weight: 800; color: var(--text-primary); margin: 4px 0;">
+            Campus Circle Feed & Bulletins
+          </h1>
+          <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0;">
+            Official circulars with verified faculty badges, internship opportunities, hackathon alerts, and student discussions.
+          </p>
+        </div>
+
+        <div>
+          <button class="btn btn-primary" onclick="openNewPostModal()" style="padding: 10px 20px; font-size: 0.88rem;">
+            📢 Post Announcement
+          </button>
+        </div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-bar">
+        <div class="filter-tabs">
+          <button class="filter-btn post-tab-btn active" data-cat="ALL">All Bulletins</button>
+          <button class="filter-btn post-tab-btn" data-cat="Official Notice">🏛️ Official Notices</button>
+          <button class="filter-btn post-tab-btn" data-cat="Internship">💼 Internships</button>
+          <button class="filter-btn post-tab-btn" data-cat="Project Collab">🤝 Collaborations</button>
+          <button class="filter-btn post-tab-btn" data-cat="Academic Discussion">💬 Discussion</button>
+        </div>
+      </div>
+
+      <!-- Posts List -->
+      <div id="posts-container">
+        <!-- Rendered dynamically by js/community-engine.js -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p>&copy; 2026 Campus Circle. Powered by NextGen. Community Hub.</p>
+        <p><a href="../../index.html" style="color: var(--neon-cyan); text-decoration: none;">Return to Command Center</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Environment & Config Scripts -->
+  <script src="../../env.js"></script>
+  <script src="../../assets/js/core/env-loader.js"></script>
+  <script src="../../assets/js/core/main.js"></script>
+  <script src="../../assets/js/profile/auth-engine.js"></script>
+  <script src="../../assets/js/components/auth-modal.js"></script>
+  <script src="../../assets/js/components/sidebar.js"></script>
+  <script src="../../assets/js/webInfo/community-engine.js"></script>
+</body>
+</html>
+

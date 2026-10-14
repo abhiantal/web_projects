@@ -1,0 +1,41 @@
+/**
+ * MotionStudio Page Styles - Showcase Gallery
+ * NextGen • Developed by A.K.Antal
+ */
+
+.showcase-filter-bar {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: var(--space-2xl, 3rem);
+}
+
+.showcase-card {
+  position: relative;
+  background: var(--color-bg-surface-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+}
+
+.showcase-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--color-accent-violet);
+  box-shadow: var(--shadow-lg), 0 0 30px rgba(139, 92, 246, 0.25);
+}
+
+.showcase-media {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.showcase-info {
+  padding: 1.5rem;
+}

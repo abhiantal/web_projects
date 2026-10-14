@@ -1,0 +1,2006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>B.Tech Project Approval Form &amp; Abstract – SCSE | Campus Circle</title>
+  <meta name="description" content="Official B.Tech Project Approval Form & Abstract Submission for School of Computer Science & Engineering (SCSE). Dual-mode interactive editor and 1:1 official university document preview with Print, PDF, and Word (.doc) export.">
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/website_logo.png">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+  <link rel="stylesheet" href="../../assets/css/academic-hub.css">
+    <link rel="stylesheet" href="../../assets/css/components/sidebar.css">
+<script src="../../assets/js/core/theme-init.js"></script>
+
+  <style>
+    /* ======================================================
+       PROJECT APPROVAL FORM & OFFICIAL DOCUMENT STYLES
+       Campus Circle • NextGen Academic OS • A.K.Antal
+       ====================================================== */
+
+    .paf-hero {
+      text-align: center;
+      padding: 36px 0 24px;
+    }
+    .paf-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.35);
+      border-radius: 30px;
+      padding: 6px 18px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--neon-indigo);
+      margin-bottom: 16px;
+    }
+    .paf-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: var(--text-primary);
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+    .paf-title span {
+      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-indigo));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .paf-subtitle {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      max-width: 680px;
+      margin: 0 auto 24px;
+      line-height: 1.6;
+    }
+
+    /* Mode Switcher Tabs */
+    .paf-mode-switcher {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .paf-mode-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 24px;
+      border-radius: 12px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-glass-card);
+      color: var(--text-secondary);
+      transition: all 0.25s ease;
+      backdrop-filter: blur(12px);
+    }
+    .paf-mode-btn:hover {
+      border-color: var(--neon-cyan);
+      color: var(--text-primary);
+      transform: translateY(-1px);
+    }
+    .paf-mode-btn.active {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(99, 102, 241, 0.25));
+      border-color: var(--neon-cyan);
+      color: var(--neon-cyan);
+      box-shadow: 0 4px 18px rgba(56, 189, 248, 0.25);
+    }
+
+    /* Toolbar */
+    .paf-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      background: var(--bg-glass-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 14px 20px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(16px);
+    }
+    .paf-pid-block { display: flex; align-items: center; gap: 10px; }
+    .paf-pid-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--text-muted); }
+    .paf-pid-value {
+      font-family: 'Inter', monospace; font-size: 0.88rem; font-weight: 700;
+      color: var(--neon-cyan); background: rgba(56,189,248,0.1);
+      border: 1px solid rgba(56,189,248,0.25); border-radius: 8px;
+      padding: 5px 12px; letter-spacing: 1px;
+    }
+    .paf-toolbar-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+    
+    .paf-btn-preset {
+      background: rgba(168, 85, 247, 0.14); border: 1px solid rgba(168, 85, 247, 0.4);
+      color: #c084fc; border-radius: 10px; padding: 8px 16px;
+      font-size: 0.83rem; font-weight: 700; cursor: pointer; font-family: 'Inter',sans-serif;
+      transition: all 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .paf-btn-preset:hover { background: rgba(168, 85, 247, 0.25); transform: translateY(-1px); }
+
+    .paf-btn-save {
+      background: rgba(16,185,129,0.14); border: 1px solid rgba(16,185,129,0.4);
+      color: var(--neon-emerald); border-radius: 10px; padding: 8px 16px;
+      font-size: 0.83rem; font-weight: 700; cursor: pointer; font-family: 'Inter',sans-serif;
+      transition: all 0.2s;
+    }
+    .paf-btn-save:hover { background: rgba(16,185,129,0.25); transform: translateY(-1px); }
+
+    .paf-btn-doc {
+      background: rgba(56,189,248,0.14); border: 1px solid rgba(56,189,248,0.4);
+      color: var(--neon-cyan); border-radius: 10px; padding: 8px 16px;
+      font-size: 0.83rem; font-weight: 700; cursor: pointer; font-family: 'Inter',sans-serif;
+      transition: all 0.2s; display: flex; align-items: center; gap: 6px;
+    }
+    .paf-btn-doc:hover { background: rgba(56,189,248,0.25); transform: translateY(-1px); }
+
+    .paf-btn-print {
+      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-indigo));
+      border: none; color: #fff; border-radius: 10px; padding: 8px 18px;
+      font-size: 0.83rem; font-weight: 700; cursor: pointer; font-family: 'Inter',sans-serif;
+      transition: all 0.2s; box-shadow: 0 4px 15px rgba(56,189,248,0.3); display: flex; align-items: center; gap: 6px;
+    }
+    .paf-btn-print:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .paf-btn-clear {
+      background: rgba(244,63,94,0.1); border: 1px solid rgba(244,63,94,0.3);
+      color: var(--neon-rose); border-radius: 10px; padding: 8px 14px;
+      font-size: 0.83rem; font-weight: 700; cursor: pointer; font-family: 'Inter',sans-serif;
+      transition: all 0.2s;
+    }
+    .paf-btn-clear:hover { background: rgba(244,63,94,0.2); }
+
+    /* Progress */
+    .paf-progress-wrapper { margin-bottom: 24px; }
+    .paf-progress-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .paf-progress-label { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); }
+    .paf-progress-pct { font-size: 0.85rem; font-weight: 700; color: var(--neon-cyan); }
+    .paf-progress-bar { height: 6px; background: rgba(255,255,255,0.08); border-radius: 10px; overflow: hidden; }
+    .paf-progress-fill { height: 100%; background: linear-gradient(90deg, var(--neon-cyan), var(--neon-indigo)); border-radius: 10px; width: 0%; transition: width 0.4s ease; }
+
+    /* Form Cards */
+    .paf-card {
+      background: var(--bg-glass-card); border: 1px solid var(--border-subtle);
+      border-radius: 20px; padding: 26px 30px; margin-bottom: 22px;
+      backdrop-filter: blur(16px); box-shadow: var(--card-shadow); transition: border-color 0.2s;
+    }
+    .paf-card:hover { border-color: var(--border-light); }
+    .paf-section-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border-subtle);
+    }
+    .paf-section-icon {
+      width: 36px; height: 36px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.15rem; flex-shrink: 0;
+    }
+    .paf-section-icon.cyan   { background: rgba(56,189,248,0.15); }
+    .paf-section-icon.indigo { background: rgba(99,102,241,0.15); }
+    .paf-section-icon.green  { background: rgba(16,185,129,0.15); }
+    .paf-section-icon.amber  { background: rgba(245,158,11,0.15); }
+    .paf-section-icon.purple { background: rgba(168,85,247,0.15); }
+    .paf-section-icon.pink   { background: rgba(236,72,153,0.15); }
+    .paf-section-title { font-family: 'Outfit',sans-serif; font-size: 1.15rem; font-weight: 800; color: var(--text-primary); margin: 0; }
+    .paf-section-num { font-size: 0.7rem; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 2px; }
+
+    /* Fields */
+    .paf-field { margin-bottom: 18px; }
+    .paf-label { display: block; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-muted); margin-bottom: 7px; }
+    .paf-label.required::after { content: ' *'; color: var(--neon-rose); }
+    .paf-input, .paf-select, .paf-textarea {
+      width: 100%; background: rgba(15,23,42,0.7); border: 1px solid var(--border-subtle);
+      border-radius: 10px; color: var(--text-primary); font-family: 'Inter',sans-serif;
+      font-size: 0.92rem; padding: 10px 14px; outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s; box-sizing: border-box;
+    }
+    [data-theme="light"] .paf-input,
+    [data-theme="light"] .paf-select,
+    [data-theme="light"] .paf-textarea { background: rgba(255,255,255,0.95); }
+    .paf-input:focus, .paf-select:focus, .paf-textarea:focus {
+      border-color: var(--neon-cyan); box-shadow: 0 0 0 3px rgba(56,189,248,0.15);
+    }
+    .paf-input::placeholder, .paf-textarea::placeholder { color: var(--text-dim); }
+    .paf-textarea { resize: vertical; min-height: 110px; line-height: 1.6; }
+    .paf-select option { background: #090d1a; color: #f8fafc; }
+    .paf-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .paf-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 18px; }
+    @media(max-width:700px) { .paf-grid-2, .paf-grid-3 { grid-template-columns: 1fr; } }
+
+    /* Checkbox Groups */
+    .paf-check-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; }
+    .paf-check-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      background: rgba(15,23,42,0.5); border: 1px solid var(--border-subtle);
+      border-radius: 10px; padding: 12px 14px; cursor: pointer; transition: all 0.2s;
+    }
+    .paf-check-item:hover { border-color: var(--border-light); background: rgba(30,41,59,0.6); }
+    .paf-check-item input[type="checkbox"],
+    .paf-check-item input[type="radio"] {
+      width: 16px; height: 16px; accent-color: var(--neon-cyan);
+      margin-top: 2px; flex-shrink: 0; cursor: pointer;
+    }
+    .paf-check-item.checked-item { border-color: var(--neon-cyan); background: rgba(56,189,248,0.08); }
+    .paf-check-text { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; }
+    .paf-check-text strong { display: block; font-size: 0.88rem; color: var(--text-primary); font-weight: 600; margin-bottom: 2px; }
+
+    /* SDG Goals */
+    .sdg-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr)); gap: 8px; }
+    .sdg-item {
+      display: flex; align-items: center; gap: 8px; padding: 9px 12px;
+      border-radius: 8px; border: 1px solid var(--border-subtle); cursor: pointer;
+      transition: all 0.18s; font-size: 0.8rem; color: var(--text-secondary);
+    }
+    .sdg-item:hover { border-color: var(--border-light); background: rgba(30,41,59,0.5); }
+    .sdg-item input { accent-color: var(--neon-emerald); width: 14px; height: 14px; cursor: pointer; }
+    .sdg-item.sdg-checked { border-color: var(--neon-emerald); background: rgba(16,185,129,0.08); color: var(--text-primary); }
+    .sdg-num {
+      width: 22px; height: 22px; border-radius: 50%; color: #fff; font-size: 0.65rem;
+      font-weight: 800; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+
+    /* Student Table */
+    .paf-student-table { width: 100%; border-collapse: collapse; margin-bottom: 14px; }
+    .paf-student-table th {
+      background: rgba(56,189,248,0.1); border: 1px solid rgba(56,189,248,0.2);
+      color: var(--neon-cyan); font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; padding: 10px 12px; text-align: left;
+    }
+    .paf-student-table td { border: 1px solid var(--border-subtle); padding: 6px 8px; vertical-align: middle; }
+    .paf-student-table input {
+      width: 100%; background: transparent; border: none; outline: none;
+      color: var(--text-primary); font-family: 'Inter',sans-serif; font-size: 0.85rem; padding: 4px;
+    }
+    .paf-student-table input::placeholder { color: var(--text-dim); font-size: 0.78rem; }
+    .paf-student-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+    .paf-student-table .row-num { text-align: center; color: var(--text-muted); font-weight: 700; font-size: 0.82rem; width: 40px; }
+    .paf-add-student-btn {
+      background: rgba(56,189,248,0.1); border: 1px dashed rgba(56,189,248,0.4);
+      color: var(--neon-cyan); border-radius: 8px; padding: 8px 16px; font-size: 0.82rem;
+      font-weight: 700; cursor: pointer; font-family: 'Inter',sans-serif; transition: all 0.2s; margin-right: 8px;
+    }
+    .paf-add-student-btn:hover { background: rgba(56,189,248,0.18); }
+    .paf-remove-row-btn {
+      background: rgba(244,63,94,0.1); border: none; color: var(--neon-rose);
+      border-radius: 6px; padding: 4px 8px; font-size: 0.8rem; cursor: pointer;
+      font-family: 'Inter',sans-serif; transition: background 0.2s;
+    }
+    .paf-remove-row-btn:hover { background: rgba(244,63,94,0.22); }
+
+    /* Word Counter */
+    .paf-word-counter { display: flex; justify-content: flex-end; align-items: center; gap: 6px; margin-top: 6px; font-size: 0.75rem; }
+    .paf-word-counter .wc-num { font-weight: 700; color: var(--neon-cyan); }
+    .paf-word-counter .wc-limit { color: var(--text-muted); }
+    .paf-word-counter .wc-warn { color: var(--neon-rose); font-weight: 700; }
+
+    /* Signature Block */
+    .paf-sig-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin-top: 8px; }
+    .paf-sig-box { border: 1px dashed var(--border-light); border-radius: 12px; padding: 16px; text-align: center; }
+    .paf-sig-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 8px; }
+    .paf-sig-line { width: 80%; margin: 0 auto 6px; border-bottom: 2px solid var(--border-light); height: 35px; }
+    .paf-sig-name { font-size: 0.8rem; color: var(--text-secondary); font-weight: 600; }
+
+    /* ======================================================
+       OFFICIAL UNIVERSITY DOCUMENT PREVIEW (1:1 WORD MATCH)
+       ====================================================== */
+    #view-official-doc {
+      display: none;
+    }
+    .doc-preview-container {
+      max-width: 850px;
+      margin: 0 auto 40px;
+    }
+    .doc-page {
+      background: #ffffff;
+      color: #000000;
+      font-family: 'Calibri', 'Times New Roman', serif;
+      padding: 38px 46px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.35);
+      border-radius: 4px;
+      box-sizing: border-box;
+      position: relative;
+      font-size: 11pt;
+      line-height: 1.35;
+    }
+    .doc-page-badge {
+      position: absolute;
+      top: -12px;
+      right: 20px;
+      background: #1e293b;
+      color: #38bdf8;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .doc-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 14px;
+      position: relative;
+    }
+    .doc-logo-box {
+      width: 130px;
+      flex-shrink: 0;
+    }
+    .doc-title-box {
+      flex: 1;
+      text-align: center;
+      padding-right: 20px;
+    }
+    .doc-title-h1 {
+      font-size: 11.5pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0 0 2px;
+      font-family: 'Times New Roman', serif;
+    }
+    .doc-title-h2 {
+      font-size: 11pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0 0 2px;
+    }
+    .doc-title-h3 {
+      font-size: 9.5pt;
+      margin: 0 0 1px;
+      font-style: italic;
+    }
+    .doc-title-h4 {
+      font-size: 9.5pt;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    /* Official Table Layout */
+    .official-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 14px;
+      font-size: 9.5pt;
+      font-family: 'Times New Roman', serif;
+    }
+    .official-table, .official-table th, .official-table td {
+      border: 1.2px solid #000000;
+    }
+    .official-table td {
+      padding: 5px 8px;
+      vertical-align: top;
+    }
+    .official-table .field-label {
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    .doc-check-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 3px;
+      font-size: 9.2pt;
+    }
+    .doc-check-box {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border: 1.2px solid #000;
+      text-align: center;
+      line-height: 11px;
+      font-size: 9px;
+      font-weight: bold;
+      flex-shrink: 0;
+    }
+    .doc-student-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 6px 0;
+      font-size: 9pt;
+      text-align: center;
+    }
+    .doc-student-table th, .doc-student-table td {
+      border: 1px solid #000;
+      padding: 4px 6px;
+    }
+    .doc-student-table th {
+      font-weight: bold;
+      background: #f4f4f4;
+    }
+
+    /* SDGs list in doc */
+    .doc-sdg-section-title {
+      font-size: 9pt;
+      font-weight: bold;
+      text-decoration: underline;
+      margin: 8px 0 4px;
+    }
+    .doc-sdg-list {
+      font-size: 7.6pt;
+      line-height: 1.28;
+      color: #111;
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    .doc-sdg-list li {
+      margin-bottom: 1.5px;
+    }
+    .doc-sdg-active {
+      font-weight: bold;
+      color: #000;
+      background: #eef6ff;
+      padding: 0 4px;
+      border-radius: 2px;
+    }
+
+    /* Page 2 Formatting */
+    .doc-p2-title {
+      text-align: center;
+      font-size: 13pt;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0 0 16px;
+      font-family: 'Times New Roman', serif;
+    }
+    .doc-p2-field {
+      margin-bottom: 16px;
+      font-size: 10.5pt;
+      line-height: 1.5;
+    }
+    .doc-p2-label {
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .doc-p2-content {
+      text-align: justify;
+      line-height: 1.55;
+    }
+    .doc-p2-bullet {
+      margin-left: 18px;
+      list-style-type: disc;
+      line-height: 1.5;
+    }
+    .doc-p2-bullet li {
+      margin-bottom: 6px;
+    }
+    .doc-signatures-block {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 70px;
+      padding: 0 10px;
+      font-weight: bold;
+      font-size: 10.5pt;
+    }
+
+    /* Toast */
+    #paf-toast {
+      position: fixed; bottom: 28px; right: 28px;
+      background: rgba(16,185,129,0.95); color: #fff; padding: 12px 22px;
+      border-radius: 12px; font-size: 0.88rem; font-weight: 700;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4); z-index: 9999;
+      transform: translateY(100px); opacity: 0;
+      transition: all 0.35s cubic-bezier(.34,1.56,.64,1); pointer-events: none;
+    }
+    #paf-toast.show { transform: translateY(0); opacity: 1; }
+
+    /* Modal for submission */
+    .paf-modal-overlay {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.75); backdrop-filter: blur(8px);
+      display: none; align-items: center; justify-content: center; z-index: 10000;
+    }
+    .paf-modal-overlay.active { display: flex; }
+    .paf-modal-content {
+      background: var(--bg-card); border: 1px solid var(--border-light);
+      border-radius: 20px; padding: 32px; max-width: 520px; width: 90%;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.6); text-align: center;
+    }
+
+    /* PRINT STYLESHEET (Only prints the 1:1 official document pages) */
+    @media print {
+      @page {
+        size: A4 portrait;
+        margin: 10mm 12mm;
+      }
+      body {
+        background: #ffffff !important;
+        color: #000000 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+      .navbar, footer, .paf-hero, .paf-mode-switcher, .paf-toolbar,
+      .paf-progress-wrapper, #view-form-editor, .doc-page-badge,
+      #paf-toast, .paf-modal-overlay, .theme-toggle, .menu-toggle {
+        display: none !important;
+      }
+      main {
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      #view-official-doc {
+        display: block !important;
+      }
+      .doc-preview-container {
+        max-width: 100% !important;
+        margin: 0 !important;
+      }
+      .doc-page {
+        box-shadow: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        page-break-inside: avoid;
+      }
+      .doc-page-1 {
+        break-after: page;
+        page-break-after: always;
+      }
+      .doc-page-2 {
+        break-before: page;
+        page-break-before: always;
+        padding-top: 15mm !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <!-- Brand & Sidebar Toggle -->
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button type="button" class="sidebar-trigger-btn" onclick="window.toggleSidebar()" aria-label="Toggle Academic Navigation Sidebar" title="Open Navigation Menu">
+          <span class="sidebar-trigger-icon">☰</span>
+          <span style="display: inline-block;">Menu</span>
+        </button>
+
+        <a href="../../index.html" class="brand" style="display: flex; align-items: center; gap: 10px;">
+          <img src="../../assets/images/website_logo.png" alt="Campus Circle Logo" class="brand-logo" style="width: 36px; height: 36px; object-fit: contain;">
+          <div class="brand-text">
+            <span class="brand-title">Campus Circle</span>
+            <span class="brand-subtitle" style="display:flex;align-items:center;gap:4px;"><img src="../../assets/images/company_logo.png" alt="NextGen" style="width:13px;height:13px;object-fit:contain;"> Powered by NextGen</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Clean Unified Navigation -->
+      <nav class="main-tab-nav">
+        <a href="../../index.html" class="main-tab-link">
+          🏠 Home
+        </a>
+        <a href="../../index.html?tab=universities" class="main-tab-link">
+          🏛️ Universities
+        </a>
+        <a href="javascript:void(0)" onclick="window.openSidebar()" class="main-tab-link">
+          📚 Academic Hub
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">☀️</button>
+        <a href="../../index.html?tab=auth" class="btn btn-primary" style="padding: 8px 16px; font-size: 0.85rem;">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main style="padding-top: 105px; padding-bottom: 80px;">
+    <div class="container" style="max-width: 1020px;">
+
+      <!-- Hero Section -->
+      <div class="paf-hero">
+        <div class="paf-badge">
+          <span>🏛️</span>
+          <span>Galgotias University · SCSE B.Tech Academic Submission</span>
+        </div>
+        <h1 class="paf-title">
+          Project Approval Form<br>
+          <span>&amp; Abstract Submission Portal</span>
+        </h1>
+        <p class="paf-subtitle">
+          School of Computer Science &amp; Engineering — AY 2026-27 · Odd Semester B.Tech Project.
+          Fill the interactive form or preview the exact 1:1 official university document ready for print, PDF, or Word (.doc) export.
+        </p>
+      </div>
+
+      <!-- Mode Switcher (Interactive Form vs Official Document Preview) -->
+      <div class="paf-mode-switcher">
+        <button class="paf-mode-btn active" id="btn-mode-editor" onclick="switchView('editor')">
+          <span>⚡</span>
+          <span>Interactive Form Editor</span>
+        </button>
+        <button class="paf-mode-btn" id="btn-mode-doc" onclick="switchView('doc')">
+          <span>📄</span>
+          <span>Official University Document Preview (1:1 Match)</span>
+        </button>
+      </div>
+
+      <!-- Toolbar -->
+      <div class="paf-toolbar">
+        <div class="paf-pid-block">
+          <span class="paf-pid-label">Project ID</span>
+          <span class="paf-pid-value" id="paf-pid">Generating...</span>
+        </div>
+        <div class="paf-toolbar-actions">
+          <button class="paf-btn-preset" onclick="loadCampusCirclePreset()" title="Populate with authentic Campus Circle Academic Hub Project data">
+            ✨ Load CampusCircle Sample
+          </button>
+          <a href="../../assets/Project_Approval_Form_Campus_Circle.docx" download="Project_Approval_Form_Campus_Circle.docx" class="paf-btn-doc" style="text-decoration:none;" title="Download authentic Microsoft Word (.docx) file for Campus Circle">
+            📥 CampusCircle (.docx)
+          </a>
+          <button class="paf-btn-doc" onclick="exportWordDoc()" title="Export current form entries to Microsoft Word file">
+            📝 Export Live (.doc)
+          </button>
+          <button class="paf-btn-save" onclick="saveForm()">
+            💾 Save Draft
+          </button>
+          <button class="paf-btn-print" onclick="printOfficialDoc()">
+            🖨️ Print / Save PDF
+          </button>
+          <button class="paf-btn-clear" onclick="clearForm()">
+            🗑️ Clear
+          </button>
+        </div>
+      </div>
+
+      <!-- Progress Bar (Editor Mode) -->
+      <div class="paf-progress-wrapper" id="paf-progress-block">
+        <div class="paf-progress-header">
+          <span class="paf-progress-label">Submission Completeness</span>
+          <span class="paf-progress-pct" id="progress-pct">0%</span>
+        </div>
+        <div class="paf-progress-bar">
+          <div class="paf-progress-fill" id="progress-fill"></div>
+        </div>
+      </div>
+
+      <!-- ======================================================= -->
+      <!-- VIEW 1: INTERACTIVE FORM EDITOR                         -->
+      <!-- ======================================================= -->
+      <div id="view-form-editor">
+
+        <!-- SECTION 1: Project Identification -->
+        <div class="paf-card">
+          <div class="paf-section-header">
+            <div class="paf-section-icon cyan">📌</div>
+            <div>
+              <div class="paf-section-num">Section 01</div>
+              <h2 class="paf-section-title">Project Identification &amp; Academic Scope</h2>
+            </div>
+          </div>
+
+          <div class="paf-field">
+            <label class="paf-label required" for="proj-title">Project Title</label>
+            <input type="text" class="paf-input" id="proj-title"
+              placeholder="e.g. Campus Circle - Autonomous Academic Operating System & Student Collaboration Hub">
+          </div>
+
+          <div class="paf-grid-2">
+            <div class="paf-field">
+              <label class="paf-label required" for="proj-domain">Area / Domain of Project</label>
+              <input type="text" class="paf-input" id="proj-domain"
+                placeholder="e.g. Mobile App Dev / Artificial Intelligence / Behavioural Analytics">
+            </div>
+            <div class="paf-field">
+              <label class="paf-label required" for="proj-dept">School / Department</label>
+              <select class="paf-select" id="proj-dept">
+                <option value="School of Computer Science & Engineering (SCSE)" selected>School of Computer Science &amp; Engineering (SCSE)</option>
+                <option value="Department of Information Technology">Department of Information Technology</option>
+                <option value="Department of Computer Applications">Department of Computer Applications</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="paf-grid-3">
+            <div class="paf-field">
+              <label class="paf-label" for="proj-year">Academic Year</label>
+              <input type="text" class="paf-input" id="proj-year" value="Odd 2026-2027" placeholder="e.g. Odd 2026-2027">
+            </div>
+            <div class="paf-field">
+              <label class="paf-label" for="proj-sem">Semester</label>
+              <select class="paf-select" id="proj-sem">
+                <option value="Semester 5">Semester 5</option>
+                <option value="Semester 6" selected>Semester 6</option>
+                <option value="Semester 7">Semester 7</option>
+                <option value="Semester 8">Semester 8 (Major Project)</option>
+              </select>
+            </div>
+            <div class="paf-field">
+              <label class="paf-label" for="proj-sdg-num">Primary SDG Goal Number(s)</label>
+              <input type="text" class="paf-input" id="proj-sdg-num" placeholder="e.g. Goal 4, Goal 8" value="Goal 4, Goal 8">
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 2: Project Type -->
+        <div class="paf-card">
+          <div class="paf-section-header">
+            <div class="paf-section-icon indigo">🧪</div>
+            <div>
+              <div class="paf-section-num">Section 02</div>
+              <h2 class="paf-section-title">Project Type (Official Galgotias Categories)</h2>
+            </div>
+          </div>
+          <label class="paf-label" style="margin-bottom:12px;">Select applicable types <em style="color:var(--text-dim);font-style:normal;">(matches university checkboxes)</em></label>
+          <div class="paf-check-grid">
+            <label class="paf-check-item">
+              <input type="checkbox" name="proj-type" value="community">
+              <span class="paf-check-text"><strong>🏘️ Community based design problem</strong>Interdisciplinary social impact</span>
+            </label>
+            <label class="paf-check-item">
+              <input type="checkbox" name="proj-type" value="appdev" checked>
+              <span class="paf-check-text"><strong>📱 App Development / Utility</strong>Mobile, web, or desktop ecosystem</span>
+            </label>
+            <label class="paf-check-item">
+              <input type="checkbox" name="proj-type" value="iot">
+              <span class="paf-check-text"><strong>⚙️ IOT / Hardware based</strong>Embedded sensors &amp; microcontroller logic</span>
+            </label>
+            <label class="paf-check-item">
+              <input type="checkbox" name="proj-type" value="aiml" checked>
+              <span class="paf-check-text"><strong>🤖 AI / ML / Data Science</strong>Intelligent agents &amp; analytics</span>
+            </label>
+            <label class="paf-check-item">
+              <input type="checkbox" name="proj-type" value="healthcare">
+              <span class="paf-check-text"><strong>🏥 Healthcare Project</strong>Clinical, physiological, or wellness systems</span>
+            </label>
+          </div>
+        </div>
+
+        <!-- SECTION 3: Project Outcome & Publication Target -->
+        <div class="paf-card">
+          <div class="paf-section-header">
+            <div class="paf-section-icon green">🎯</div>
+            <div>
+              <div class="paf-section-num">Section 03</div>
+              <h2 class="paf-section-title">Project Outcome &amp; Publication Target</h2>
+            </div>
+          </div>
+          <div class="paf-grid-2" style="gap:24px;">
+            <div>
+              <label class="paf-label" style="margin-bottom:12px;">Mandatory Project Outcome</label>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <label class="paf-check-item">
+                  <input type="checkbox" name="proj-outcome" value="paper" checked>
+                  <span class="paf-check-text"><strong>📄 Project and Research Paper</strong>SCOPUS indexed conference/journal</span>
+                </label>
+                <label class="paf-check-item">
+                  <input type="checkbox" name="proj-outcome" value="patent">
+                  <span class="paf-check-text"><strong>💡 Project and Patent</strong>Indian / International patent filing</span>
+                </label>
+                <label class="paf-check-item">
+                  <input type="checkbox" name="proj-outcome" value="book">
+                  <span class="paf-check-text"><strong>📚 Project and Book Chapter</strong>Academic Springer / IEEE book contribution</span>
+                </label>
+              </div>
+            </div>
+
+            <div>
+              <label class="paf-label" style="margin-bottom:12px;">Publication Target</label>
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <label class="paf-check-item">
+                  <input type="checkbox" name="pub-target" value="scopus-journal">
+                  <span class="paf-check-text"><strong>🔵 SCOPUS Journal</strong>High-impact indexed journal</span>
+                </label>
+                <label class="paf-check-item">
+                  <input type="checkbox" name="pub-target" value="scopus-conf" checked>
+                  <span class="paf-check-text"><strong>🟢 SCOPUS Conference</strong>International flagship conference</span>
+                </label>
+                <label class="paf-check-item">
+                  <input type="checkbox" name="pub-target" value="book-chapter">
+                  <span class="paf-check-text"><strong>📖 SCOPUS Book Chapter</strong>Peer-reviewed volume</span>
+                </label>
+                <label class="paf-check-item">
+                  <input type="checkbox" name="pub-target" value="sci">
+                  <span class="paf-check-text"><strong>⭐ SCI Journal</strong>Science Citation Index Expanded</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 4: Student Details & Guide -->
+        <div class="paf-card">
+          <div class="paf-section-header">
+            <div class="paf-section-icon amber">👥</div>
+            <div>
+              <div class="paf-section-num">Section 04</div>
+              <h2 class="paf-section-title">Student Details &amp; Faculty Guide</h2>
+            </div>
+          </div>
+          <div style="overflow-x:auto;margin-bottom:14px;">
+            <table class="paf-student-table" id="student-table">
+              <thead>
+                <tr>
+                  <th style="width:40px">S.No.</th>
+                  <th>Full Name</th>
+                  <th>Enrollment Number</th>
+                  <th>Admission Number</th>
+                  <th>Program / Branch</th>
+                  <th style="width:60px">Sem</th>
+                  <th style="width:50px">✕</th>
+                </tr>
+              </thead>
+              <tbody id="student-tbody"></tbody>
+            </table>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;">
+            <button class="paf-add-student-btn" onclick="addStudentRow()" id="add-student-btn">
+              ➕ Add Student Row
+            </button>
+            <span style="font-size:0.75rem;color:var(--text-muted);">Maximum 4 students per B.Tech project group</span>
+          </div>
+
+          <div class="paf-grid-2">
+            <div class="paf-field">
+              <label class="paf-label required" for="guide-name">Project Guide (Faculty Name)</label>
+              <input type="text" class="paf-input" id="guide-name" placeholder="e.g. Dr. Priya Sharma" value="Dr. Priya Sharma">
+            </div>
+            <div class="paf-field">
+              <label class="paf-label" for="guide-designation">Guide Designation &amp; Department</label>
+              <input type="text" class="paf-input" id="guide-designation" placeholder="e.g. Associate Professor, SCSE" value="Associate Professor, SCSE">
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 5: Sustainable Development Goals -->
+        <div class="paf-card">
+          <div class="paf-section-header">
+            <div class="paf-section-icon green">🌍</div>
+            <div>
+              <div class="paf-section-num">Section 05</div>
+              <h2 class="paf-section-title">Sustainable Development Goals (SDGs)</h2>
+            </div>
+          </div>
+          <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:18px;">
+            Select all UN SDG Goals that your project directly maps to. These will be highlighted in the official approval document.
+          </p>
+          <div class="sdg-grid" id="sdg-grid"></div>
+        </div>
+
+        <!-- SECTION 6: Abstract -->
+        <div class="paf-card">
+          <div class="paf-section-header">
+            <div class="paf-section-icon purple">📝</div>
+            <div>
+              <div class="paf-section-num">Section 06</div>
+              <h2 class="paf-section-title">Abstract Submission</h2>
+            </div>
+          </div>
+          <div style="background:rgba(168,85,247,0.08);border:1px solid rgba(168,85,247,0.25);border-radius:10px;padding:14px 18px;margin-bottom:18px;font-size:0.83rem;color:var(--text-secondary);line-height:1.6;">
+            📋 <strong style="color:var(--text-primary);">University Requirement:</strong> Write approximately <strong style="color:var(--neon-cyan);">200–250 words</strong> in <strong style="color:var(--neon-cyan);">One single paragraph</strong>.<br>
+            • Background of the problem [2-3 lines]<br>
+            • What problems you want to solve?<br>
+            • What is/are the gap(s) in existing work/knowledge that you intend to fill?<br>
+            • Why are the outcomes/results of this study important? Why you want to address the problem?
+          </div>
+          <div class="paf-field">
+            <label class="paf-label required" for="abstract-text">Abstract (One Paragraph)</label>
+            <textarea class="paf-textarea" id="abstract-text" rows="8"
+              placeholder="Enter your comprehensive single-paragraph abstract here..."></textarea>
+            <div class="paf-word-counter">
+              <span class="wc-num" id="abstract-word-count">0</span>
+              <span class="wc-limit">/ 250 words</span>
+              <span id="abstract-word-warn" style="display:none;" class="wc-warn">⚠️ Exceeds 250 words</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECTION 7: Problem Statement & Objectives -->
+        <div class="paf-card">
+          <div class="paf-section-header">
+            <div class="paf-section-icon pink">🎯</div>
+            <div>
+              <div class="paf-section-num">Section 07</div>
+              <h2 class="paf-section-title">Problem Statement &amp; Key Objectives</h2>
+            </div>
+          </div>
+          <div class="paf-field">
+            <label class="paf-label required" for="prob-stmt">Problem Statement</label>
+            <textarea class="paf-textarea" id="prob-stmt" rows="4"
+              placeholder="Write your problem statement here. Clearly describe the technical, computational, or social challenge..."></textarea>
+          </div>
+          <div class="paf-field">
+            <label class="paf-label" for="proj-objectives">Key Objectives (Optional Bullet Points)</label>
+            <textarea class="paf-textarea" id="proj-objectives" rows="4"
+              placeholder="• Design and implement cross-platform architecture&#10;• Integrate intelligent AI feedback loop&#10;• Evaluate performance on benchmark datasets..."></textarea>
+          </div>
+        </div>
+
+        <!-- SECTION 8: Signatures & Declaration -->
+        <div class="paf-card">
+          <div class="paf-section-header">
+            <div class="paf-section-icon cyan">✍️</div>
+            <div>
+              <div class="paf-section-num">Section 08</div>
+              <h2 class="paf-section-title">Signatures &amp; Academic Declaration</h2>
+            </div>
+          </div>
+          <div style="font-size:0.85rem;color:var(--text-secondary);line-height:1.7;margin-bottom:18px;background:rgba(56,189,248,0.06);border:1px solid rgba(56,189,248,0.18);border-radius:10px;padding:12px 16px;">
+            We hereby declare that this project proposal is our original work and has not been submitted elsewhere for any other degree or diploma. We confirm that all information provided is genuine and adhere strictly to the academic integrity code of Galgotias University.
+          </div>
+          <div class="paf-field" style="margin-bottom:20px;">
+            <label class="paf-label" for="sig-date">Date of Submission</label>
+            <input type="date" class="paf-input" id="sig-date" style="max-width:240px;">
+          </div>
+          <div class="paf-sig-row" id="sig-row"></div>
+        </div>
+
+        <!-- Bottom Action CTA Buttons -->
+        <div style="display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:20px;">
+          <button class="btn btn-primary" onclick="submitToPortal()" style="padding:14px 34px;font-size:1rem;border-radius:12px;">
+            🚀 Submit for Guide Review
+          </button>
+          <button class="paf-btn-print" onclick="printOfficialDoc()" style="padding:14px 26px;font-size:1rem;border-radius:12px;">
+            🖨️ Print Official University Form
+          </button>
+          <a href="../../assets/Project_Approval_Form_Campus_Circle.docx" download="Project_Approval_Form_Campus_Circle.docx" class="paf-btn-doc" style="padding:14px 24px;font-size:1rem;border-radius:12px;text-decoration:none;" title="Download authentic Microsoft Word (.docx) file for Campus Circle">
+            📥 CampusCircle (.docx)
+          </a>
+          <button class="paf-btn-doc" onclick="exportWordDoc()" style="padding:14px 24px;font-size:1rem;border-radius:12px;">
+            📝 Export Live (.doc)
+          </button>
+          <button class="paf-btn-save" onclick="saveForm()" style="padding:14px 22px;font-size:1rem;border-radius:12px;">
+            💾 Save Draft
+          </button>
+        </div>
+
+      </div><!-- /#view-form-editor -->
+
+
+      <!-- ======================================================= -->
+      <!-- VIEW 2: OFFICIAL UNIVERSITY DOCUMENT PREVIEW (1:1 DOC)  -->
+      <!-- ======================================================= -->
+      <div id="view-official-doc">
+        
+        <div style="text-align:center;margin-bottom:20px;">
+          <span style="font-size:0.85rem;color:var(--text-muted);">
+            Displaying live 1:1 replica of the official Microsoft Word document for SCSE. All changes in the editor reflect here in real-time.
+          </span>
+        </div>
+
+        <div class="doc-preview-container">
+          
+          <!-- ================= PAGE 1 ================= -->
+          <div class="doc-page doc-page-1" id="official-doc-page-1">
+            <div class="doc-page-badge">Page 1 of 2</div>
+
+            <!-- University Header with Galgotias Logo -->
+            <div class="doc-header">
+              <div class="doc-logo-box">
+                <!-- SVG Galgotias University Crest -->
+                <svg viewBox="0 0 160 65" width="130" height="52" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Swirl petals emblem -->
+                  <g transform="translate(18, 26) scale(0.95)">
+                    <path d="M0,0 C8,-14 20,-12 18,2 C16,14 4,14 0,0 Z" fill="#E5243B"/>
+                    <path d="M0,0 C14,-8 20,4 8,16 C-2,24 -10,12 0,0 Z" fill="#F37023"/>
+                    <path d="M0,0 C10,10 4,22 -8,18 C-18,14 -14,2 0,0 Z" fill="#FCB712"/>
+                    <path d="M0,0 C-4,14 -16,12 -16,-2 C-16,-14 -4,-12 0,0 Z" fill="#26BDE2"/>
+                    <path d="M0,0 C-14,6 -20,-6 -10,-16 C-2,-24 8,-12 0,0 Z" fill="#0A97D9"/>
+                    <circle cx="0" cy="0" r="3.5" fill="#ffffff"/>
+                  </g>
+                  <!-- Text: GALGOTIAS UNIVERSITY -->
+                  <text x="50" y="24" font-family="'Times New Roman', serif" font-size="13" font-weight="bold" fill="#183059" letter-spacing="1.2">GALGOTIAS</text>
+                  <text x="50" y="38" font-family="'Arial', sans-serif" font-size="8.5" font-weight="bold" fill="#F37023" letter-spacing="2.8">UNIVERSITY</text>
+                </svg>
+              </div>
+
+              <div class="doc-title-box">
+                <div class="doc-title-h1">SCHOOL OF COMPUTER SCIENCE &amp; ENGINEERING</div>
+                <div class="doc-title-h2">PROJECT APPROVAL FORM AND ABSTRACT</div>
+                <div class="doc-title-h3" id="doc-disp-year">Odd 2026-2027</div>
+                <div class="doc-title-h4">B. Tech Project Details</div>
+              </div>
+            </div>
+
+            <!-- Form Table -->
+            <table class="official-table">
+              <!-- Row 1: Project ID -->
+              <tr>
+                <td style="width: 18%; font-weight: bold;">Project ID:</td>
+                <td colspan="2" style="font-family: monospace; font-weight: bold;" id="doc-disp-pid">CC-PROJ-SCSE-2026-01</td>
+              </tr>
+
+              <!-- Row 2: Title -->
+              <tr>
+                <td style="font-weight: bold;">Title</td>
+                <td colspan="2" style="font-weight: bold;" id="doc-disp-title">Campus Circle - Autonomous Academic Operating System &amp; Student Collaboration Hub</td>
+              </tr>
+
+              <!-- Row 3: Project Type & Outcome -->
+              <tr>
+                <td style="font-weight: bold;">Project Type</td>
+                <td style="width: 44%;">
+                  <div class="doc-check-item">
+                    <span class="doc-check-box" id="doc-box-community"> </span>
+                    <span>Community based design problem (Interdisciplinary)</span>
+                  </div>
+                  <div class="doc-check-item">
+                    <span class="doc-check-box" id="doc-box-appdev">✓</span>
+                    <span>App Development / Utility</span>
+                  </div>
+                  <div class="doc-check-item">
+                    <span class="doc-check-box" id="doc-box-iot"> </span>
+                    <span>IOT/Hardware based</span>
+                  </div>
+                  <div class="doc-check-item">
+                    <span class="doc-check-box" id="doc-box-aiml">✓</span>
+                    <span>AI/ML/Data Science</span>
+                  </div>
+                  <div class="doc-check-item">
+                    <span class="doc-check-box" id="doc-box-healthcare"> </span>
+                    <span>Healthcare Project</span>
+                  </div>
+                </td>
+                <td style="width: 38%;">
+                  <div style="font-weight: bold; margin-bottom: 3px;">Project Outcome:</div>
+                  <div class="doc-check-item">
+                    <span class="doc-check-box" id="doc-box-paper">✓</span>
+                    <span>Project and Research Paper</span>
+                  </div>
+                  <div class="doc-check-item">
+                    <span class="doc-check-box" id="doc-box-patent"> </span>
+                    <span>Project and Patent</span>
+                  </div>
+                  <div class="doc-check-item">
+                    <span class="doc-check-box" id="doc-box-book"> </span>
+                    <span>Project and Book Chapter</span>
+                  </div>
+                  <div style="margin-top: 6px; font-weight: bold;">
+                    SDG Goal: <span style="font-weight: normal;" id="doc-disp-sdg-num">Goal 4, Goal 8</span>
+                  </div>
+                </td>
+              </tr>
+
+              <!-- Row 4: Publication Target & Guide -->
+              <tr>
+                <td style="font-weight: bold;">Publication Target</td>
+                <td>
+                  <div class="doc-check-item">
+                    <span class="doc-check-box" id="doc-box-scopus-journal"> </span>
+                    <span>SCOPUS Journal</span>
+                  </div>
+                  <div class="doc-check-item">
+                    <span class="doc-check-box" id="doc-box-scopus-conf">✓</span>
+                    <span>SCOPUS Conference</span>
+                  </div>
+                  <div class="doc-check-item">
+                    <span class="doc-check-box" id="doc-box-book-chapter"> </span>
+                    <span>SCOPUS Book Chapter</span>
+                  </div>
+                  <div class="doc-check-item">
+                    <span class="doc-check-box" id="doc-box-sci"> </span>
+                    <span>SCI Journal</span>
+                  </div>
+                </td>
+                <td>
+                  <div style="font-weight: bold;">Guide Name:</div>
+                  <div id="doc-disp-guide" style="margin-top: 4px; font-size: 10pt;">Dr. Priya Sharma</div>
+                  <div id="doc-disp-guide-desig" style="font-size: 8.5pt; color: #444;">Associate Professor, SCSE</div>
+                </td>
+              </tr>
+
+              <!-- Row 5: Student Details Table -->
+              <tr>
+                <td colspan="3" style="padding: 4px 6px;">
+                  <div style="font-weight: bold; margin-bottom: 2px;">Student Details:</div>
+                  <table class="doc-student-table">
+                    <thead>
+                      <tr>
+                        <th style="width: 6%;">S. No</th>
+                        <th style="width: 28%;">Name</th>
+                        <th style="width: 22%;">Enrollment Number</th>
+                        <th style="width: 22%;">Admission Number</th>
+                        <th style="width: 15%;">Program / Branch</th>
+                        <th style="width: 7%;">Sem</th>
+                      </tr>
+                    </thead>
+                    <tbody id="doc-student-tbody">
+                      <!-- Populated dynamically -->
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </table>
+
+            <!-- Sustainable Development Goals Section -->
+            <div>
+              <div class="doc-sdg-section-title">
+                Sustainable Development Goals (SDG Goal), Targets and Indicators:
+              </div>
+              <ul class="doc-sdg-list" id="doc-sdg-full-list">
+                <li id="doc-sdg-item-1">Goal 1: End poverty in all its forms everywhere</li>
+                <li id="doc-sdg-item-2">Goal 2: End hunger, achieve food security and improved nutrition and promote sustainable agriculture</li>
+                <li id="doc-sdg-item-3">Goal 3: Ensure healthy lives and promote well-being for all at all ages</li>
+                <li id="doc-sdg-item-4" class="doc-sdg-active">Goal 4: Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all</li>
+                <li id="doc-sdg-item-5">Goal 5: Achieve gender equality and empower all women and girls</li>
+                <li id="doc-sdg-item-6">Goal 6: Ensure availability and sustainable management of water and sanitation for all</li>
+                <li id="doc-sdg-item-7">Goal 7: Ensure access to affordable, reliable, sustainable and modern energy for all</li>
+                <li id="doc-sdg-item-8" class="doc-sdg-active">Goal 8: Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all</li>
+                <li id="doc-sdg-item-9">Goal 9: Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation</li>
+                <li id="doc-sdg-item-10">Goal 10: Reduce inequality within and among countries</li>
+                <li id="doc-sdg-item-11">Goal 11: Make cities and human settlements inclusive, safe, resilient and sustainable</li>
+                <li id="doc-sdg-item-12">Goal 12: Ensure sustainable consumption and production patterns</li>
+                <li id="doc-sdg-item-13">Goal 13: Take urgent action to combat climate change and its impacts</li>
+                <li id="doc-sdg-item-14">Goal 14: Conserve and sustainably use the oceans, seas and marine resources for sustainable development</li>
+                <li id="doc-sdg-item-15">Goal 15: Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss</li>
+                <li id="doc-sdg-item-16">Goal 16: Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels</li>
+                <li id="doc-sdg-item-17">Goal 17: Strengthen the means of implementation and revitalize the Global Partnership for Sustainable Development</li>
+              </ul>
+            </div>
+
+          </div><!-- /doc-page-1 -->
+
+
+          <!-- ================= PAGE 2 ================= -->
+          <div class="doc-page doc-page-2" id="official-doc-page-2">
+            <div class="doc-page-badge">Page 2 of 2</div>
+
+            <!-- Centered Project Title -->
+            <div class="doc-p2-title" id="doc-disp-p2-title">
+              [CAMPUS CIRCLE - AUTONOMOUS ACADEMIC OPERATING SYSTEM &amp; STUDENT COLLABORATION HUB]
+            </div>
+
+            <!-- Domain -->
+            <div class="doc-p2-field">
+              <span class="doc-p2-label">Area/Domain of Project:</span>
+              <span id="doc-disp-p2-domain" style="margin-left: 6px;">Mobile Application Development / Artificial Intelligence / Personal Productivity &amp; Behavioural Analytics</span>
+            </div>
+
+            <!-- Abstract -->
+            <div class="doc-p2-field">
+              <div class="doc-p2-label">ABSTRACT: [around 200-250 words in One paragraph]</div>
+              <ul class="doc-p2-bullet" style="margin-top: 4px; padding-left: 18px;">
+                <li id="doc-disp-abstract-content" style="text-align: justify; line-height: 1.55;">
+                  In higher education institutions, students and faculty often face operational fragmentation due to disparate departmental portals, scattered previous-year question papers, uncoordinated assignment submissions, and isolated project management. Campus Circle is a high-performance academic operating system engineered to consolidate university workflows into a unified, privacy-conscious digital cockpit. Built on modern web technologies and secure encrypted cloud data synchronization, Campus Circle delivers real-time examination timetable broadcasts, digital assignment vaults with automated deadline tracking, an open past-year question paper repository, and collaborative student project registries. The platform incorporates offline-first caching for uninterrupted access during network outages, role-based access control for students and verified faculty, and automated curriculum management. The outcome of this research is a scalable, resilient academic infrastructure that bridges institutional communication divides and streamlines higher education operations.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Problem Statement -->
+            <div class="doc-p2-field" style="margin-top: 20px;">
+              <div class="doc-p2-label">Problem Statement:</div>
+              <ul class="doc-p2-bullet" style="margin-top: 4px; padding-left: 18px;">
+                <li id="doc-disp-prob-content" style="text-align: justify; line-height: 1.55;">
+                  Universities frequently struggle with disparate communication channels, resulting in missed academic deadlines, unstandardized assignment submissions, and difficulty in accessing authoritative previous year exam archives. Existing institutional portals often suffer from antiquated interfaces and lack offline access. There is a vital need for a unified academic collaboration platform that synchronizes academic schedules, digital coursework, and student innovation portfolios into a seamless, high-velocity experience.
+                </li>
+              </ul>
+            </div>
+
+            <!-- Optional Objectives -->
+            <div class="doc-p2-field" id="doc-disp-obj-block" style="margin-top: 14px; display: none;">
+              <div class="doc-p2-label">Objectives:</div>
+              <ul class="doc-p2-bullet" id="doc-disp-obj-list" style="margin-top: 4px; padding-left: 18px;">
+              </ul>
+            </div>
+
+            <!-- Signatures -->
+            <div class="doc-signatures-block">
+              <div>
+                <div style="border-top: 1px solid #000; width: 200px; padding-top: 6px; text-align: center;">
+                  Signature of Students
+                </div>
+                <div id="doc-disp-student-names-sig" style="font-size: 8pt; font-weight: normal; text-align: center; margin-top: 2px;">
+                  Abhi Kumar, Ritesh Singh, Parth Gaur, Harshit Tiwari
+                </div>
+              </div>
+
+              <div>
+                <div style="border-top: 1px solid #000; width: 200px; padding-top: 6px; text-align: center;">
+                  Signature of Guide
+                </div>
+                <div id="doc-disp-guide-sig" style="font-size: 8.5pt; font-weight: normal; text-align: center; margin-top: 2px;">
+                  Dr. Priya Sharma
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /doc-page-2 -->
+
+        </div><!-- /doc-preview-container -->
+
+      </div><!-- /#view-official-doc -->
+
+    </div><!-- /container -->
+  </main>
+
+  <!-- Submission Confirmation Modal -->
+  <div class="paf-modal-overlay" id="paf-submission-modal">
+    <div class="paf-modal-content">
+      <div style="font-size: 3rem; margin-bottom: 12px;">🎉</div>
+      <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.6rem; color: var(--text-primary); margin: 0 0 8px;">
+        Submitted to SCSE Academic Portal!
+      </h3>
+      <p style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 20px;">
+        Your B.Tech Project Approval Form has been successfully registered. A review copy has been routed to your Guide (<span id="modal-guide-name" style="color: var(--neon-cyan); font-weight: 700;"></span>).
+      </p>
+
+      <div style="background: rgba(15,23,42,0.8); border: 1px solid var(--border-subtle); border-radius: 12px; padding: 14px; text-align: left; font-size: 0.85rem; margin-bottom: 24px;">
+        <div style="margin-bottom: 6px; display: flex; justify-content: space-between;">
+          <span style="color: var(--text-muted);">Project ID:</span>
+          <span style="font-family: monospace; font-weight: 700; color: var(--neon-cyan);" id="modal-pid"></span>
+        </div>
+        <div style="margin-bottom: 6px; display: flex; justify-content: space-between;">
+          <span style="color: var(--text-muted);">Status:</span>
+          <span style="color: var(--neon-amber); font-weight: 700;">Pending Guide Review</span>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+          <span style="color: var(--text-muted);">Submission Stamp:</span>
+          <span style="color: var(--text-secondary);" id="modal-timestamp"></span>
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 10px; justify-content: center;">
+        <button class="btn btn-primary" onclick="printOfficialDoc(); closeSubmissionModal();">
+          🖨️ Print Final Copy
+        </button>
+        <button class="btn btn-secondary" onclick="closeSubmissionModal()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand-col">
+          <a href="../../index.html" class="brand" style="margin-bottom:14px;">
+            <img src="../../assets/images/website_logo.png" alt="Campus Circle Logo" class="brand-logo">
+            <div class="brand-text">
+              <span class="brand-title">Campus Circle</span>
+              <span class="brand-subtitle" style="display:flex;align-items:center;gap:4px;"><img src="../../assets/images/company_logo.png" alt="NextGen" style="width:13px;height:13px;object-fit:contain;"> Powered by NextGen</span>
+            </div>
+          </a>
+          <p style="font-size:0.88rem;color:var(--footer-subtext);line-height:1.6;max-width:300px;">
+            The Unified University Academic Operating System for Galgotias University SCSE.
+          </p>
+          <div style="margin-top:10px;font-size:0.8rem;color:var(--neon-cyan);font-weight:600;">
+            Engineered by A.K.Antal &amp; Campus Circle Team
+          </div>
+        </div>
+        <div>
+          <h4 style="font-size:0.95rem;font-weight:700;margin-bottom:14px;color:var(--text-primary);">Academic Gateways</h4>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:0.88rem;">
+            <li><a href="program-detail.html?tab=exams" style="color:var(--text-secondary);text-decoration:none;">Exam Central</a></li>
+            <li><a href="program-detail.html?tab=assignments-projects" style="color:var(--text-secondary);text-decoration:none;">Capstones &amp; Projects</a></li>
+            <li><a href="project-approval.html" style="color:var(--neon-cyan);text-decoration:none;font-weight:700;">Project Approval Form ↗</a></li>
+            <li><a href="program-detail.html?tab=pyq-practice" style="color:var(--text-secondary);text-decoration:none;">PYQ Lab</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 style="font-size:0.95rem;font-weight:700;margin-bottom:14px;color:var(--text-primary);">Platform</h4>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:0.88rem;">
+            <li><a href="../webInfo/community.html" style="color:var(--text-secondary);text-decoration:none;">Community Hub</a></li>
+            <li><a href="../webInfo/features.html" style="color:var(--text-secondary);text-decoration:none;">System Architecture</a></li>
+            <li><a href="../webInfo/contact.html" style="color:var(--text-secondary);text-decoration:none;">Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Campus Circle. Galgotias University School of Computer Science &amp; Engineering.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Element -->
+  <div id="paf-toast">✅ Saved!</div>
+
+  <!-- Scripts -->
+  <script src="../../assets/js/core/main.js"></script>
+  <script>
+  /* ============================================================
+     CAMPUS CIRCLE - PROJECT APPROVAL FORM ENGINE
+     Dual-Mode Engine: Interactive Form & 1:1 Official Doc
+     Galgotias University • SCSE • A.K.Antal
+     ============================================================ */
+
+  const SDG_GOALS = [
+    { num: 1,  label: "No Poverty" },
+    { num: 2,  label: "Zero Hunger" },
+    { num: 3,  label: "Good Health & Well-Being" },
+    { num: 4,  label: "Quality Education" },
+    { num: 5,  label: "Gender Equality" },
+    { num: 6,  label: "Clean Water & Sanitation" },
+    { num: 7,  label: "Affordable & Clean Energy" },
+    { num: 8,  label: "Decent Work & Economic Growth" },
+    { num: 9,  label: "Industry, Innovation & Infrastructure" },
+    { num: 10, label: "Reduced Inequalities" },
+    { num: 11, label: "Sustainable Cities & Communities" },
+    { num: 12, label: "Responsible Consumption & Production" },
+    { num: 13, label: "Climate Action" },
+    { num: 14, label: "Life Below Water" },
+    { num: 15, label: "Life on Land" },
+    { num: 16, label: "Peace, Justice & Strong Institutions" },
+    { num: 17, label: "Partnerships for the Goals" }
+  ];
+
+  const SDG_COLORS = [
+    '#e5243b','#dda63a','#4c9f38','#c5192d','#ff3a21',
+    '#26bde2','#fcc30b','#a21942','#fd6925','#dd1367',
+    '#fd9d24','#bf8b2e','#3f7e44','#0a97d9','#56c02b',
+    '#00689d','#19486a'
+  ];
+
+  const STORAGE_KEY = 'campus_circle_paf_galgotias_v2';
+  let studentCount = 0;
+  let studentSeq = 0;
+  const MAX_STUDENTS = 4;
+
+  document.addEventListener('DOMContentLoaded', () => {
+    generateProjectId();
+    renderSdgGrid();
+    setTodayDate();
+
+    // Default 4 student roster matching team format
+    const restored = restoreForm();
+    if (!restored) {
+      loadCampusCirclePreset(false); // default to CampusCircle demo on initial load
+    }
+
+    bindLiveSync();
+    updateWordCount();
+    updateProgress();
+    syncToOfficialDoc();
+  });
+
+  /* ---- View Switcher ---- */
+  function switchView(mode) {
+    const btnEditor = document.getElementById('btn-mode-editor');
+    const btnDoc    = document.getElementById('btn-mode-doc');
+    const viewEditor = document.getElementById('view-form-editor');
+    const viewDoc    = document.getElementById('view-official-doc');
+    const progBlock  = document.getElementById('paf-progress-block');
+
+    if (mode === 'editor') {
+      btnEditor.classList.add('active');
+      btnDoc.classList.remove('active');
+      viewEditor.style.display = 'block';
+      viewDoc.style.display = 'none';
+      progBlock.style.display = 'block';
+    } else {
+      btnDoc.classList.add('active');
+      btnEditor.classList.remove('active');
+      viewEditor.style.display = 'none';
+      viewDoc.style.display = 'block';
+      progBlock.style.display = 'none';
+      syncToOfficialDoc();
+    }
+  }
+
+  /* ---- Project ID ---- */
+  function generateProjectId(forceNew = false) {
+    if (!forceNew) {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        try {
+          const d = JSON.parse(stored);
+          if (d.pid) {
+            document.getElementById('paf-pid').textContent = d.pid;
+            return;
+          }
+        } catch(e) {}
+      }
+    }
+    const ts = Date.now().toString(36).toUpperCase();
+    const rand = Math.floor(1000 + Math.random() * 9000);
+    const pid = `CC-GU-SCSE-${ts}-${rand}`;
+    document.getElementById('paf-pid').textContent = pid;
+    syncToOfficialDoc();
+  }
+
+  /* ---- SDG Grid ---- */
+  function renderSdgGrid() {
+    const grid = document.getElementById('sdg-grid');
+    grid.innerHTML = SDG_GOALS.map((g, i) => `
+      <label class="sdg-item" id="sdg-wrap-${g.num}">
+        <input type="checkbox" name="sdg-goal" value="${g.num}" onchange="onSdgChange(this)">
+        <span class="sdg-num" style="background:${SDG_COLORS[i]}">${g.num}</span>
+        <span>${g.label}</span>
+      </label>`).join('');
+  }
+
+  function onSdgChange(cb) {
+    cb.closest('.sdg-item').classList.toggle('sdg-checked', cb.checked);
+    updateSdgNumField();
+    updateProgress();
+    syncToOfficialDoc();
+  }
+
+  function updateSdgNumField() {
+    const checked = Array.from(document.querySelectorAll('input[name="sdg-goal"]:checked'))
+      .map(e => `Goal ${e.value}`);
+    if (checked.length > 0) {
+      document.getElementById('proj-sdg-num').value = checked.join(', ');
+    }
+  }
+
+  /* ---- Student Rows ---- */
+  function addStudentRow(data = {}) {
+    if (studentCount >= MAX_STUDENTS) {
+      showToast('Maximum 4 students allowed per team!', 'warning');
+      return;
+    }
+    studentCount++;
+    studentSeq++;
+    const sid = studentSeq;
+    const tbody = document.getElementById('student-tbody');
+    const tr = document.createElement('tr');
+    tr.id = `stu-row-${sid}`;
+    tr.setAttribute('data-sid', sid);
+    tr.innerHTML = `
+      <td class="row-num">${studentCount}</td>
+      <td><input type="text" placeholder="Full Student Name" id="stu-name-${sid}" value="${data.name || ''}" oninput="syncToOfficialDoc()"></td>
+      <td><input type="text" placeholder="e.g. 22SCSE1010045" id="stu-enroll-${sid}" value="${data.enroll || ''}" oninput="syncToOfficialDoc()"></td>
+      <td><input type="text" placeholder="e.g. 22GU10045" id="stu-adm-${sid}" value="${data.adm || ''}" oninput="syncToOfficialDoc()"></td>
+      <td><input type="text" placeholder="B.Tech CSE" id="stu-prog-${sid}" value="${data.prog || 'B.Tech CSE'}" oninput="syncToOfficialDoc()"></td>
+      <td><input type="text" placeholder="6" id="stu-sem-${sid}" value="${data.sem || '6'}" style="width:44px;text-align:center;" oninput="syncToOfficialDoc()"></td>
+      <td style="text-align:center;">
+        <button class="paf-remove-row-btn" onclick="removeStudentRow(${sid})" title="Remove">✕</button>
+      </td>`;
+    tbody.appendChild(tr);
+    renumberRows();
+    updateAddBtn();
+    updateSignatureBlock();
+    syncToOfficialDoc();
+  }
+
+  function removeStudentRow(sid) {
+    if (studentCount <= 1) {
+      showToast('At least 1 student is required.', 'warning');
+      return;
+    }
+    document.getElementById(`stu-row-${sid}`)?.remove();
+    studentCount--;
+    renumberRows();
+    updateAddBtn();
+    updateSignatureBlock();
+    syncToOfficialDoc();
+  }
+
+  function renumberRows() {
+    document.querySelectorAll('#student-tbody tr').forEach((r, i) => {
+      r.querySelector('.row-num').textContent = i + 1;
+    });
+  }
+
+  function updateAddBtn() {
+    const btn = document.getElementById('add-student-btn');
+    btn.disabled = studentCount >= MAX_STUDENTS;
+    btn.style.opacity = studentCount >= MAX_STUDENTS ? '0.4' : '1';
+  }
+
+  /* ---- Signature Block ---- */
+  function updateSignatureBlock() {
+    const sigRow = document.getElementById('sig-row');
+    const rows = Array.from(document.querySelectorAll('#student-tbody tr'));
+    const boxes = rows.map((r, i) => {
+      const sid = r.getAttribute('data-sid');
+      const name = document.getElementById(`stu-name-${sid}`)?.value.trim() || `Student ${i+1}`;
+      return `
+        <div class="paf-sig-box">
+          <div class="paf-sig-label">Signature of Student ${i+1}</div>
+          <div class="paf-sig-line"></div>
+          <div class="paf-sig-name">${name}</div>
+        </div>`;
+    });
+    const guide = document.getElementById('guide-name')?.value.trim() || 'Dr. Priya Sharma';
+    boxes.push(`
+      <div class="paf-sig-box">
+        <div class="paf-sig-label">Signature of Project Guide</div>
+        <div class="paf-sig-line"></div>
+        <div class="paf-sig-name">${guide}</div>
+      </div>`);
+    sigRow.innerHTML = boxes.join('');
+  }
+
+  /* ---- Word Count ---- */
+  function updateWordCount() {
+    const text = document.getElementById('abstract-text').value.trim();
+    const words = text === '' ? 0 : text.split(/\s+/).filter(Boolean).length;
+    const countEl = document.getElementById('abstract-word-count');
+    const warnEl  = document.getElementById('abstract-word-warn');
+    countEl.textContent = words;
+
+    if (words > 250) {
+      countEl.style.color = 'var(--neon-rose)';
+      warnEl.style.display = 'inline';
+    } else if (words >= 190 && words <= 250) {
+      countEl.style.color = 'var(--neon-emerald)';
+      warnEl.style.display = 'none';
+    } else {
+      countEl.style.color = 'var(--neon-cyan)';
+      warnEl.style.display = 'none';
+    }
+  }
+
+  /* ---- Live Synchronization to 1:1 Official Document Preview ---- */
+  function bindLiveSync() {
+    const inputs = document.querySelectorAll('.paf-input, .paf-select, .paf-textarea');
+    inputs.forEach(el => {
+      el.addEventListener('input', () => {
+        updateProgress();
+        syncToOfficialDoc();
+      });
+      el.addEventListener('change', () => {
+        updateProgress();
+        syncToOfficialDoc();
+      });
+    });
+
+    document.querySelectorAll('input[type="checkbox"], input[type="radio"]').forEach(el => {
+      el.addEventListener('change', () => {
+        updateProgress();
+        syncToOfficialDoc();
+      });
+    });
+
+    document.getElementById('abstract-text').addEventListener('input', updateWordCount);
+  }
+
+  function syncToOfficialDoc() {
+    // Project ID
+    const pid = document.getElementById('paf-pid').textContent;
+    document.getElementById('doc-disp-pid').textContent = pid;
+
+    // Title
+    const title = document.getElementById('proj-title').value.trim() || '[WRITE YOUR PROJECT TITLE HERE]';
+    document.getElementById('doc-disp-title').textContent = title;
+    document.getElementById('doc-disp-p2-title').textContent = `[${title.toUpperCase()}]`;
+
+    // Year & Domain
+    const year = document.getElementById('proj-year').value.trim() || 'Odd 2026-2027';
+    document.getElementById('doc-disp-year').textContent = year;
+    const domain = document.getElementById('proj-domain').value.trim() || 'Computer Science & Engineering';
+    document.getElementById('doc-disp-p2-domain').textContent = domain;
+
+    // SDG Goal in table
+    const sdgVal = document.getElementById('proj-sdg-num').value.trim() || 'Goal 4, Goal 8';
+    document.getElementById('doc-disp-sdg-num').textContent = sdgVal;
+
+    // Checkboxes Project Type
+    const setBox = (id, checked) => {
+      const el = document.getElementById(id);
+      if (el) el.textContent = checked ? '✓' : ' ';
+    };
+    const isChecked = (name, val) => !!document.querySelector(`input[name="${name}"][value="${val}"]:checked`);
+
+    setBox('doc-box-community', isChecked('proj-type', 'community'));
+    setBox('doc-box-appdev',    isChecked('proj-type', 'appdev'));
+    setBox('doc-box-iot',       isChecked('proj-type', 'iot'));
+    setBox('doc-box-aiml',      isChecked('proj-type', 'aiml'));
+    setBox('doc-box-healthcare',isChecked('proj-type', 'healthcare'));
+
+    // Checkboxes Outcome
+    setBox('doc-box-paper',  isChecked('proj-outcome', 'paper'));
+    setBox('doc-box-patent', isChecked('proj-outcome', 'patent'));
+    setBox('doc-box-book',   isChecked('proj-outcome', 'book'));
+
+    // Checkboxes Publication Target
+    setBox('doc-box-scopus-journal', isChecked('pub-target', 'scopus-journal'));
+    setBox('doc-box-scopus-conf',    isChecked('pub-target', 'scopus-conf'));
+    setBox('doc-box-book-chapter',   isChecked('pub-target', 'book-chapter'));
+    setBox('doc-box-sci',            isChecked('pub-target', 'sci'));
+
+    // Guide details
+    const guide = document.getElementById('guide-name').value.trim() || 'Dr. Priya Sharma';
+    const desig = document.getElementById('guide-designation').value.trim() || 'Associate Professor, SCSE';
+    document.getElementById('doc-disp-guide').textContent = guide;
+    document.getElementById('doc-disp-guide-desig').textContent = desig;
+    document.getElementById('doc-disp-guide-sig').textContent = guide;
+
+    // Students in Official Doc Table
+    const docTbody = document.getElementById('doc-student-tbody');
+    const studentRows = Array.from(document.querySelectorAll('#student-tbody tr'));
+    const names = [];
+
+    if (studentRows.length === 0) {
+      docTbody.innerHTML = `<tr><td>1</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>`;
+    } else {
+      docTbody.innerHTML = studentRows.map((r, i) => {
+        const sid = r.getAttribute('data-sid');
+        const sName   = document.getElementById(`stu-name-${sid}`)?.value.trim() || `Student ${i+1}`;
+        const sEnroll = document.getElementById(`stu-enroll-${sid}`)?.value.trim() || '—';
+        const sAdm    = document.getElementById(`stu-adm-${sid}`)?.value.trim() || '—';
+        const sProg   = document.getElementById(`stu-prog-${sid}`)?.value.trim() || 'B.Tech CSE';
+        const sSem    = document.getElementById(`stu-sem-${sid}`)?.value.trim() || '6';
+        names.push(sName);
+        return `
+          <tr>
+            <td>${i + 1}</td>
+            <td style="text-align:left; font-weight:600;">${sName}</td>
+            <td style="font-family:monospace;">${sEnroll}</td>
+            <td style="font-family:monospace;">${sAdm}</td>
+            <td>${sProg}</td>
+            <td>${sSem}</td>
+          </tr>`;
+      }).join('');
+    }
+
+    document.getElementById('doc-disp-student-names-sig').textContent = names.join(', ');
+
+    // Active SDG highlights in list
+    const checkedSdgs = Array.from(document.querySelectorAll('input[name="sdg-goal"]:checked')).map(e => parseInt(e.value));
+    for (let i = 1; i <= 17; i++) {
+      const item = document.getElementById(`doc-sdg-item-${i}`);
+      if (item) {
+        item.classList.toggle('doc-sdg-active', checkedSdgs.includes(i));
+      }
+    }
+
+    // Page 2 Abstract & Problem Statement
+    const absText = document.getElementById('abstract-text').value.trim() ||
+      'Here you need to write background of the problem [2-3 lines]. What problems you want to solve? What is/are the gap(s) in existing work/knowledge that you intend to fill? Why are the Outcomes/results of this study important? Why you want to address the problem?';
+    document.getElementById('doc-disp-abstract-content').textContent = absText;
+
+    const probText = document.getElementById('prob-stmt').value.trim() ||
+      'Write your problem statement here. Clearly identify the domain gap, technical bottleneck, and proposed paradigm.';
+    document.getElementById('doc-disp-prob-content').textContent = probText;
+
+    // Objectives (if provided)
+    const objText = document.getElementById('proj-objectives').value.trim();
+    const objBlock = document.getElementById('doc-disp-obj-block');
+    const objList  = document.getElementById('doc-disp-obj-list');
+    if (objText) {
+      objBlock.style.display = 'block';
+      const lines = objText.split('\n').filter(l => l.trim().length > 0);
+      objList.innerHTML = lines.map(l => `<li>${l.replace(/^[•\-\*\s]+/, '')}</li>`).join('');
+    } else {
+      objBlock.style.display = 'none';
+    }
+
+    updateSignatureBlock();
+  }
+
+  /* ---- Progress Calculation ---- */
+  function updateProgress() {
+    const fields = [
+      document.getElementById('proj-title')?.value.trim(),
+      document.getElementById('proj-domain')?.value.trim(),
+      document.getElementById('guide-name')?.value.trim(),
+      document.getElementById('abstract-text')?.value.trim(),
+      document.getElementById('prob-stmt')?.value.trim()
+    ];
+    const filled = fields.filter(v => v && v.length > 0).length;
+    const hasType    = !!document.querySelector('input[name="proj-type"]:checked');
+    const hasOutcome = !!document.querySelector('input[name="proj-outcome"]:checked');
+    const hasPub     = !!document.querySelector('input[name="pub-target"]:checked');
+    const hasSdg     = !!document.querySelector('input[name="sdg-goal"]:checked');
+
+    const total = fields.length + 4;
+    const done  = filled + (hasType?1:0) + (hasOutcome?1:0) + (hasPub?1:0) + (hasSdg?1:0);
+    const pct   = Math.round((done / total) * 100);
+
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('progress-pct').textContent = pct + '%';
+
+    // Highlight checked styles
+    document.querySelectorAll('.paf-check-item input').forEach(inp => {
+      inp.closest('.paf-check-item').classList.toggle('checked-item', inp.checked);
+    });
+  }
+
+  /* ---- Set Today's Date ---- */
+  function setTodayDate() {
+    const d = document.getElementById('sig-date');
+    if (d && !d.value) {
+      d.value = new Date().toISOString().split('T')[0];
+    }
+  }
+
+  /* ---- Load CampusCircle Preset (Authentic Project Data) ---- */
+  function loadCampusCirclePreset(notify = true) {
+    document.getElementById('proj-title').value = 'Campus Circle - Autonomous Academic Operating System & Student Collaboration Hub';
+    document.getElementById('proj-domain').value = 'Full-Stack Web & Mobile Architecture / Cloud Systems / Academic Workflow Automation';
+    document.getElementById('proj-year').value = 'Odd 2026-2027';
+    document.getElementById('proj-sem').value = 'Semester 6';
+    document.getElementById('proj-sdg-num').value = 'Goal 4, Goal 9';
+    document.getElementById('guide-name').value = 'Dr. Priya Sharma';
+    document.getElementById('guide-designation').value = 'Associate Professor, SCSE';
+
+    // Project types
+    document.querySelectorAll('input[name="proj-type"]').forEach(e => {
+      e.checked = (e.value === 'appdev' || e.value === 'cloud' || e.value === 'web');
+    });
+
+    // Outcomes & Publications
+    document.querySelectorAll('input[name="proj-outcome"]').forEach(e => {
+      e.checked = (e.value === 'paper');
+    });
+    document.querySelectorAll('input[name="pub-target"]').forEach(e => {
+      e.checked = (e.value === 'scopus-conf');
+    });
+
+    // Students (4 Team Members)
+    const tbody = document.getElementById('student-tbody');
+    tbody.innerHTML = '';
+    studentCount = 0;
+    studentSeq = 0;
+
+    addStudentRow({
+      name: 'Abhi Kumar',
+      enroll: '22SCSE1010045',
+      adm: '22GU10045',
+      prog: 'B.Tech CSE',
+      sem: '6'
+    });
+    addStudentRow({
+      name: 'Ritesh Singh',
+      enroll: '22SCSE1010189',
+      adm: '22GU10189',
+      prog: 'B.Tech CSE',
+      sem: '6'
+    });
+    addStudentRow({
+      name: 'Parth Gaur',
+      enroll: '22SCSE1010244',
+      adm: '22GU10244',
+      prog: 'B.Tech CSE',
+      sem: '6'
+    });
+    addStudentRow({
+      name: 'Harshit Tiwari',
+      enroll: '22SCSE1010312',
+      adm: '22GU10312',
+      prog: 'B.Tech CSE',
+      sem: '6'
+    });
+
+    // SDGs: 4 (Quality Education) and 9 (Industry, Innovation & Infrastructure)
+    document.querySelectorAll('input[name="sdg-goal"]').forEach(cb => {
+      const isTarget = (cb.value === '4' || cb.value === '9');
+      cb.checked = isTarget;
+      cb.closest('.sdg-item')?.classList.toggle('sdg-checked', isTarget);
+    });
+
+    // Abstract (Exact single paragraph)
+    document.getElementById('abstract-text').value =
+      "In higher education institutions, students and faculty often face operational fragmentation due to disparate departmental portals, scattered previous-year question papers, uncoordinated assignment submissions, and isolated project management. Campus Circle is a high-performance academic operating system engineered to consolidate university workflows into a unified, privacy-conscious digital cockpit. Built on modern web technologies and secure encrypted cloud data synchronization, Campus Circle delivers real-time examination timetable broadcasts, digital assignment vaults with automated deadline tracking, an open past-year question paper repository, and collaborative student project registries. The platform incorporates offline-first caching for uninterrupted access during network outages, role-based access control for students and verified faculty, and automated curriculum management. The outcome of this research is a scalable, resilient academic infrastructure that bridges institutional communication divides and streamlines higher education operations.";
+
+    // Problem Statement
+    document.getElementById('prob-stmt').value =
+      "Universities frequently struggle with disparate communication channels, resulting in missed academic deadlines, unstandardized assignment submissions, and difficulty in accessing authoritative previous year exam archives. Existing institutional portals often suffer from antiquated interfaces and lack offline access. There is a vital need for a unified academic collaboration platform that synchronizes academic schedules, digital coursework, and student innovation portfolios into a seamless, high-velocity experience.";
+
+    // Objectives
+    document.getElementById('proj-objectives').value =
+      "• Architect and deploy a responsive academic operating system for university students and faculty.\n• Build an encrypted cloud data layer with offline-first synchronization for uninterrupted campus use.\n• Create centralized vaults for past-year exam questions (PYQs) and course assignment submissions.\n• Develop collaborative project matchmaking registries for capstones and technical showcases.\n• Establish verified faculty communication channels for real-time exam and circular broadcasts.";
+
+    updateWordCount();
+    updateProgress();
+    syncToOfficialDoc();
+
+    if (notify) {
+      showToast('✨ Loaded Campus Circle Academic Hub sample data into form & official document!', 'success');
+    }
+  }
+
+  /* ---- Save / Restore / Clear ---- */
+  function saveForm() {
+    const pid = document.getElementById('paf-pid').textContent;
+    const students = Array.from(document.querySelectorAll('#student-tbody tr')).map(r => {
+      const sid = r.getAttribute('data-sid');
+      return {
+        name:   document.getElementById(`stu-name-${sid}`)?.value || '',
+        enroll: document.getElementById(`stu-enroll-${sid}`)?.value || '',
+        adm:    document.getElementById(`stu-adm-${sid}`)?.value || '',
+        prog:   document.getElementById(`stu-prog-${sid}`)?.value || '',
+        sem:    document.getElementById(`stu-sem-${sid}`)?.value || '',
+      };
+    });
+
+    const data = {
+      pid,
+      title: document.getElementById('proj-title').value,
+      domain: document.getElementById('proj-domain').value,
+      dept: document.getElementById('proj-dept').value,
+      year: document.getElementById('proj-year').value,
+      sem: document.getElementById('proj-sem').value,
+      sdgNum: document.getElementById('proj-sdg-num').value,
+      guideName: document.getElementById('guide-name').value,
+      guideDesig: document.getElementById('guide-designation').value,
+      abstract: document.getElementById('abstract-text').value,
+      probStmt: document.getElementById('prob-stmt').value,
+      objectives: document.getElementById('proj-objectives').value,
+      sigDate: document.getElementById('sig-date').value,
+      projTypes: Array.from(document.querySelectorAll('input[name="proj-type"]:checked')).map(e => e.value),
+      projOutcome: Array.from(document.querySelectorAll('input[name="proj-outcome"]:checked')).map(e => e.value),
+      pubTargets: Array.from(document.querySelectorAll('input[name="pub-target"]:checked')).map(e => e.value),
+      sdgGoals: Array.from(document.querySelectorAll('input[name="sdg-goal"]:checked')).map(e => e.value),
+      students,
+      updatedAt: new Date().toISOString()
+    };
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    showToast('💾 Draft successfully saved to Campus Circle!', 'success');
+  }
+
+  function restoreForm() {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    if (!stored) return false;
+    try {
+      const d = JSON.parse(stored);
+      const sv = (id, val) => { const el = document.getElementById(id); if (el && val !== undefined) el.value = val; };
+
+      sv('proj-title', d.title);
+      sv('proj-domain', d.domain);
+      sv('proj-dept', d.dept);
+      sv('proj-year', d.year);
+      sv('proj-sem', d.sem);
+      sv('proj-sdg-num', d.sdgNum);
+      sv('guide-name', d.guideName);
+      sv('guide-designation', d.guideDesig);
+      sv('abstract-text', d.abstract);
+      sv('prob-stmt', d.probStmt);
+      sv('proj-objectives', d.objectives);
+      sv('sig-date', d.sigDate);
+
+      if (d.projTypes) {
+        document.querySelectorAll('input[name="proj-type"]').forEach(e => { e.checked = d.projTypes.includes(e.value); });
+      }
+      if (d.projOutcome) {
+        document.querySelectorAll('input[name="proj-outcome"]').forEach(e => { e.checked = d.projOutcome.includes(e.value); });
+      }
+      if (d.pubTargets) {
+        document.querySelectorAll('input[name="pub-target"]').forEach(e => { e.checked = d.pubTargets.includes(e.value); });
+      }
+      if (d.sdgGoals) {
+        document.querySelectorAll('input[name="sdg-goal"]').forEach(e => {
+          const c = d.sdgGoals.includes(e.value);
+          e.checked = c;
+          e.closest('.sdg-item')?.classList.toggle('sdg-checked', c);
+        });
+      }
+
+      if (d.students && d.students.length > 0) {
+        document.getElementById('student-tbody').innerHTML = '';
+        studentCount = 0;
+        studentSeq = 0;
+        d.students.forEach(s => addStudentRow(s));
+      }
+
+      updateWordCount();
+      updateProgress();
+      syncToOfficialDoc();
+      return true;
+    } catch(e) {
+      return false;
+    }
+  }
+
+  function clearForm() {
+    if (!confirm('Are you sure you want to clear all form entries and start blank?')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    location.reload();
+  }
+
+  /* ---- Print Official University Document ---- */
+  function printOfficialDoc() {
+    // Ensure document is synced before printing
+    syncToOfficialDoc();
+    // Switch to doc view so user sees it in preview
+    switchView('doc');
+    window.print();
+  }
+
+  /* ---- Export to Microsoft Word (.doc format) ---- */
+  function exportWordDoc() {
+    syncToOfficialDoc();
+    const title = document.getElementById('proj-title').value.trim() || 'Project_Approval_Form';
+    const filename = `${title.replace(/[^a-zA-Z0-9_-]/g, '_').substring(0, 40)}_SCSE.doc`;
+
+    const page1Html = document.getElementById('official-doc-page-1').innerHTML;
+    const page2Html = document.getElementById('official-doc-page-2').innerHTML;
+
+    const fullDocHtml = `
+      <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+      <head>
+        <meta charset='utf-8'>
+        <title>${title}</title>
+        <style>
+          @page Section1 {
+            size: 8.27in 11.69in;
+            margin: 0.5in 0.6in 0.5in 0.6in;
+            mso-header-margin: 0.5in;
+            mso-footer-margin: 0.5in;
+            mso-paper-source: 0;
+          }
+          div.Section1 { page: Section1; }
+          body { font-family: 'Times New Roman', serif; font-size: 11pt; color: #000; line-height: 1.35; }
+          table { width: 100%; border-collapse: collapse; margin-bottom: 12px; font-size: 9.5pt; }
+          table, th, td { border: 1.2px solid #000; }
+          td { padding: 5px 8px; vertical-align: top; }
+          .doc-student-table th { background: #f2f2f2; font-weight: bold; }
+          .doc-page-badge { display: none; }
+          .page-break { page-break-before: always; }
+          .doc-sdg-list { font-size: 7.8pt; line-height: 1.3; }
+        </style>
+      </head>
+      <body>
+        <div class="Section1">
+          ${page1Html}
+          <div class="page-break"></div>
+          ${page2Html}
+        </div>
+      </body>
+      </html>`;
+
+    const blob = new Blob(['\ufeff', fullDocHtml], { type: 'application/msword' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    showToast(`📥 Exported to Word: ${filename}`, 'success');
+  }
+
+  /* ---- Submit to SCSE Portal Simulation ---- */
+  function submitToPortal() {
+    const title = document.getElementById('proj-title').value.trim();
+    const guide = document.getElementById('guide-name').value.trim();
+    const abs   = document.getElementById('abstract-text').value.trim();
+
+    if (!title || !guide || !abs) {
+      showToast('⚠️ Please provide Project Title, Guide Name, and Abstract before submitting.', 'warning');
+      return;
+    }
+
+    saveForm();
+    const pid = document.getElementById('paf-pid').textContent;
+    document.getElementById('modal-pid').textContent = pid;
+    document.getElementById('modal-guide-name').textContent = guide;
+    document.getElementById('modal-timestamp').textContent = new Date().toLocaleString();
+    document.getElementById('paf-submission-modal').classList.add('active');
+  }
+
+  function closeSubmissionModal() {
+    document.getElementById('paf-submission-modal').classList.remove('active');
+  }
+
+  /* ---- Toast Notification ---- */
+  function showToast(msg, type = 'success') {
+    const t = document.getElementById('paf-toast');
+    t.textContent = msg;
+    t.style.background = type === 'warning' ? 'rgba(245,158,11,0.95)' : 'rgba(16,185,129,0.95)';
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 3400);
+  }
+
+  // Global exports for buttons
+  window.switchView = switchView;
+  window.loadCampusCirclePreset = loadCampusCirclePreset;
+  window.addStudentRow = addStudentRow;
+  window.removeStudentRow = removeStudentRow;
+  window.saveForm = saveForm;
+  window.clearForm = clearForm;
+  window.printOfficialDoc = printOfficialDoc;
+  window.exportWordDoc = exportWordDoc;
+  window.submitToPortal = submitToPortal;
+  window.closeSubmissionModal = closeSubmissionModal;
+  window.onSdgChange = onSdgChange;
+  </script>
+
+  <!-- UI Components & Auth Scripts -->
+  <script src="../../assets/js/profile/auth-engine.js"></script>
+  <script src="../../assets/js/components/auth-modal.js"></script>
+  <script src="../../assets/js/components/sidebar.js"></script>
+</body>
+</html>

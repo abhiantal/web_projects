@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Platform Features & Architecture – Campus Circle (NextGen)</title>
+  <meta name="description" content="Explore the core modules of Campus Circle: Exam Central, Assignments Vault, Project Matcher, PYQ Archive, Interactive Code Lab, and Campus Notice Board.">
+  <link rel="icon" type="image/svg+xml" href="../../assets/images/website_logo.png">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <link rel="stylesheet" href="../../assets/css/animations.css">
+  <link rel="stylesheet" href="../../assets/css/academic-hub.css">
+    <link rel="stylesheet" href="../../assets/css/components/sidebar.css">
+<script src="../../assets/js/core/theme-init.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar">
+    <div class="container nav-container" style="display: flex; align-items: center; justify-content: space-between;">
+      
+      <!-- Brand & Sidebar Toggle -->
+      <div style="display: flex; align-items: center; gap: 10px;">
+        <button type="button" class="sidebar-trigger-btn" onclick="window.toggleSidebar()" aria-label="Toggle Academic Navigation Sidebar" title="Open Navigation Menu">
+          <span class="sidebar-trigger-icon">☰</span>
+          <span style="display: inline-block;">Menu</span>
+        </button>
+
+        <a href="../../index.html" class="brand" style="display: flex; align-items: center; gap: 10px;">
+          <img src="../../assets/images/website_logo.png" alt="Campus Circle Logo" class="brand-logo" style="width: 36px; height: 36px; object-fit: contain;">
+          <div class="brand-text">
+            <span class="brand-title">Campus Circle</span>
+            <span class="brand-subtitle" style="display:flex;align-items:center;gap:4px;"><img src="../../assets/images/company_logo.png" alt="NextGen" style="width:13px;height:13px;object-fit:contain;"> Powered by NextGen</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Clean Unified Navigation -->
+      <nav class="main-tab-nav">
+        <a href="../../index.html" class="main-tab-link" style="text-decoration: none;">
+          🏠 Home
+        </a>
+        <a href="../../index.html?tab=universities" class="main-tab-link" style="text-decoration: none;">
+          🏛️ Universities
+        </a>
+        <a href="javascript:void(0)" onclick="window.openSidebar()" class="main-tab-link active" style="text-decoration: none;">
+          📚 Academic Hub
+        </a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="theme-toggle" aria-label="Toggle Theme" title="Toggle Theme">☀️</button>
+        <div id="navbar-auth-slot"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="policy-page" style="padding-top: 110px; padding-bottom: 80px;">
+    <div class="container">
+      
+      <div class="section-header" style="margin-bottom: 30px;">
+        <div class="badge-pill badge-pill-purple" style="margin-bottom: 12px;">
+          NextGen Academic System Design
+        </div>
+        <h1 class="hero-title" style="font-size: clamp(2.4rem, 4vw, 3.6rem);">
+          The <span class="text-gradient">Core Modules</span>
+        </h1>
+        <p class="section-subtitle">
+          An integrated, full-stack academic cockpit engineered for university students, professors, and department coordinators.
+        </p>
+      </div>
+
+      <div class="highlight-quote" style="text-align: center; max-width: 860px; margin: 0 auto 40px;">
+        "University information should not be fragmented across WhatsApp links, outdated portals, and lost drives. Campus Circle turns academics into a streamlined, high-speed operating system."
+      </div>
+
+      <!-- Modules Breakdown Grid -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 26px; margin-bottom: 60px;">
+        
+        <!-- Feature 1 -->
+        <div class="exam-card">
+          <div style="font-size: 2.2rem; margin-bottom: 10px;">🕒</div>
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; color: var(--text-primary); margin-bottom: 6px;">1. Exam Central & Timetable Hub</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">
+            Real-time pulsating countdown radar, dynamic timetables filtered by branch and semester, classroom seat plan locators, and one-click Google/iCal calendar export.
+          </p>
+          <a href="../university/program-detail.html?tab=exams" style="color: var(--neon-cyan); font-weight: 600; font-size: 0.82rem; text-decoration: none;">Launch Timetables →</a>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="exam-card">
+          <div style="font-size: 2.2rem; margin-bottom: 10px;">📝</div>
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; color: var(--text-primary); margin-bottom: 6px;">2. Coursework & Submission Vault</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">
+            Active assignment tracking categorized by urgency (&lt; 48 hours), instructor problem statements, grading rubrics, and direct upload backed by Encrypted Cloud Storage.
+          </p>
+          <a href="../university/program-detail.html?tab=assignments" style="color: var(--neon-indigo); font-weight: 600; font-size: 0.82rem; text-decoration: none;">View Assignments →</a>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="exam-card">
+          <div style="font-size: 2.2rem; margin-bottom: 10px;">🚀</div>
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; color: var(--text-primary); margin-bottom: 6px;">3. Project Launchpad & Teammate Matcher</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">
+            Student capstone project showcase with live demo links, GitHub cards, tech stack pills, and an open role finder for hackathon team formation.
+          </p>
+          <a href="../university/program-detail.html?tab=projects" style="color: var(--neon-pink); font-weight: 600; font-size: 0.82rem; text-decoration: none;">Browse Projects →</a>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="exam-card">
+          <div style="font-size: 2.2rem; margin-bottom: 10px;">📚</div>
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; color: var(--text-primary); margin-bottom: 6px;">4. Hierarchical PYQ Archive</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">
+            Multi-tier past questions archive filtered by university, branch, semester (1–8), subject, and exam year. Includes in-browser previews and download counters.
+          </p>
+          <a href="../university/program-detail.html?tab=pyq" style="color: var(--neon-amber); font-weight: 600; font-size: 0.82rem; text-decoration: none;">Search PYQs →</a>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="exam-card">
+          <div style="font-size: 2.2rem; margin-bottom: 10px;">⚡</div>
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; color: var(--text-primary); margin-bottom: 6px;">5. Interactive Code Lab (exam_sem_6)</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">
+            Ingested from high-yield semester study guides (AAPS, Compiler Design, NLP, Software Engineering, Web Technology, DAA). Features complexity chips and 1-click code copy.
+          </p>
+          <a href="../university/program-detail.html?tab=pyq" style="color: var(--neon-cyan); font-weight: 600; font-size: 0.82rem; text-decoration: none;">Start Coding →</a>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="exam-card">
+          <div style="font-size: 2.2rem; margin-bottom: 10px;">📢</div>
+          <h3 style="font-family: 'Outfit', sans-serif; font-size: 1.3rem; color: var(--text-primary); margin-bottom: 6px;">6. Verified Faculty & Notice Feed</h3>
+          <p style="font-size: 0.88rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 14px;">
+            Official circulars with verified professor badges, department notices, club event alerts, internship opportunities, and academic discussions.
+          </p>
+          <a href="community.html" style="color: var(--neon-emerald); font-weight: 600; font-size: 0.82rem; text-decoration: none;">Join Discussions →</a>
+        </div>
+
+      </div>
+
+      <!-- Backend & Security Specification Section -->
+      <div class="exam-card" style="padding: 36px; border-radius: 20px; border-color: rgba(56, 189, 248, 0.3);">
+        <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.6rem; color: var(--text-primary); margin-bottom: 16px;">
+          🗄️ Cloud PostgreSQL Backend Specification
+        </h2>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-bottom: 20px;">
+          Campus Circle is backed by <strong>15 modular PostgreSQL tables</strong> located in <a href="../../sql_code/README.md" style="color: var(--neon-cyan);">sql_code/</a> with enterprise-grade Row Level Security (RLS) policies:
+        </p>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; font-size: 0.85rem; color: var(--text-primary);">
+          <div>✔ <code>profiles</code>: Role-based user authentication</div>
+          <div>✔ <code>subjects</code>: Dynamic curriculum mapping</div>
+          <div>✔ <code>exams</code>: Timetables & seating records</div>
+          <div>✔ <code>assignments</code>: Problem statements & rubrics</div>
+          <div>✔ <code>submissions</code>: Encrypted student uploads</div>
+          <div>✔ <code>pyqs</code>: Verified question paper vault</div>
+          <div>✔ <code>practice_questions</code>: Interactive question bank</div>
+          <div>✔ <code>projects</code>: Showcase & upvote counter</div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+        <p>&copy; 2026 Campus Circle. Powered by NextGen. System Specifications.</p>
+        <p><a href="../../index.html" style="color: var(--neon-cyan); text-decoration: none;">Return to Command Center</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Environment & Config Scripts -->
+  <script src="../../env.js"></script>
+  <script src="../../assets/js/core/env-loader.js"></script>
+  <script src="../../assets/js/core/main.js"></script>
+  <script src="../../assets/js/profile/auth-engine.js"></script>
+  <script src="../../assets/js/components/auth-modal.js"></script>
+  <script src="../../assets/js/components/sidebar.js"></script>
+</body>
+</html>
+

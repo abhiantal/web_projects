@@ -1,0 +1,85 @@
+/* ==========================================================================
+   MOTIONSTUDIO - ECOSYSTEM FOOTER
+   NextGen • Developed by A.K.Antal
+   ========================================================================== */
+
+.footer {
+  background: var(--footer-bg);
+  border-top: 1px solid var(--border-subtle);
+  padding: 70px 0 35px;
+  position: relative;
+  z-index: 10;
+  margin-top: 80px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.footer-brand {
+  max-width: 360px;
+}
+
+.footer-desc {
+  font-size: 0.9rem;
+  color: var(--footer-subtext);
+  margin-top: var(--space-sm);
+  line-height: 1.7;
+}
+
+.footer-col-title {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--footer-text);
+  margin-bottom: var(--space-md);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link {
+  font-size: 0.88rem;
+  color: var(--footer-subtext);
+  transition: color var(--transition-fast);
+}
+
+.footer-link:hover {
+  color: var(--neon-cyan);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  font-size: 0.85rem;
+  color: var(--footer-subtext);
+}
+
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+  }
+}

@@ -1,0 +1,76 @@
+/**
+ * CampusCircle Component - Badges & Status Indicators
+ * Futuristic cyber tags, glowing pulse pills, and academic verification badges.
+ */
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-pill);
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.badge-cyan {
+  background: var(--color-cyan-dim);
+  color: var(--color-cyan);
+  border: 1px solid var(--border-glow);
+}
+
+.badge-violet {
+  background: var(--color-violet-dim);
+  color: var(--color-violet);
+  border: 1px solid var(--border-glow-violet);
+}
+
+.badge-emerald {
+  background: var(--color-emerald-dim);
+  color: var(--color-emerald);
+  border: 1px solid rgba(5, 150, 105, 0.4);
+}
+
+.badge-amber {
+  background: rgba(217, 119, 6, 0.1);
+  color: var(--color-amber);
+  border: 1px solid rgba(217, 119, 6, 0.4);
+}
+
+.badge-rose {
+  background: rgba(225, 29, 72, 0.1);
+  color: var(--color-rose);
+  border: 1px solid rgba(225, 29, 72, 0.4);
+}
+
+/* Pulsing Status Dot */
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.pulse-dot-cyan { background-color: var(--color-cyan); }
+.pulse-dot-emerald { background-color: var(--color-emerald); }
+.pulse-dot-violet { background-color: var(--color-violet); }
+
+.pulse-dot::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background-color: inherit;
+  opacity: 0.6;
+  animation: pulsePing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+@keyframes pulsePing {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(2.4); opacity: 0; }
+}

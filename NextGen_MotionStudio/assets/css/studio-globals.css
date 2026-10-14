@@ -1,0 +1,490 @@
+/* ==========================================================================
+   PROMOTIONAL VIDEO STUDIO - FUTURISTIC CYBER MASTER DESIGN SYSTEM
+   Deep OLED Dark, Glassmorphism, Holographic Glows, Micro-Animations
+   Architecture Reference: NextGen • Developed by A.K.Antal
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  /* Futuristic Cyber Dark Palette - Inherited from NextGen Design Tokens */
+  --bg-app: var(--bg-deep, #050711);
+  --bg-primary: var(--bg-primary, #090d1e);
+  --bg-secondary: var(--bg-surface, rgba(15, 23, 42, 0.75));
+  --bg-surface: var(--bg-surface-elevated, rgba(26, 35, 62, 0.82));
+  --bg-glass: var(--bg-glass, rgba(13, 19, 38, 0.65));
+  --bg-glass-card: var(--bg-glass-card, rgba(18, 27, 54, 0.7));
+  --bg-hover: rgba(255, 255, 255, 0.06);
+  --bg-active: rgba(255, 255, 255, 0.12);
+
+  /* Cyber Borders */
+  --border-subtle: var(--border-subtle, rgba(255, 255, 255, 0.08));
+  --border-strong: var(--border-light, rgba(255, 255, 255, 0.16));
+  --border-neon: var(--border-glow-violet, rgba(139, 92, 246, 0.45));
+
+  /* High-Contrast Futuristic Text */
+  --text-primary: var(--text-primary, #f8fafc);
+  --text-secondary: var(--text-secondary, #94a3b8);
+  --text-muted: var(--text-muted, #64748b);
+  --text-inverse: #050711;
+
+  /* Neon Accents (Electric Violet & Cyber Cyan) */
+  --accent-primary: var(--color-accent-violet, #8b5cf6);
+  --accent-secondary: var(--color-accent-cyan, #06b6d4);
+  --accent-hover: #7c3aed;
+  --accent-glow: var(--glow-violet, rgba(139, 92, 246, 0.4));
+  --accent-surface: rgba(139, 92, 246, 0.14);
+  --cyber-cyan: var(--color-accent-cyan, #06b6d4);
+  --cyber-cyan-glow: var(--glow-cyan, rgba(6, 182, 212, 0.35));
+
+  /* Status Colors */
+  --success: #10b981;
+  --success-glow: rgba(16, 185, 129, 0.4);
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --danger-glow: rgba(239, 68, 68, 0.45);
+
+  /* Radius & Curves */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  /* Shadows & Holographic Glow */
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+  --shadow-md: var(--card-shadow, 0 16px 36px rgba(0, 0, 0, 0.5));
+  --shadow-lg: var(--shadow-lg, 0 20px 45px rgba(0, 0, 0, 0.6));
+  --shadow-glow: 0 0 25px var(--accent-glow);
+
+  /* Typography - Flagship NextGen Inter + Outfit + JetBrains Mono */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Outfit', 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Smooth Transitions */
+  --transition-fast: 0.16s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Light Theme Overrides (Crisp Porcelain Studio) */
+[data-theme="light"] {
+  --bg-app: var(--bg-deep, #f8fafc);
+  --bg-primary: var(--bg-surface-elevated, #ffffff);
+  --bg-secondary: var(--bg-primary, #f1f5f9);
+  --bg-surface: var(--bg-surface, rgba(255, 255, 255, 0.92));
+  --bg-glass: var(--bg-glass, rgba(255, 255, 255, 0.88));
+  --bg-glass-card: var(--bg-glass-card, rgba(255, 255, 255, 0.92));
+  --bg-hover: rgba(0, 0, 0, 0.04);
+  --bg-active: rgba(0, 0, 0, 0.08);
+
+  --border-subtle: var(--border-subtle, rgba(15, 23, 42, 0.09));
+  --border-strong: var(--border-light, rgba(15, 23, 42, 0.16));
+  --border-neon: var(--border-glow-violet, rgba(124, 58, 237, 0.35));
+
+  --text-primary: var(--text-primary, #0f172a);
+  --text-secondary: var(--text-secondary, #475569);
+  --text-muted: var(--text-muted, #64748b);
+  --text-inverse: #ffffff;
+
+  --shadow-sm: 0 2px 8px rgba(9, 13, 22, 0.06);
+  --shadow-md: var(--card-shadow, 0 14px 30px rgba(15, 23, 42, 0.08));
+  --shadow-lg: var(--shadow-lg, 0 20px 40px rgba(15, 23, 42, 0.12));
+}
+
+/* Accent Color Variations */
+[data-accent="indigo"] {
+  --accent-primary: #6366F1;
+  --accent-secondary: #818CF8;
+  --accent-hover: #4F46E5;
+  --accent-glow: rgba(99, 102, 241, 0.4);
+  --accent-surface: rgba(99, 102, 241, 0.14);
+}
+[data-accent="emerald"] {
+  --accent-primary: #10B981;
+  --accent-secondary: #34D399;
+  --accent-hover: #059669;
+  --accent-glow: rgba(16, 185, 129, 0.4);
+  --accent-surface: rgba(16, 185, 129, 0.14);
+}
+[data-accent="amber"] {
+  --accent-primary: #F59E0B;
+  --accent-secondary: #FBBF24;
+  --accent-hover: #D97706;
+  --accent-glow: rgba(245, 158, 11, 0.4);
+  --accent-surface: rgba(245, 158, 11, 0.14);
+}
+[data-accent="rose"] {
+  --accent-primary: #F43F5E;
+  --accent-secondary: #FB7185;
+  --accent-hover: #E11D48;
+  --accent-glow: rgba(244, 63, 94, 0.4);
+  --accent-surface: rgba(244, 63, 94, 0.14);
+}
+[data-accent="cyan"] {
+  --accent-primary: #06B6D4;
+  --accent-secondary: #22D3EE;
+  --accent-hover: #0891B2;
+  --accent-glow: rgba(6, 182, 212, 0.4);
+  --accent-surface: rgba(6, 182, 212, 0.14);
+}
+
+/* Universal Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: var(--font-sans);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-size: 13px;
+  line-height: 1.5;
+  user-select: none;
+}
+
+/* Cyber Ambient Aurora Lights */
+.app-viewport-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: 
+    radial-gradient(circle at 14% 10%, rgba(139, 92, 246, 0.18), transparent 40%),
+    radial-gradient(circle at 86% 85%, rgba(6, 182, 212, 0.15), transparent 45%),
+    radial-gradient(circle at 50% 50%, rgba(16, 20, 36, 0.6), transparent 70%);
+}
+
+[data-theme="light"] .app-viewport-bg {
+  background: 
+    radial-gradient(circle at 15% 10%, rgba(99, 102, 241, 0.08), transparent 40%),
+    radial-gradient(circle at 85% 85%, rgba(6, 182, 212, 0.08), transparent 45%);
+}
+
+/* Master Layout Framework */
+.studio-container {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  padding-top: 54px;
+}
+
+/* Master Workspace (Strict Row Layout!) */
+.studio-workspace {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  width: 100%;
+  height: calc(100vh - 54px - 60px);
+  overflow: hidden;
+  position: relative;
+}
+
+/* Sleek Left Sidebar */
+.studio-sidebar {
+  width: 410px;
+  min-width: 410px;
+  max-width: 410px;
+  height: 100%;
+  flex-shrink: 0;
+  background: var(--bg-glass-card);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-right: 1px solid var(--border-subtle);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 14px 14px 28px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+/* Sidebar Glass Cards */
+.sidebar-card {
+  background: var(--bg-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+  opacity: 0.6;
+}
+
+.sidebar-card:hover {
+  border-color: var(--border-neon);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3), 0 0 15px var(--accent-surface);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.card-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.card-title h3 {
+  font-family: var(--font-display);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Futuristic Status Tags */
+.tag-status {
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 3px 9px;
+  border-radius: var(--radius-full);
+  background: var(--bg-surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border-subtle);
+}
+
+.tag-status.active {
+  background: var(--accent-surface);
+  color: var(--accent-secondary);
+  border-color: var(--accent-glow);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* Futuristic Form Controls */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 13px;
+}
+
+.form-group label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-secondary);
+}
+
+.form-control {
+  width: 100%;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  padding: 9px 12px;
+  font-size: 12px;
+  font-family: var(--font-sans);
+  outline: none;
+  transition: all var(--transition-fast);
+}
+
+.form-control:focus {
+  border-color: var(--accent-secondary);
+  background: var(--bg-surface);
+  box-shadow: 0 0 0 2px var(--accent-surface), 0 0 14px var(--cyber-cyan-glow);
+}
+
+textarea.form-control {
+  resize: vertical;
+  min-height: 75px;
+  line-height: 1.45;
+}
+
+/* High-Tech Range Slider */
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--bg-surface);
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent-secondary);
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 10px var(--cyber-cyan-glow);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.3);
+}
+
+/* Futuristic Neon Toggle Switch */
+.switch-toggle {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 19px;
+}
+
+.switch-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: var(--bg-surface);
+  border-radius: 20px;
+  border: 1px solid var(--border-strong);
+  transition: var(--transition-fast);
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 13px;
+  width: 13px;
+  left: 2px;
+  bottom: 2px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  transition: var(--transition-fast);
+}
+
+input:checked + .slider {
+  background-color: var(--accent-primary);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+input:checked + .slider::before {
+  transform: translateX(17px);
+}
+
+/* Cyber Actions & Buttons */
+.btn-primary-action {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  color: #FFFFFF;
+  border: none;
+  padding: 8px 18px;
+  border-radius: var(--radius-full);
+  font-size: 12px;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  cursor: pointer;
+  box-shadow: 0 4px 18px var(--accent-glow);
+  transition: all var(--transition-fast);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.btn-primary-action:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 24px var(--accent-glow), 0 0 20px var(--cyber-cyan-glow);
+}
+
+.btn-primary-action:active {
+  transform: translateY(0);
+}
+
+.btn-secondary-action {
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--border-strong);
+  padding: 7px 15px;
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  transition: all var(--transition-fast);
+}
+
+.btn-secondary-action:hover {
+  background: var(--bg-hover);
+  border-color: var(--accent-secondary);
+  color: var(--accent-secondary);
+  box-shadow: 0 0 12px var(--cyber-cyan-glow);
+}
+
+.btn-small-ghost {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  padding: 5px 11px;
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-small-ghost:hover {
+  background: var(--bg-hover);
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-primary);
+}
+
+.hidden {
+  display: none !important;
+}
